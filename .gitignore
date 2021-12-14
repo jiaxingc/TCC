@@ -1,0 +1,4 @@
+/odoo-db-data
+/odoo-web-data
+__pycache__/
+*.py[cod]
