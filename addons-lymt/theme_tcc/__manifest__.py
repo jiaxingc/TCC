@@ -7,7 +7,7 @@
     'author': "JiaXing",
     'website': "",
     'category': 'Theme/Creative',
-
+ 
     'depends': ['base', 'website'],
     'data': [
         'security/ir.model.access.csv',
