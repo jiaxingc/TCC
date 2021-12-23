@@ -1,4 +1,7 @@
 /odoo-db-data
 /odoo-web-data
+/addons-lymt/portal_tcc
+/addons-lymt/lym_sponsor
+/addons-lymt/lym_event_track
 __pycache__/
 *.py[cod]
