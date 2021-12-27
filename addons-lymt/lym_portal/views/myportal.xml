@@ -88,10 +88,10 @@
                     </div>
                 </div>
             </section>
-            <!-- <link rel="stylesheet" href="/addons-lymt/lym_portal/static/src/css/myportal.css" /> -->
-            <link rel="stylesheet" href="/addons-lymt/lym_portal/static/src/css/style.css" />
-            <link rel="stylesheet" href="/addons-lymt/lym_portal/static/src/css/responsive.css" />
-            <link rel="stylesheet" href="/addons-lymt/lym_portal/static/src/css/blue.css" />
+            <link rel="stylesheet" href="lym_portal/static/src/css/myportal.css" />
+            <link rel="stylesheet" href="lym_portal/static/src/css/style.css" />
+            <link rel="stylesheet" href="lym_portal/static/src/css/responsive.css" />
+            <link rel="stylesheet" href="lym_portal/static/src/css/blue.css" />
         </template>
 
         <template id="my_account_link_override" name="Link to frontend portal Override" inherit_id="portal.user_dropdown">

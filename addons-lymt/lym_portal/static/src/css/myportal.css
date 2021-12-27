@@ -21,7 +21,10 @@ section,
 .myportal {
     padding-top: 4rem;
     padding-bottom: 4rem;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
+    background-image:url(https://static9.depositphotos.com/1611805/1080/i/600/depositphotos_10808579-stock-photo-abstract-painted-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 @media (min-width: 1500px) {
