@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <template id="view_representantes" name="Representantes">
+            <t t-call="website.layout">
+                <t t-set="additional_title">Lista de representantes</t>
+                <div class="container" style="font-size: 160%;">
+                    <div class="row align-center col-12" style="margin: 1.6rem; justify-content: center;">
+                        <a class="btn btn-primary" href="/myportal/representantes/cadastro" style="font-size: 160%; border-radius: 1.6rem;">Cadastrar um novo representante</a>
+                    </div>
+                    <div class="row">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nº</th>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Email</th>
+                                    <!-- <th scope="col">Celular</th> -->
+                                    <th scope="col">Imagem</th>
+                                    <!-- <th scope="col">Validado</th> -->
+                                    <!-- <th scope="col">Feedback</th> -->
+                                    <th scope="col">Edit</th>
+                                    <!-- <th scope="col">Delete</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="count" t-value="1" />
+                                <t t-foreach="representantes" t-as="r">
+                                    <tr>
+                                        <th scope="row">
+                                            <t t-raw="count" />
+                                        </th>
+                                        <td>
+                                            <t t-raw="r.name" />
+                                        </td>
+                                        <td>
+                                            <t t-raw="r.login" />
+                                        </td>
+                                        <!-- <td>
+                                            <t t-raw="r.partner_id.mobile" />
+                                        </td> -->
+                                        <td>
+                                            <img t-if="r.image_1920" t-att-src="image_data_uri(r.image_1920)" alt="Imagem" />
+                                        </td>
+                                        <!-- <td>
+                                            <t t-if="r.valid">
+                                                <i class="fa fa-circle-o" />
+                                            </t>
+                                            <t t-else="">
+                                                <i class="fa fa-close" />
+                                            </t>
+                                        </td> -->
+                                        <!-- <td>
+                                            <t t-raw="r.feedback" />
+                                        </td> -->
+                                        <td>
+                                            <a t-attf-href="/myportal/representantes/edit/{{r.id}}">
+                                                <i class="fa fa-pencil" />
+                                            </a>
+                                        </td>
+                                        <!-- <td>
+                                            <a t-attf-href="/myportal/representantes/delete/{{r.id}}">
+                                                <i class="fa fa-trash" />
+                                            </a>
+                                        </td> -->
+                                        <t t-set="count" t-value="count + 1" />
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

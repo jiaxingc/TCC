@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <template id="edit_representante" name="Editar Representante">
+            <t t-call="website.layout">
+                <t t-set="additional_title">Edição de Representante</t>
+                <div id="wrap" style="font-size: 160%;">
+                    <section class="s_website_form pt16 pb16 o_colored_level" data-vcss="001" data-snippet="s_website_form" data-name="Form">
+                        <div class="container">
+                            <form action="/myportal/representantes/editing" method="post" enctype="multipart/form-data" class="js_website_submit_form" data-model_name="">
+                                <div class="s_website_form_rows row s_col_no_bgcolor">
+
+                                    <input type="hidden" class="d-none form-control s_website_form_input" name="id" required="1" placeholder="id" id="id1" t-att-value="representante.id"/>
+
+                                    <div class="form-group s_website_form_field col-12 s_website_form_required" data-type="char" data-name="Field">
+                                        <div class="row s_col_no_resize s_col_no_bgcolor">
+                                            <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="name1">
+                                                <span class="s_website_form_label_content">Nome</span>
+                                                <span class="s_website_form_mark"> *</span>
+                                            </label>
+                                            <div class="col-sm">
+                                                <input style="font-size: 100%;" type="text" class="form-control s_website_form_input" name="name" required="1" placeholder="Nome" id="name1" t-att-value="representante.name" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group s_website_form_field col-12 s_website_form_required" data-type="char" data-name="Field">
+                                        <div class="row s_col_no_resize s_col_no_bgcolor">
+                                            <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="email1">
+                                                <span class="s_website_form_label_content">Email</span>
+                                                <span class="s_website_form_mark"> *</span>
+                                            </label>
+                                            <div class="col-sm">
+                                                <input style="font-size: 100%;" type="text" class="form-control s_website_form_input" name="email" required="1" placeholder="Email" id="email1" t-att-value="representante.login"/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- <div class="form-group s_website_form_field col-12 s_website_form_required" data-type="char" data-name="Field">
+                                        <div class="row s_col_no_resize s_col_no_bgcolor">
+                                            <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="mobile1">
+                                                <span class="s_website_form_label_content">Celular</span>
+                                                <span class="s_website_form_mark"> *</span>
+                                            </label>
+                                            <div class="col-sm">
+                                                <input type="text" class="form-control s_website_form_input" name="mobile" required="1" placeholder="Celular" id="mobile1" style="font-size: 100%;" t-att-value="representante.partner_id.mobile"/>
+                                            </div>
+                                        </div>
+                                    </div> -->
+
+                                    <div class="form-group s_website_form_field col-12 s_website_form_required" data-type="char" data-name="Field">
+                                        <div class="row s_col_no_resize s_col_no_bgcolor">
+                                            <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="password1">
+                                                <span class="s_website_form_label_content">Senha</span>
+                                            </label>
+                                            <div class="col-sm">
+                                                <input type="password" class="form-control s_website_form_input" name="new_password" placeholder="Senha" id="password1" style="font-size: 100%;" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group s_website_form_field col-12" data-type="binary" data-name="Field">
+                                        <div class="row s_col_no_resize s_col_no_bgcolor">
+                                            <label class=" col-sm-auto s_website_form_label" style="width: 200px" for="image1">
+                                                <span class="s_website_form_label_content">Imagem</span>
+                                            </label>
+                                            <div class="col-sm">
+                                                <input type="file" class="form-control-file s_website_form_input" name="img" id="image1" style="font-size: 100%;" accept="image/png, image/jpeg" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-12 s_website_form_submit" data-name="Submit Button">
+                                        <div style="width: 200px;" class="s_website_form_label" />
+                                        <button type="submit" class="btn btn-primary" style="font-size: 160%;">Enviar</button>
+                                        <t t-if="error">
+                                            <span id="s_website_form_result" class="text-danger ml8">
+                                                <i class="fa fa-close mr4" role="img" aria-label="Erro" title="Erro"></i>
+                                                <t t-raw="error"/>
+                                            </span>
+                                        </t>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

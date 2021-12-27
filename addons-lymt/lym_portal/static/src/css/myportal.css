@@ -1,0 +1,46 @@
+.align-center {
+    text-align: center;
+}
+
+.card {
+    background-color: transparent;
+    border: none;
+}
+
+.card-box {
+    width: 100%;
+}
+
+section,
+.container,
+.container-fluid {
+    position: relative;
+    word-wrap: break-word;
+}
+
+.myportal {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    background-color: #ffffff;
+}
+
+@media (min-width: 1500px) {
+    .myportal .container {
+        max-width: 1400px;
+    }
+}
+
+.myportal .mbr-iconfont {
+    display: block;
+    font-size: 5rem;
+    color: #6592e6;
+    margin-bottom: 2rem;
+}
+
+.myportal .card-wrapper {
+    margin-top: 3rem;
+}
+
+.myportal .row {
+    justify-content: center;
+}

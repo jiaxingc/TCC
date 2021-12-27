@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <template id="view_videos" name="Vídeos">
+            <t t-call="website.layout">
+                <t t-set="additional_title">Lista de vídeos</t>
+                <div class="container" style="font-size: 160%;">
+                    <div class="row align-center col-12" style="margin: 1.6rem; justify-content: center;">
+                        <a class="btn btn-primary" href="/myportal/videos/cadastro" style="font-size: 160%; border-radius: 1.6rem;">Cadastrar um novo vídeo</a>
+                    </div>
+                    <div class="row">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nº</th>
+                                    <th scope="col">Título</th>
+                                    <th scope="col">URL</th>
+                                    <th scope="col">Validado</th>
+                                    <th scope="col">Feedback</th>
+                                    <th scope="col">Edit</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="count" t-value="1" />
+                                <t t-foreach="videos" t-as="v">
+                                    <tr>
+                                        <th scope="row">
+                                            <t t-raw="count" />
+                                        </th>
+                                        <td>
+                                            <t t-raw="v.title" />
+                                        </td>
+                                        <td>
+                                            <a t-att-href="v.url" target="_blank">
+                                                <t t-raw="v.url" />
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <t t-if="v.valid">
+                                                <i class="fa fa-circle-o" />
+                                            </t>
+                                            <t t-else="">
+                                                <i class="fa fa-close" />
+                                            </t>
+                                        </td>
+                                        <td>
+                                            <t t-raw="v.feedback" />
+                                        </td>
+                                        <td>
+                                            <a t-attf-href="/myportal/videos/edit/{{v.id}}">
+                                                <i class="fa fa-pencil" />
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a t-attf-href="/myportal/videos/delete/{{v.id}}">
+                                                <i class="fa fa-trash" />
+                                            </a>
+                                        </td>
+                                        <t t-set="count" t-value="count + 1" />
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>
