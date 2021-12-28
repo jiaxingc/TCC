@@ -30,11 +30,13 @@
                                         </span>
                                         <div class="ca-content">
                                             <h2 class="ca-main">
-                                                Responsive
+                                                Reclamação
                                                 <br />
-                                                Design
+                                                e
+                                                <br />
+                                                Sugestão
                                             </h2>
-                                            <h3 class="ca-sub">Across all major devices</h3>
+                                            <h3 class="ca-sub">Veja se o que pensam dos serviços</h3>
                                         </div>
                                     </a>
                                 </li>
@@ -45,11 +47,11 @@
                                         </span>
                                         <div class="ca-content">
                                             <h2 class="ca-main">
-                                                Friendly
-                                                <br />
-                                                Documentation
+                                                Chat
+                                                <!-- <br />
+                                                Documentation -->
                                             </h2>
-                                            <h3 class="ca-sub">Straight to the point</h3>
+                                            <h3 class="ca-sub">Entrar contato pelo aqui</h3>
                                         </div>
                                     </a>
                                 </li>
@@ -60,11 +62,13 @@
                                         </span>
                                         <div class="ca-content">
                                             <h2 class="ca-main">
-                                                Alternate
+                                                Informações 
                                                 <br />
-                                                Home Pages
+                                                de
+                                                <br />
+                                                Cliente
                                             </h2>
-                                            <h3 class="ca-sub">Full slider, boxed or none</h3>
+                                            <h3 class="ca-sub">Fila de pré agendamento</h3>
                                         </div>
                                     </a>
                                 </li>
@@ -75,11 +79,13 @@
                                         </span>
                                         <div class="ca-content">
                                             <h2 class="ca-main">
-                                                Filterable
+                                                Grafico
                                                 <br />
-                                                Portofolio
+                                                de
+                                                <br />
+                                                Agendamento
                                             </h2>
-                                            <h3 class="ca-sub">Isotop&amp;PrettyPhoto</h3>
+                                            <h3 class="ca-sub">Situação / Visualização</h3>
                                         </div>
                                     </a>
                                 </li>
