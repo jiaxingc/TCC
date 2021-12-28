@@ -8452,9 +8452,9 @@ header .navbar-brand.logo img {
     font-size: 140% !important;
 }
 
-.navbar {
-    background-color: rgb(17, 21, 38);
+/*.navbar {
+    background-color: rgb(17, 21, 38);*/
     /* si der errado é só apagar o codigos a baixo */
     /* position: relative;
     padding: 2.5rem 1rem; */
-}
+/* } */
