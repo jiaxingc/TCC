@@ -8448,7 +8448,7 @@ header .navbar-brand.logo img {
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: rgb(255, 246, 246);
+    color: rgb(0, 0, 0);
     font-size: 140% !important;
 }
 
