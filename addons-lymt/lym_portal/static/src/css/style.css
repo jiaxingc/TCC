@@ -8438,3 +8438,23 @@ Supports Thumbs: true
 .fa-medium:before {
 	content: "\f23a"
 }
+
+header .navbar-brand.logo img {
+    max-width: 160px !important;
+    object-fit: contain;
+    display: block;
+    width: auto;
+    height: 4.5rem !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgb(255, 246, 246);
+    font-size: 140% !important;
+}
+
+.navbar {
+    background-color: rgb(17, 21, 38);
+    /* si der errado é só apagar o codigos a baixo */
+    /* position: relative;
+    padding: 2.5rem 1rem; */
+}
