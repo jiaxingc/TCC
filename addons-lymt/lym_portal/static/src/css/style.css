@@ -494,10 +494,10 @@ fieldset legend {
 }
 
 /* Custom Forms ---------------------- */
-form.custom {
+/* form.custom { */
 	/* Custom input, disabled */
 	/* : */
-}
+/* } */
 
 form.custom span.custom {
 	display: inline-block;
