@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_forum_post_forum_tcc" model="ir.ui.view">
+            <field name="name">Forum_tcc</field>
+            <field name="model">forum.post</field>
+            <field name="inherit_id" ref="website_forum.user_sidebar" />
+            <field name="arch" type="xml">
+                <xpath expr="//span[@class='nav-link rounded-pill mb-2 active font-weight-bold']" position="replace">
+                    <form action="/action_page.php">
+                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
+                        <label for="vehicle1"> I have a bike</label>
+                        <br />
+                        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
+                        <label for="vehicle2"> I have a car</label>
+                        <br />
+                        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" />
+                        <label for="vehicle3"> I have a boat</label>
+                        <br />
+                        <br />
+                        <input type="submit" value="Submit" />
+                    </form>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
