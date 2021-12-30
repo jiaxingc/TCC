@@ -3,7 +3,9 @@
     <data>
         <template id="checkbox_tcc" name="CheckboxTcc" inherit_id="website_forum.new_question">
             <xpath expr="//form/div[3]" position="replace">
-                <h1>Tags:</h1>
+                <!-- <h1>Tags:</h1> -->
+                <label for="post_tags">Tags:</label>
+                <br />
                 <!-- <form action=""> -->
                     <input type="checkbox" id="complaint" name="complaint" value="comlaint" />
                     <label for="complaint"> Reclamação</label>
@@ -19,7 +21,9 @@
         
         <template id="checkbox_tcc_edit_post" name="CheckboxTccedit_post" inherit_id="website_forum.edit_post">
             <xpath expr="//form/div[3]" position="replace">
-                <h1>Tags:</h1>
+                <!-- <h1>Tags:</h1> -->
+                <label for="post_tags">Tags:</label>
+                <br />
                 <!-- <form action=""> -->
                     <input type="checkbox" id="complaint" name="complaint" value="comlaint" />
                     <label for="complaint"> Reclamação</label>
