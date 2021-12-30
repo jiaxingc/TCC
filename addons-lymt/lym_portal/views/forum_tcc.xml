@@ -16,5 +16,21 @@
                 <!-- </form> -->
             </xpath>
         </template>
+        
+        <template id="checkbox_tcc_edit_post" name="CheckboxTccedit_post" inherit_id="website_forum.edit_post">
+            <xpath expr="//form/div[3]" position="replace">
+                <h1>Tags:</h1>
+                <!-- <form action=""> -->
+                    <input type="checkbox" id="complaint" name="complaint" value="comlaint" />
+                    <label for="complaint"> Reclamação</label>
+                    <br />
+                    <input type="checkbox" id="sugestion" name="sugestion" value="sugestion" />
+                    <label for="sugestion"> Sugestão</label>
+                    <br />
+                    <br />
+                    <!-- <input type="submit" value="Submit" /> -->
+                <!-- </form> -->
+            </xpath>
+        </template>
     </data>
 </odoo>
