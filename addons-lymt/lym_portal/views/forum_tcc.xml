@@ -4,36 +4,40 @@
         <template id="checkbox_tcc" name="CheckboxTcc" inherit_id="website_forum.new_question">
             <xpath expr="//form/div[3]" position="replace">
                 <!-- <h1>Tags:</h1> -->
-                <label for="post_tags">Tags:</label>
-                <br />
-                <!-- <form action=""> -->
-                    <input type="checkbox" id="complaint" name="complaint" value="comlaint" />
+                <div class="form-group">
+                    <label for="post_tags">Tags:</label>
+                    <br />
+                    <!-- <form action=""> -->
+                    <input type="checkbox" id="karma_tag_create" name="post_tags" value="complaint" />
                     <label for="complaint"> Reclamação</label>
                     <br />
-                    <input type="checkbox" id="sugestion" name="sugestion" value="sugestion" />
+                    <input type="checkbox" id="karma_tag_create" name="post_tags_2" value="sugestion" />
                     <label for="sugestion"> Sugestão</label>
                     <br />
                     <br />
                     <!-- <input type="submit" value="Submit" /> -->
-                <!-- </form> -->
+                    <!-- </form> -->
+                </div>
             </xpath>
         </template>
-        
+
         <template id="checkbox_tcc_edit_post" name="CheckboxTccedit_post" inherit_id="website_forum.edit_post">
             <xpath expr="//form/div[3]" position="replace">
-                <!-- <h1>Tags:</h1> -->
-                <label for="post_tags">Tags:</label>
-                <br />
-                <!-- <form action=""> -->
-                    <input type="checkbox" id="complaint" name="complaint" value="comlaint" />
+                <div class="form-group">
+                    <!-- <h1>Tags:</h1> -->
+                    <label for="post_tags">Tags:</label>
+                    <br />
+                    <!-- <form action=""> -->
+                    <input type="checkbox" id="karma_edit_retag" name="post_tags" value="complaint" />
                     <label for="complaint"> Reclamação</label>
                     <br />
-                    <input type="checkbox" id="sugestion" name="sugestion" value="sugestion" />
+                    <input type="checkbox" id="karma_edit_retag" name="post_tags_3" value="sugestion" />
                     <label for="sugestion"> Sugestão</label>
                     <br />
                     <br />
                     <!-- <input type="submit" value="Submit" /> -->
-                <!-- </form> -->
+                    <!-- </form> -->
+                </div>
             </xpath>
         </template>
     </data>
