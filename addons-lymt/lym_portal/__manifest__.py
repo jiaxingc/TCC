@@ -11,7 +11,8 @@
     'depends': ['base', 'portal', 'website_form'],
     'data': [
         'security/ir.model.access.csv',
-        'views/myportal.xml'
+        'views/myportal.xml',
+        'views/menu.xml'
         # 'views/forum_tcc.xml'
 
     ],
