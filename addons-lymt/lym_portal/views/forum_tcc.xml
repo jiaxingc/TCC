@@ -2,32 +2,30 @@
 <odoo>
     <data>
         <template id="checkbox_tcc" name="CheckboxTcc" inherit_id="website_forum.new_question">
-            <xpath expr="//form/div[3]" position="replace">
-                <!-- <h1>Tags:</h1> -->
+            <!-- <xpath expr="//form/div[3]" position="replace">
+                <h1>Tags:</h1>
                 <div class="form-group">
                     <label for="post_tags">Tags:</label>
                     <br />
-                    <!-- <form action=""> -->
+                    <form action="">
                     <input type="checkbox" id="karma_tag_create" name="post_tags" value="complaint" />
-                    <label for="complaint"> Reclamação</label>
+                    <label for="post_tags"> Reclamação</label>
                     <br />
                     <input type="checkbox" id="karma_tag_create" name="post_tags_2" value="sugestion" />
                     <label for="sugestion"> Sugestão</label>
                     <br />
                     <br />
-                    <!-- <input type="submit" value="Submit" /> -->
-                    <!-- </form> -->
+                    <input type="submit" value="Submit" /> 
+                    </form> 
                 </div>
-            </xpath>
+            </xpath> -->
         </template>
 
-        <template id="checkbox_tcc_edit_post" name="CheckboxTccedit_post" inherit_id="website_forum.edit_post">
+        <!-- <template id="checkbox_tcc_edit_post" name="CheckboxTccedit_post" inherit_id="website_forum.edit_post">
             <xpath expr="//form/div[3]" position="replace">
                 <div class="form-group">
-                    <!-- <h1>Tags:</h1> -->
                     <label for="post_tags">Tags:</label>
                     <br />
-                    <!-- <form action=""> -->
                     <input type="checkbox" id="karma_edit_retag" name="post_tags" value="complaint" />
                     <label for="complaint"> Reclamação</label>
                     <br />
@@ -35,10 +33,8 @@
                     <label for="sugestion"> Sugestão</label>
                     <br />
                     <br />
-                    <!-- <input type="submit" value="Submit" /> -->
-                    <!-- </form> -->
                 </div>
             </xpath>
-        </template>
+        </template> -->
     </data>
 </odoo>
