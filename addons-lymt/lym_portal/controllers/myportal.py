@@ -49,11 +49,26 @@ class MyPortal(http.Controller):
                 })
 
         post_tag_ids = forum._tag_to_write_vals(post.get('post_tags', ''))
-        _logger.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-        _logger.info(f'{post_tag_ids}')
-        _logger.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-
-
+        _logger.info(post_tag_ids)
+        
+        reclamacao=forum._tag_to_write_vals(post.get('reclamacao', '')) 
+        if len(reclamacao)>1:
+            post_tag_ids.append(reclamacao[1])
+        elif len(reclamacao[0][2])==1:
+           post_tag_ids[0][2].append(reclamacao[0][2][0])
+       
+        sugestao =forum._tag_to_write_vals( post.get('sugestao', ''))
+        if len(sugestao)>1:
+            post_tag_ids.append(sugestao[1])
+        elif len(sugestao[0][2]) == 1:
+           post_tag_ids[0][2].append(sugestao[0][2][0])
+           
+        outro =forum._tag_to_write_vals(post.get('outro', ''))
+        if len(outro)>1:
+            post_tag_ids.append(outro[1])
+        elif len(outro[0][2]) == 1:
+           post_tag_ids[0][2].append(outro[0][2][0])
+        
         if request.env.user.forum_waiting_posts_count:
             return werkzeug.utils.redirect("/forum/%s/ask" % slug(forum))
 
@@ -63,4 +78,5 @@ class MyPortal(http.Controller):
         'parent_id': post_parent and post_parent.id or False,
         'tag_ids': post_tag_ids
         })
+
         return werkzeug.utils.redirect("/forum/%s/%s" % (slug(forum), post_parent and slug(post_parent) or new_question.id))

@@ -2,23 +2,24 @@
 <odoo>
     <data>
         <template id="checkbox_tcc" name="CheckboxTcc" inherit_id="website_forum.new_question">
-            <!-- <xpath expr="//form/div[3]" position="replace">
-                <h1>Tags:</h1>
+            <xpath expr="//form/div[3]" position="replace">
+                
                 <div class="form-group">
-                    <label for="post_tags">Tags:</label>
+                    <label for="post_tags"><h3>Tags:</h3></label>
                     <br />
-                    <form action="">
-                    <input type="checkbox" id="karma_tag_create" name="post_tags" value="complaint" />
-                    <label for="post_tags"> Reclamação</label>
+                    <!-- <form action=""> -->
+                    <input type="checkbox" id="reclamacao" name="reclamacao" value="_reclamação" />
+                    <label for="reclamacao"> Reclamação</label>
                     <br />
-                    <input type="checkbox" id="karma_tag_create" name="post_tags_2" value="sugestion" />
-                    <label for="sugestion"> Sugestão</label>
+                    <input type="checkbox" id="sugestao" name="sugestao" value="_sugestão" />
+                    <label for="sugestao"> Sugestão</label>
                     <br />
+                    <input type="checkbox" id="outro" name="outro" value="_outros" />
+                    <label for="outro"> Outros</label>
                     <br />
-                    <input type="submit" value="Submit" /> 
-                    </form> 
+                    <!-- </form>  -->
                 </div>
-            </xpath> -->
+            </xpath>
         </template>
 
         <!-- <template id="checkbox_tcc_edit_post" name="CheckboxTccedit_post" inherit_id="website_forum.edit_post">

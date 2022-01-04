@@ -12,8 +12,8 @@
     'data': [
         'security/ir.model.access.csv',
         'views/myportal.xml',
-        'views/menu.xml'
-        # 'views/forum_tcc.xml'
+        'views/menu.xml',
+        'views/forum_tcc.xml'
 
     ],
     'application': True,
