@@ -40,27 +40,27 @@ class MyPortal(http.Controller):
         else:
             return request.redirect('/web/login')
 
-    @http.route(['/forum/<model("forum.forum"):forum>/new', '/forum/<model("forum.forum"):forum>/<model("forum.post"):post_parent>/reply'], type='http', auth="user", methods=['POST'], website=True)
-    def post_confere(self, forum, post_parent=None, **post):
-
-        # if post.get('content', '') == '<p><br></p>':
-        #     return request.render('http_routing.http_error', {
-        #         'status_code': _('Bad Request'),
-        #         'status_message': post_parent and _('Reply should not be empty.') or _('Question should not be empty.')
-        #     })
+    @http.route(['/forum/<model("forum.forum"):forum>/new','/forum/<model("forum.forum"):forum>/<model("forum.post"):post_parent>/reply'],
+    type='http', auth="user", methods=['POST'], website=True)
+    def post_create(self, forum, post_parent=None, **post):
+        if post.get('content', '') == '<p><br></p>':
+            return request.render('http_routing.http_error', {'status_code': _('Bad Request'),
+            'status_message': post_parent and _('Reply should not be empty.') or _('Question should not be empty.')
+                })
 
         post_tag_ids = forum._tag_to_write_vals(post.get('post_tags', ''))
         _logger.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         _logger.info(f'{post_tag_ids}')
         _logger.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-        # if request.env.user.forum_waiting_posts_count:
-        #     return werkzeug.utils.redirect("/forum/%s/ask" % slug(forum))
 
-        # new_question = request.env['forum.post'].create({
-        #     'forum_id': forum.id,
-        #     'name': post.get('post_name') or (post_parent and 'Re: %s' % (post_parent.name or '')) or '',
-        #     'content': post.get('content', False),
-        #     'parent_id': post_parent and post_parent.id or False,
-        #     'tag_ids': post_tag_ids
-        # })
-        # return werkzeug.utils.redirect("/forum/%s/%s" % (slug(forum), post_parent and slug(post_parent) or new_question.id))
+
+        if request.env.user.forum_waiting_posts_count:
+            return werkzeug.utils.redirect("/forum/%s/ask" % slug(forum))
+
+        new_question = request.env['forum.post'].create({'forum_id': forum.id,
+        'name': post.get('post_name') or (post_parent and 'Re: %s' % (post_parent.name or '')) or '',
+        'content': post.get('content', False),
+        'parent_id': post_parent and post_parent.id or False,
+        'tag_ids': post_tag_ids
+        })
+        return werkzeug.utils.redirect("/forum/%s/%s" % (slug(forum), post_parent and slug(post_parent) or new_question.id))
