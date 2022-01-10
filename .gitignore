@@ -5,3 +5,4 @@
 /addons-lymt/lym_event_track
 __pycache__/
 *.py[cod]
+addons-lymt/cs_base
