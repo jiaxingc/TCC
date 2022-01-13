@@ -8,7 +8,7 @@
     'category': 'Uncategorized',
     'version': '14.0.1.0.0',
 
-    'depends': ['base', 'portal', 'website_form'],
+    'depends': ['base', 'portal', 'website_form','website_forum'],
     'data': [
         'security/ir.model.access.csv',
         'views/myportal.xml',
