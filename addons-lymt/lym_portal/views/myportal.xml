@@ -43,9 +43,6 @@
                                 <li>
                                     <a href="#">
                                         <span class="ca-icon">
-                                            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" class="bi bi-chat-square-dots-fill" viewBox="0 0 16 16">
-                                                <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.5a1 1 0 0 0-.8.4l-1.9 2.533a1 1 0 0 1-1.6 0L5.3 12.4a1 1 0 0 0-.8-.4H2a2 2 0 0 1-2-2V2zm5 4a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-                                            </svg> -->
                                             <i class="fa fa-calendar"></i>
                                         </span>
                                         <div class="ca-content">
@@ -77,11 +74,8 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="/agendamento">
                                         <span class="ca-icon">
-                                            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" class="bi bi-pie-chart-fill" viewBox="0 0 16 16">
-                                                <path d="M15.985 8.5H8.207l-5.5 5.5a8 8 0 0 0 13.277-5.5zM2 13.292A8 8 0 0 1 7.5.015v7.778l-5.5 5.5zM8.5.015V7.5h7.485A8.001 8.001 0 0 0 8.5.015z"/>
-                                            </svg> -->
                                             <i class="fa fa-calendar-check-o"></i>
                                         </span>
                                         <div class="ca-content">
