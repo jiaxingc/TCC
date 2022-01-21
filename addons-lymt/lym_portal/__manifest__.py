@@ -13,7 +13,8 @@
         'security/ir.model.access.csv',
         'views/myportal.xml',
         'views/menu.xml',
-        'views/forum_tcc.xml'
+        'views/forum_tcc.xml',
+        'views/forms_agendamento.xml'
 
     ],
     'application': True,
