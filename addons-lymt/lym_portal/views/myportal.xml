@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <template id="lym_myportal" name="Portal do Gerente">
+        <template id="lym_myportal" name="Portal do Cliente">
             <t t-call="website.layout">
-                <t t-set="additional_title">Portal do Gerente</t>
+                <t t-set="additional_title">Portal do Cliente</t>
                 <t t-call="lym_portal.myportal" />
             </t>
         </template>
 
-        <template id="myportal" name="Portal do Gerente">
+        <template id="myportal" name="Portal do Cliente">
             <section class="myportal">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
                             <h1 class="align-center">
                                 <br />
-                                <strong style="color:#000000;">Portal do Gerente</strong>
+                                <strong style="color:#000000;">Portal do Cliente</strong>
                                 <br />
                             </h1>
                         </div>
@@ -65,11 +65,9 @@
                                         </span>
                                         <div class="ca-content">
                                             <h2 class="ca-main">
+                                                Minhas
+                                                <br />
                                                 Informações 
-                                                <br />
-                                                de
-                                                <br />
-                                                Cliente
                                             </h2>
                                             <h3 class="ca-sub">Fila de pré agendamento</h3>
                                         </div>
