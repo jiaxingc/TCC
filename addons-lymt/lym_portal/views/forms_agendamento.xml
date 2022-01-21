@@ -46,15 +46,15 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group s_website_form_field col-12 s_website_form_custom   " data-type="date" data-name="Field">
+                                <div class="form-group s_website_form_field col-12 s_website_form_custom   " data-type="datetime" data-name="Field">
                                     <div class="row s_col_no_resize s_col_no_bgcolor">
-                                        <label class="col-form-label col-sm-auto s_website_form_label " style="width: 200px" for="dnkh60l7kgo">
-                                            <span class="s_website_form_label_content">Data do Agendamento </span>
+                                        <label class="col-form-label col-sm-auto s_website_form_label " style="width: 200px" for="stacupwtvqn">
+                                            <span class="s_website_form_label_content">Data &amp;amp; Hora</span>
                                         </label>
                                         <div class="col-sm">
-                                            <div class="s_website_form_date input-group date" id="datepicker030322608058681144" data-target-input="nearest">
-                                                <input type="text" class="form-control datetimepicker-input s_website_form_input" data-target="#datepicker030322608058681144" name="Data do Agendamento " placeholder="DD/MM/AA" id="dnkh60l7kgo" />
-                                                <div class="input-group-append" data-target="#datepicker030322608058681144" data-toggle="datetimepicker">
+                                            <div class="s_website_form_datetime input-group date" id="datetimepicker5699560824012682" data-target-input="nearest">
+                                                <input type="text" class="form-control datetimepicker-input s_website_form_input" data-target="#datetimepicker5699560824012682" name="Data &amp; Hora" placeholder="DD/MM/AA" id="stacupwtvqn" />
+                                                <div class="input-group-append" data-target="#datetimepicker5699560824012682" data-toggle="datetimepicker">
                                                     <div class="input-group-text">
                                                         <i class="fa fa-calendar" />
                                                     </div>
@@ -110,8 +110,7 @@
             </div>
         </template>
     </data>
-</odoo>
-<!-- <t t-name="website.agendamento">
+</odoo><!-- <t t-name="website.agendamento">
     <t t-call="website.layout">
         <div id="wrap" class="oe_structure oe_empty">
             <section class="s_website_form pt16 pb16 o_colored_level" data-vcss="001" data-snippet="s_website_form" data-name="Form" style="">
