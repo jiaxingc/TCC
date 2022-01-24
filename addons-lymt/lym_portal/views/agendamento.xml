@@ -9,79 +9,124 @@
         </template>
 
         <template id="tela_Agendamento" name="tela_Agendamento">
-            <div class="bgded overlay light" style="background-image:url('images/demo/backgrounds/01.png');">
-                <section id="services" class="hoc container clear">
-                    <!-- ################################################################################################ -->
-                    <!-- <div class="sectiontitle">
-                        <p class="nospace font-xs">Quis leo hendrerit lectus morbi</p>
-                        <h6 class="heading font-x2">Justo mauris tempus pharetra</h6>
-                    </div> -->
-                    <ul class="nospace group elements elements-three">
-                        <li class="one_third">
-                            <article>
-                                <a href="#">
-                                    <i class="fas fa-hourglass-half"></i>
-                                </a>
-                                <h6 class="heading">Sociis natoque penatibus</h6>
-                                <p>Interdum at congue semper purus nullam quis odio id justo accumsan ullamcorper maecenas vel arcu nulla
-                          tincidunt elit ornare.</p>
-                            </article>
-                        </li>
-                        <li class="one_third">
-                            <article>
-                                <a href="#">
-                                    <i class="fas fa-paw"></i>
-                                </a>
-                                <h6 class="heading">Magnis parturient montes</h6>
-                                <p>Urna proin venenatis eros viverra ultrices fringilla lectus urna consequat erat eget scelerisque ligula
-                          felis nec neque nam.</p>
-                            </article>
-                        </li>
-                        <li class="one_third">
-                            <article>
-                                <a href="#">
-                                    <i class="fas fa-sliders-h"></i>
-                                </a>
-                                <h6 class="heading">Nascetur ridiculus aenean</h6>
-                                <p>Vitae ipsum vitae velit porttitor aliquam in quam aliquam ullamcorper sem a auctor dapibus nisi nunc
-                          vehicula nunc quis mattis.</p>
-                            </article>
-                        </li>
-                        <li class="one_third">
-                            <article>
-                                <a href="#">
-                                    <i class="fas fa-tty"></i>
-                                </a>
-                                <h6 class="heading">Ullamcorper neque phasellus</h6>
-                                <p>Pede turpis at elit nunc at urna sed ligula vivamus vel erat at diam imperdiet pharetra quisque justo
-                          turpis mattis ut vitae.</p>
-                            </article>
-                        </li>
-                        <li class="one_third">
-                            <article>
-                                <a href="#">
-                                    <i class="fas fa-table"></i>
-                                </a>
-                                <h6 class="heading">Aliquet lacus nulla erat</h6>
-                                <p>Tortor aenean leo ipsum elementum non cursus eu interdum ut risus proin risus nibh viverra eget lobortis
-                          feugiat egestas in nisl.</p>
-                            </article>
-                        </li>
-                        <li class="one_third">
-                            <article>
-                                <a href="#">
-                                    <i class="fas fa-hand-holding-usd"></i>
-                                </a>
-                                <h6 class="heading">Aliquam volutpat curabitur</h6>
-                                <p>Fusce dignissim neque vitae justo aenean ac urna et leo posuere pretium nunc bibendum enim quis imperdiet
-                          elementum dui dolor.</p>
-                            </article>
-                        </li>
-                    </ul>
-                    <!-- ################################################################################################ -->
-                </section>
-            </div>
-            <link rel="stylesheet" href="lym_portal/static/src/css/layout.css" />
+            <section class="populor">
+                <div class="wrapper">
+                    <div class="half_bg color_bg" id="theme1"></div>
+                    <div class="heading">
+                        <h3 class="main">Popular product</h3>
+                    </div>
+                    <div class="container icon">
+                        <div id="owl-theme2" class=" owl-carousel ">
+                            <div>
+                                <div class="card ">
+                                    <img class="card-img-top" src="/addons-lymt/lym_portal/static/description/icon.png" alt="Card image cap" />
+                                    <div class="card-body">
+                                        <div class="body_wrapp">
+                                            <h5 class="card-title">Skin Care</h5>
+                                            <p class="card-text">Make your body
+                                            shine with our series of body care
+                                            products.
+                                        </p>
+                                        </div>
+                                        <div class="card-footer d-flex">
+                                            <div class="total">
+                                                <span>
+                                                251+products
+                                            </span>
+                                            </div>
+                                            <a href="#" class="btn btn-populor">
+                                                <i class="bi bi-arrow-right-short"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="card">
+                                    <img class="card-img-top" src="/addons-lymt/lym_portal/static/description/icon.png" alt="Card image cap" />
+                                    <div class="card-body">
+                                        <div class="body_wrapp">
+                                            <h5 class="card-title">makeup &amp;
+                                            Cosmetics
+                                        </h5>
+                                            <p class="card-text">Make your body
+                                            shine with our series of body care
+                                            products.
+                                        </p>
+                                        </div>
+                                        <div class="card-footer d-flex">
+                                            <div class="total">
+                                                <span>
+                                                251+products
+                                            </span>
+                                            </div>
+                                            <a href="#" class="btn btn-populor">
+                                                <i class="bi bi-arrow-right-short"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="card">
+                                    <img class="card-img-top" src="/addons-lymt/lym_portal/static/description/icon.png" alt="Card image cap" />
+                                    <div class="card-body">
+                                        <div class="body_wrapp">
+                                            <h5 class="card-title">Body Care</h5>
+                                            <p class="card-text">Make your body
+                                            shine with our series of body care
+                                            products.
+                                        </p>
+                                        </div>
+                                        <div class="card-footer d-flex">
+                                            <div class="total">
+                                                <span>
+                                                251+products
+                                            </span>
+                                            </div>
+                                            <a href="#" class="btn btn-populor">
+                                                <i class="bi bi-arrow-right-short"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="card">
+                                    <img class="card-img-top" src="/addons-lymt/lym_portal/static/description/icon.png" alt="Card image cap" />
+                                    <div class="card-body">
+                                        <div class="body_wrapp">
+                                            <h5 class="card-title">Perfumes</h5>
+                                            <p class="card-text">Make your body
+                                            shine with our series of body care
+                                            products.
+                                        </p>
+                                        </div>
+                                        <div class="card-footer d-flex">
+                                            <div class="total">
+                                                <span>
+                                                251+products
+                                            </span>
+                                            </div>
+                                            <a href="#" class="btn btn-populor">
+                                                <i class="bi bi-arrow-right-short"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="slider-counter">
+              </div> -->
+                    </div>
+                </div>
+            </section>
+            <!-- <link rel="stylesheet" href="lym_portal/static/src/css/style2.css" />
+            <link rel="stylesheet" href="lym_portal/static/src/css/pluginstyle.css" />
+            <link rel="stylesheet" href="lym_portal/static/src/css/owl.carousel.min.css" />
+            <link rel="stylesheet" href="lym_portal/static/src/css/animate.min.css" />
+            <link rel="stylesheet" href="lym_portal/static/src/css/owl.theme.default.min.css" />
+            <link rel="stylesheet" href="lym_portal/static/src/css/style.css.map" /> -->
         </template>
     </data>
 </odoo>
