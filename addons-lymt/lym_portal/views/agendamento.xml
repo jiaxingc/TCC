@@ -12,10 +12,10 @@
             <div class="bgded overlay light" style="background-image:url('images/demo/backgrounds/01.png');">
                 <section id="services" class="hoc container clear">
                     <!-- ################################################################################################ -->
-                    <div class="sectiontitle">
+                    <!-- <div class="sectiontitle">
                         <p class="nospace font-xs">Quis leo hendrerit lectus morbi</p>
                         <h6 class="heading font-x2">Justo mauris tempus pharetra</h6>
-                    </div>
+                    </div> -->
                     <ul class="nospace group elements elements-three">
                         <li class="one_third">
                             <article>
