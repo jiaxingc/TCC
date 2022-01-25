@@ -24,20 +24,7 @@
             <script type="text/javascript"
                     src="/theme_tcc/static/src/js/popular_product.js"/>
             <script type="text/javascript"
-                    src="/theme_tcc/static/src/js/blog.js"/>
-            <script type="text/javascript"
-                    src="/theme_tcc/static/src/js/index3.js"/>
-            <script type="text/javascript"
-                    src="/theme_tcc/static/src/js/featured_product2.js"/>
-            <!--            <script type="text/javascript"-->
-            <!--                    src="/theme_tcc/static/src/js/landing.js"/>-->
-            <script type="text/javascript"
                     src="/theme_tcc/static/src/js/script.js"/>
-            <script type="text/javascript"
-                    src="/theme_tcc/static/src/js/featured_product.js"/>
-            <!--            <script type="text/javascript"-->
-            <!--                    src="/theme_tcc/static/src/js/index.js"/>-->
-
         </xpath>
     </template>
 </odoo>
