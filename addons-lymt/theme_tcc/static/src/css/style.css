@@ -1028,7 +1028,7 @@ html {
   border-bottom-right-radius: 30px;
 }
 
-.btn-primary {
+/* .btn-primary {
   position: relative;
   display: inline-block;
   color: #ffff;
@@ -1081,7 +1081,7 @@ html {
   background: #ffff;
   transform: scaleX(0);
   transform-origin: 100%;
-}
+} */
 
 .btn-collapse {
   background-color: transparent !important;
