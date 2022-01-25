@@ -11,9 +11,12 @@
         <template id="tela_Agendamento" name="tela_Agendamento">
             <section class="populor">
                 <div class="wrapper">
-                    <div class="half_bg color_bg" id="theme1"></div>
-                    <div class="heading">
-                        <h3 class="main">Agendamento</h3>
+                    
+                    
+                    <div class="half_bg color_bg" id="theme1">
+                        <div class="heading">
+                            <h3 class="main">Agendamento</h3>
+                        </div>
                     </div>
                     <div class="container icon">
                         <div id="owl-theme2" class=" owl-carousel ">
@@ -51,7 +54,7 @@
                                             products.
                                         </p>
                                         </div>
-                                        <div class="card-footer d-flex">
+                                        <!-- <div class="card-footer d-flex">
                                             <div class="total">
                                                 <span>
                                                 251+products
@@ -60,7 +63,7 @@
                                             <a href="#" class="btn btn-populor">
                                                 <i class="bi bi-arrow-right-short"></i>
                                             </a>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
