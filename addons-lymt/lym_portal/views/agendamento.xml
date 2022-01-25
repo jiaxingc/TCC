@@ -13,13 +13,13 @@
                 <div class="wrapper">
                     <div class="half_bg color_bg" id="theme1"></div>
                     <div class="heading">
-                        <h3 class="main">Popular product</h3>
+                        <h3 class="main">Agendamento</h3>
                     </div>
                     <div class="container icon">
                         <div id="owl-theme2" class=" owl-carousel ">
                             <div>
                                 <div class="card ">
-                                    <img class="card-img-top" src="/addons-lymt/lym_portal/static/description/icon.png" alt="Card image cap" />
+                                    <!-- <img class="card-img-top" src="/addons-lymt/lym_portal/static/description/icon.png" alt="Card image cap" /> -->
                                     <div class="card-body">
                                         <div class="body_wrapp">
                                             <h5 class="card-title">Skin Care</h5>
@@ -43,7 +43,7 @@
                             </div>
                             <div>
                                 <div class="card">
-                                    <img class="card-img-top" src="/addons-lymt/lym_portal/static/description/icon.png" alt="Card image cap" />
+                                    <!-- <img class="card-img-top" src="/addons-lymt/lym_portal/static/description/icon.png" alt="Card image cap" /> -->
                                     <div class="card-body">
                                         <div class="body_wrapp">
                                             <h5 class="card-title">makeup &amp;
@@ -67,7 +67,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div>
+                            <!-- <div>
                                 <div class="card">
                                     <img class="card-img-top" src="/addons-lymt/lym_portal/static/description/icon.png" alt="Card image cap" />
                                     <div class="card-body">
@@ -114,19 +114,13 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <!-- <div class="slider-counter">
               </div> -->
                     </div>
                 </div>
             </section>
-            <!-- <link rel="stylesheet" href="lym_portal/static/src/css/style2.css" />
-            <link rel="stylesheet" href="lym_portal/static/src/css/pluginstyle.css" />
-            <link rel="stylesheet" href="lym_portal/static/src/css/owl.carousel.min.css" />
-            <link rel="stylesheet" href="lym_portal/static/src/css/animate.min.css" />
-            <link rel="stylesheet" href="lym_portal/static/src/css/owl.theme.default.min.css" />
-            <link rel="stylesheet" href="lym_portal/static/src/css/style.css.map" /> -->
         </template>
     </data>
 </odoo>
