@@ -18,32 +18,29 @@
                     <div class="container icon">
                         <div id="owl-theme2" class=" owl-carousel ">
                             <div>
-                                <div class="card ">
-                                    <!-- <img class="card-img-top" src="/addons-lymt/lym_portal/static/description/icon.png" alt="Card image cap" /> -->
-                                    <div class="card-body">
-                                        <div class="body_wrapp">
-                                            <h5 class="card-title">Skin Care</h5>
-                                            <p class="card-text">Make your body
-                                            shine with our series of body care
-                                            products.
-                                        </p>
-                                        </div>
-                                        <div class="card-footer d-flex">
-                                            <div class="total">
-                                                <span>
-                                                251+products
-                                            </span>
+                                <a href="/forms_agendamento">
+                                    <div class="card ">
+                                        <div class="card-body">
+                                            <div class="body_wrapp">
+                                                <h5 class="card-title">Formulário de Agendamento </h5>
+                                                <p class="card-text">Formulário para falar com um dos nossos funcionários </p>
                                             </div>
-                                            <a href="#" class="btn btn-populor">
-                                                <i class="bi bi-arrow-right-short"></i>
-                                            </a>
+                                            <!-- <div class="card-footer d-flex"> -->
+                                                <!-- <div class="total">
+                                                    <span>
+                                                251+products
+                                            </span> -->
+                                                <!-- </div>
+                                                <a href="#" class="btn btn-populor">
+                                                    <i class="bi bi-arrow-right-short"></i>
+                                                </a>
+                                            </div> -->
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                             <div>
                                 <div class="card">
-                                    <!-- <img class="card-img-top" src="/addons-lymt/lym_portal/static/description/icon.png" alt="Card image cap" /> -->
                                     <div class="card-body">
                                         <div class="body_wrapp">
                                             <h5 class="card-title">makeup &amp;

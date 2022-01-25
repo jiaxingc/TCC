@@ -44,7 +44,7 @@ class MyPortal(http.Controller):
     def _formsagendamentos(self, **post):
         if request.session.uid:
             forsms_agendamento = http.request.env['lym_portal.formsagendamento'].sudo()
-            return request.render("lym_portal.lym_myportal_Agendamento")
+            return request.render("lym_portal.lym_myportal_forms_Agendamento")
         else:
             return request.redirect('/web/login')
     

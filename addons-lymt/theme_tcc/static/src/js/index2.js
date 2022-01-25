@@ -29,7 +29,7 @@ $(document).ready(function () {
                 }
             });
             $("#owl-theme2").owlCarousel({
-                items: 3,
+                items: 1,
                 loop: true,
                 margin: 30,
                 stagePadding: 0,
@@ -50,9 +50,9 @@ $(document).ready(function () {
                     768: {
                         items: 2
                     },
-                    1000: {
-                        items: 3
-                    }
+                    // 1000: {
+                    //     items: 3
+                    // }
                 }
             });
 
