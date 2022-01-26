@@ -2,5 +2,3 @@
 /odoo-web-data
 __pycache__/
 *.py[cod]
-addons-lymt/mapsly_connector-14.0.0.1.0
-addons-lymt/web_google_maps-14.0.2.1.9
