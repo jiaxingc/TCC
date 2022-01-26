@@ -18,37 +18,36 @@
                     </div>
                     <div class="container icon">
                         <div id="owl-theme2" class=" owl-carousel ">
-                            <div>
+                            <!-- <div> -->
                                 <a href="#">
                                     <div class="card ">
                                         <div class="card-body">
                                             <div class="body_wrapp">
-                                                <h5 class="card-title">Fila VIP </h5>
+                                                <h5 class="card-title">Fila VIP</h5>
                                                 <p class="card-text">Destinada aos usuários vips
                                                     do banco. </p>
                                             </div>
-                                            <div class="card-footer d-flex">
-                                                <div class="total">
-                                                    <!-- <span>
+                                            <!-- <div class="card-footer d-flex">
+                                                <div class="total"> -->
+                                            <!-- <span>
                                                 251+products
                                             </span>
                                                 </div>
                                                 <a href="#" class="btn btn-populor">
                                                     <i class="bi bi-arrow-right-short"></i>
                                                 </a> -->
-                                                </div>
-                                            </div>
+                                            <!-- </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </a>
-                            </div>
-                            <div>
+                            <!-- </div>
+                            <div> -->
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="body_wrapp">
                                             <h5 class="card-title">Fila Prioridade</h5>
-                                            <p class="card-text">Destinada a pessoas com mais de 65 anos,
-                                            gestantes, pessoas com crianças de colo, etc...
+                                            <p class="card-text">Destinada a pessoas com mais de 65 anos etc...
                                             </p>
                                         </div>
                                         <!-- <div class="card-footer d-flex">
@@ -63,8 +62,8 @@
                                         </div> -->
                                     </div>
                                 </div>
-                            </div>
-                            <div>
+                            <!-- </div>
+                            <div> -->
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="body_wrapp">
@@ -85,8 +84,8 @@
                                         </div> -->
                                     </div>
                                 </div>
-                            </div>
-                            <div>
+                            <!-- </div>
+                            <div> -->
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="body_wrapp">
@@ -107,9 +106,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- <div class="slider-counter">
-              </div> -->
+                        <!-- </div> -->
+                        <!-- <div class="slider-counter"></div> -->
                     </div>
                 </div>
             </section>
