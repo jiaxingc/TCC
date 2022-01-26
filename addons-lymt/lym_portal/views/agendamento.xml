@@ -3,7 +3,7 @@
     <data>
         <template id="lym_myportal_tela_Agendamento" name="tela_Agendamento">
             <t t-call="website.layout">
-                <t t-set="additional_title">Tela Agendamento</t>
+                <t t-set="additional_title">Fila de Agendamento</t>
                 <t t-call="lym_portal.tela_Agendamento" />
             </t>
         </template>
@@ -13,29 +13,31 @@
                 <div class="wrapper">
                     <div class="half_bg color_bg" id="theme1">
                         <div class="heading">
-                            <h3 class="main">Agendamento</h3>
+                            <h3 class="main">Fila de Agendamento</h3>
                         </div>
                     </div>
                     <div class="container icon">
                         <div id="owl-theme2" class=" owl-carousel ">
                             <div>
-                                <a href="/forms_agendamento">
+                                <a href="#">
                                     <div class="card ">
                                         <div class="card-body">
                                             <div class="body_wrapp">
-                                                <h5 class="card-title">Formulário de Agendamento </h5>
-                                                <p class="card-text">Formulário para falar com um dos nossos funcionários </p>
+                                                <h5 class="card-title">Fila VIP </h5>
+                                                <p class="card-text">Destinada aos usuários vips
+                                                    do banco. </p>
                                             </div>
-                                            <!-- <div class="card-footer d-flex"> -->
-                                                <!-- <div class="total">
-                                                    <span>
+                                            <div class="card-footer d-flex">
+                                                <div class="total">
+                                                    <!-- <span>
                                                 251+products
-                                            </span> -->
-                                                <!-- </div>
+                                            </span>
+                                                </div>
                                                 <a href="#" class="btn btn-populor">
                                                     <i class="bi bi-arrow-right-short"></i>
-                                                </a>
-                                            </div> -->
+                                                </a> -->
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </a>
@@ -44,12 +46,31 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="body_wrapp">
-                                            <h5 class="card-title">makeup &amp;
-                                            Cosmetics
-                                        </h5>
-                                            <p class="card-text">Make your body
-                                            shine with our series of body care
-                                            products.
+                                            <h5 class="card-title">Fila Prioridade</h5>
+                                            <p class="card-text">Destinada a pessoas com mais de 65 anos,
+                                            gestantes, pessoas com crianças de colo, etc...
+                                            </p>
+                                        </div>
+                                        <!-- <div class="card-footer d-flex">
+                                            <div class="total">
+                                                <span>
+                                                251+products
+                                            </span>
+                                            </div>
+                                            <a href="#" class="btn btn-populor">
+                                                <i class="bi bi-arrow-right-short"></i>
+                                            </a>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="body_wrapp">
+                                            <h5 class="card-title">Fila Padrão</h5>
+                                            <p class="card-text">Destina a pessoas com menos de
+                                                70 anos.
                                         </p>
                                         </div>
                                         <!-- <div class="card-footer d-flex">
@@ -65,18 +86,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div>
+                            <div>
                                 <div class="card">
-                                    <img class="card-img-top" src="/addons-lymt/lym_portal/static/description/icon.png" alt="Card image cap" />
                                     <div class="card-body">
                                         <div class="body_wrapp">
-                                            <h5 class="card-title">Body Care</h5>
-                                            <p class="card-text">Make your body
-                                            shine with our series of body care
-                                            products.
+                                            <h5 class="card-title">Fila Pessoa Jurídica</h5>
+                                            <p class="card-text">Destinada para empresas.
                                         </p>
                                         </div>
-                                        <div class="card-footer d-flex">
+                                        <!-- <div class="card-footer d-flex">
                                             <div class="total">
                                                 <span>
                                                 251+products
@@ -85,34 +103,10 @@
                                             <a href="#" class="btn btn-populor">
                                                 <i class="bi bi-arrow-right-short"></i>
                                             </a>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
-                            <div>
-                                <div class="card">
-                                    <img class="card-img-top" src="/addons-lymt/lym_portal/static/description/icon.png" alt="Card image cap" />
-                                    <div class="card-body">
-                                        <div class="body_wrapp">
-                                            <h5 class="card-title">Perfumes</h5>
-                                            <p class="card-text">Make your body
-                                            shine with our series of body care
-                                            products.
-                                        </p>
-                                        </div>
-                                        <div class="card-footer d-flex">
-                                            <div class="total">
-                                                <span>
-                                                251+products
-                                            </span>
-                                            </div>
-                                            <a href="#" class="btn btn-populor">
-                                                <i class="bi bi-arrow-right-short"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
                         </div>
                         <!-- <div class="slider-counter">
               </div> -->
