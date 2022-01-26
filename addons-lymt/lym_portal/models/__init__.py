@@ -2,3 +2,4 @@
 
 from . import myportal
 from . import agendamento
+from . import formsagendamento

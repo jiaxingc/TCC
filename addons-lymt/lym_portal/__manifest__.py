@@ -14,8 +14,8 @@
         'views/myportal.xml',
         'views/menu.xml',
         'views/forum_tcc.xml',
-        'views/forms_agendamento.xml'
-
+        'views/forms_agendamento.xml',
+        'views/agendamento.xml'
     ],
     'application': True,
     'auto_install': False

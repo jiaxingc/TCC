@@ -40,13 +40,22 @@ class MyPortal(http.Controller):
         else:
             return request.redirect('/web/login')
 
+    @http.route(['/forms_agendamento'], type='http', auth="public", website=True, sitemap=False)
+    def _formsagendamentos(self, **post):
+        if request.session.uid:
+            forsms_agendamento = http.request.env['lym_portal.formsagendamento'].sudo()
+            return request.render("lym_portal.lym_myportal_forms_Agendamento")
+        else:
+            return request.redirect('/web/login')
+    
     @http.route(['/agendamento'], type='http', auth="public", website=True, sitemap=False)
     def _agendamentos(self, **post):
         if request.session.uid:
             agendamento = http.request.env['lym_portal.agendamento'].sudo()
-            return request.render("lym_portal.lym_myportal_Agendamento")
+            return request.render("lym_portal.lym_myportal_tela_Agendamento")
         else:
             return request.redirect('/web/login')
+
 
     @http.route(['/forum/<model("forum.forum"):forum>/new','/forum/<model("forum.forum"):forum>/<model("forum.post"):post_parent>/reply'],
     type='http', auth="user", methods=['POST'], website=True)
