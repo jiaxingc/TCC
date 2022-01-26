@@ -11,8 +11,6 @@
         <template id="tela_Agendamento" name="tela_Agendamento">
             <section class="populor">
                 <div class="wrapper">
-                    
-                    
                     <div class="half_bg color_bg" id="theme1">
                         <div class="heading">
                             <h3 class="main">Agendamento</h3>
