@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="lym_myportal_fila_prioridade" name="fila_prioridade">
+            <t t-call="website.layout">
+                <t t-set="additional_title">Fila Padrão</t>
+                <t t-call="agendamento_banco.fila_prioridade" />
+            </t>
+        </template>
+        <template id="fila_prioridade" name="fila_prioridade">
+            <section class="populor">
+                <div class="wrapper">
+                    <div class="half_bg color_bg" id="theme1">
+                        <div class="heading">
+                            <h3 class="main">Fila Prioridade</h3>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                        <button name="button" style="width: 102px; height:46px;">Abrir conta</button>
+                        <br />
+                        <button name="button" style="width: 102px; height:46px;">Empréstimo</button> 
+                        <br />
+                        <button name="button" style="width: 102px; height:46px;">Financiamento</button>
+                        <br />
+                        <button name="button" style="width: 102px; height:46px;">Solicitar Cartão</button>
+                        <br />
+                        <button name="button" style="width: 102px; height:46px;">Investimentos</button>
+                        <br />
+                        <button name="button" style="width: 102px; height:46px;">Outros</button>
+                        <br />
+                        <button name="button" style="width: 102px; height:46px;">Atendimento especial</button>
+                        <br />
+                        <button name="button" style="width: 102px; height:46px;">Previdência</button>
+                    </div>
+                </div>
+            </section>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="agendamento_tree" model="ir.ui.view">
+            <field name="name">agendamento.tree</field>
+            <field name="model">agendamento.servico</field>
+            <field name="arch" type="xml">
+                <tree string="Agendamento">
+                    <field name="code" />
+                    <field name="dataAgendada" />
+                    <field name="cliente" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="agendamento_form" model="ir.ui.view">
+            <field name="name">agendamento.form</field>
+            <field name="model">agendamento.servico</field>
+            <field name="arch" type="xml">
+                <form string="Agendamento">
+                    <field name="code" />
+                    <field name="dataAgendada" />
+                    <field name="cliente" />
+                </form>
+            </field>
+        </record>
+
+        <record id="action_agendamento" model="ir.actions.act_window">
+            <field name="name">Agendamento Servico</field>
+            <field name="res_model">agendamento.servico</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem action="action_agendamento" id="action_menu_agendamento" name="Agendamentos" sequence="1" />
+
+    </data>
+</odoo>

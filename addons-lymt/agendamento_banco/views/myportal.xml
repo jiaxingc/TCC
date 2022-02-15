@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="lym_myportal" name="Portal do Cliente">
+            <t t-call="website.layout">
+                <t t-set="additional_title">Portal do Cliente</t>
+                <t t-call="agendamento_banco.myportal" />
+            </t>
+        </template>
+
+        <template id="myportal" name="Portal do Cliente">
+            <section class="myportal">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="align-center">
+                                <br />
+                                <strong style="color:#000000;font-size: 50px;">Portal do Cliente</strong>
+                                <br />
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="twelve columns">
+                            <ul class="ca-menu">
+                                <li>
+                                    <a href="/forum">
+                                        <span class="ca-icon">
+                                            <i class="fa fa-bullhorn"></i>
+                                        </span>
+                                        <div class="ca-content">
+                                            <h2 class="ca-main">
+                                                Reclamação
+                                                <br />
+                                                e
+                                                <br />
+                                                Sugestão
+                                            </h2>
+                                            <h3 class="ca-sub">Veja se o que pensam dos serviços</h3>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="ca-icon">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                        <div class="ca-content">
+                                            <h2 class="ca-main">
+                                                Histórico
+                                                <br />
+                                                de
+                                                <br />
+                                                Agendamento
+                                            </h2>
+                                            <br></br>
+                                            <h3 class="ca-sub">Ver o histórico do agendemento</h3>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="ca-icon">
+                                            <i class="fa fa-user"></i>
+                                        </span>
+                                        <div class="ca-content">
+                                            <h2 class="ca-main">
+                                                Minhas
+                                                <br />
+                                                Informações 
+                                            </h2>
+                                            <h3 class="ca-sub">Fila de pré agendamento</h3>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/agendamento">
+                                        <span class="ca-icon">
+                                            <i class="fa fa-calendar-check-o"></i>
+                                        </span>
+                                        <div class="ca-content">
+                                            <h2 class="ca-main">
+                                                Agendamento 
+                                            </h2>
+                                            <h3 class="ca-sub">Fazer o agendamento do atendimento</h3>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <link rel="stylesheet" href="agendamento_banco/static/src/css/myportal.css" />
+            <link rel="stylesheet" href="agendamento_banco/static/src/css/style.css" />
+        </template>
+
+        <template id="my_account_link_override" name="Link to frontend portal Override" inherit_id="portal.user_dropdown">
+            <xpath expr="//a[@href='/my/home']" position="replace">
+                <div class="menu-myportal" />
+            </xpath>
+        </template>
+
+        <template id="assets_frontend" inherit_id="website.assets_frontend" name="Font">
+            <xpath expr="//script[last()]" position="after">
+                <script type="text/javascript" src="/agendamento_banco/static/src/js/myportal.js" />
+                <script type="text/javascript" src="/agendamento_banco/static/src/js/website_myportal_form_editor.js" />
+            </xpath>
+        </template>
+    </data>
+</odoo>
