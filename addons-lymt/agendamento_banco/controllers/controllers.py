@@ -30,7 +30,7 @@ class MyPortal(http.Controller):
     @http.route(['/myportal'], type='http', auth="public", website=True, sitemap=False)
     def _myportal(self, **post):
         if request.session.uid:
-            portal = http.request.env['agendamento_banco.myportal'].sudo()
+            # portal = http.request.env['agendamento_banco.myportal'].sudo()
             return request.render("agendamento_banco.lym_myportal")
         else:
             return request.redirect('/web/login')
@@ -38,8 +38,7 @@ class MyPortal(http.Controller):
     @http.route(['/forms_agendamento'], type='http', auth="public", website=True, sitemap=False)
     def _formsagendamentos(self, **post):
         if request.session.uid:
-            forsms_agendamento = http.request.env['agendamento_banco.formsagendamento'].sudo(
-            )
+            # forsms_agendamento = http.request.env['agendamento_banco.formsagendamento'].sudo()
             return request.render("agendamento_banco.lym_myportal_forms_Agendamento")
         else:
             return request.redirect('/web/login')
@@ -47,23 +46,23 @@ class MyPortal(http.Controller):
     @http.route(['/agendamento'], type='http', auth="public", website=True, sitemap=False)
     def _agendamentos(self, **post):
         if request.session.uid:
-            agendamento = http.request.env['agendamento_banco.agendamento'].sudo()
-            return request.render("agendamento_banco.lym_myportal_tela_Agendamento")
+            # agendamento = http.request.env['agendamento_banco.agendamento'].sudo()
+            return request.render("agendamento_banco.portal_tela_Agendamento")
         else:
             return request.redirect('/web/login')
 
     @http.route(['/servico'], type='http', auth="public", website=True, sitemap=False)
     def _servico(self, **post):
         if request.session.uid:
-            servico = http.request.env['agendamento_banco.servico'].sudo()
-            return request.render("agendamento_banco.lym_myportal_tela_servico")
+            # servico = http.request.env['agendamento_banco.servico'].sudo()
+            return request.render("agendamento_banco.portal_tela_servico")
         else:
             return request.redirect('/web/login')
 
     @http.route(['/filapadrao'], type='http', auth="public", website=True, sitemap=False)
     def _filapadrao(self, **post):
         if request.session.uid:
-            fila_padrao = http.request.env['agendamento_banco.filapadrao'].sudo()
+            # fila_padrao = http.request.env['agendamento_banco.filapadrao'].sudo()
             return request.render("agendamento_banco.lym_myportal_fila_padrao")
         else:
             return request.redirect('/web/login')
@@ -71,8 +70,7 @@ class MyPortal(http.Controller):
     @http.route(['/filaprioridade'], type='http', auth="public", website=True, sitemap=False)
     def _filaprioridade(self, **post):
         if request.session.uid:
-            fila_prioridade = http.request.env['agendamento_banco.filaprioridade'].sudo(
-            )
+            # fila_prioridade = http.request.env['agendamento_banco.filaprioridade'].sudo()
             return request.render("agendamento_banco.lym_myportal_fila_prioridade")
         else:
             return request.redirect('/web/login')

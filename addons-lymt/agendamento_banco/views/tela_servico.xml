@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <template id="lym_myportal_tela_servico" name="tela_servico">
+
+        <template id="portal_tela_servico" name="portal_tela_servico">
             <t t-call="website.layout">
                 <t t-set="additional_title">Tela de Serviço</t>
                 <t t-call="agendamento_banco.tela_servico" />
             </t>
         </template>
+
         <template id="tela_servico" name="tela_servico">
             <section class="populor">
                 <div class="wrapper">

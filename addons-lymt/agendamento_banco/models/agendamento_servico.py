@@ -11,7 +11,7 @@ class AgendamentoServico(models.Model):
     _description = "servico"
 
     code = fields.Char('Codigo')
-    dataAngedada = fields.Datetime('Data agendada')
+    dataAgendada = fields.Datetime('Data agendada')
     cliente = fields.Many2one('res.partner', 'Cliente')
 
     # @api.depends()

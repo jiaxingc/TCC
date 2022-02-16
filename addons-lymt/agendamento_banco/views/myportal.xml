@@ -4,11 +4,11 @@
         <template id="lym_myportal" name="Portal do Cliente">
             <t t-call="website.layout">
                 <t t-set="additional_title">Portal do Cliente</t>
-                <t t-call="agendamento_banco.myportal" />
+                <t t-call="agendamento_banco.myportal_id" />
             </t>
         </template>
 
-        <template id="myportal" name="Portal do Cliente">
+        <template id="myportal_id" name="Portal do Cliente">
             <section class="myportal">
                 <div class="container">
                     <div class="row">
