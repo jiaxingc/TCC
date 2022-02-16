@@ -16,19 +16,34 @@
                         </div>
                     </div>
                     <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
-                        <button name="button" style="width: 102px; height:46px;">Abrir conta</button>
+                        <form method="get" action="/forms_agendamento">
+                            <button name="button" style="width: 102px; height:46px;" type="submit">Abrir conta</button>
+                        </form>
                         <br />
-                        <button name="button" style="width: 102px; height:46px;">Empréstimo</button>
+
+                        <form method="get" action="/forms_agendamento">
+                            <button name="button" style="width: 102px; height:46px;">Empréstimo</button>
+                        </form>
                         <br />
+
+                        <form method="get" action="/forms_agendamento">
                         <button name="button" style="width: 102px; height:46px;">Financiamento</button>
+                        </form>
                         <br />
+                        <form method="get" action="/forms_agendamento">
                         <button name="button" style="width: 102px; height:46px;">Solicitar Cartão</button>
+                        </form>
                         <br />
+
+                        <form method="get" action="/forms_agendamento">
                         <button name="button" style="width: 102px; height:46px;">Investimentos</button>
+                        </form>
                         <br />
+                        
+                        <form method="get" action="/forms_agendamento">
                         <button name="button" style="width: 102px; height:46px;">Outros</button>
+                        </form> 
                         <br />
-                        <button name="button" style="width: 102px; height:46px;">Atendimento especial</button>
                     </div>
                 </div>
             </section>
