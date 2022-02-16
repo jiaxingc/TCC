@@ -47,7 +47,7 @@ class MyPortal(http.Controller):
     def _agendamentos(self, **post):
         if request.session.uid:
             # agendamento = http.request.env['agendamento_banco.agendamento'].sudo()
-            return request.render("agendamento_banco.portal_tela_Agendamento")
+            return request.render("agendamento_banco.portal_tela_agendamento")
         else:
             return request.redirect('/web/login')
 

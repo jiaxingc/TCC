@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <template id="lym_myportal_tela_Agendamento" name="tela_Agendamento">
+        <template id="portal_tela_agendamento" name="tela_agendamento_call">
             <t t-call="website.layout">
                 <t t-set="additional_title">Fila de Agendamento</t>
                 <t t-call="agendamento_banco.tela_Agendamento" />
