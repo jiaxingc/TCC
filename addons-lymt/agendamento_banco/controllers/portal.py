@@ -23,6 +23,16 @@ class CustomerPortal(http.Controller):
     def security(self, **post):
             return request.redirect('/')
 
+    @http.route(['/minhainformacao'], type='http', auth="public", website=True, sitemap=False)
+    def minhainformacao(self, **post):
+        if request.session.uid:
+        #     minhainformacao = http.request.env['agendamento_banco.minhainformacao'].sudo(
+        #     )
+            return request.render("agendamento_banco.portal_minhainformacao")
+        else:
+            return request.redirect('/web/login')
+
+
 portal.CustomerPortal.home = CustomerPortal.home
 portal.CustomerPortal.account = CustomerPortal.account
 portal.CustomerPortal.security = CustomerPortal.security

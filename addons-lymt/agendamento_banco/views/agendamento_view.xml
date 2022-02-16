@@ -18,9 +18,10 @@
             <field name="model">agendamento.servico</field>
             <field name="arch" type="xml">
                 <form string="Agendamento">
+                    <p>Code :</p>
                     <field name="code" />
-                    <field name="dataAgendada" />
-                    <field name="cliente" />
+                    Data Agendamento :<field name="dataAgendada" />
+                    Cliente :<field name="cliente" />
                 </form>
             </field>
         </record>
@@ -33,6 +34,5 @@
         </record>
 
         <menuitem id="action_menu_agendamento" name="Agendamentos" action="action_agendamento" sequence="2" />
-
     </data>
 </odoo>

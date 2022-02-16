@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_minhainformacao" name="minha_informacao_pag">
+        <t t-call="website.layout">
+            <t t-set="additional_title">Minha informação</t>
+            <t t-call="agendamento_banco.minhainformacao" />
+        </t>
+    </template>
+    <template id="minhainformacao" name="minha_informacao_lyout">
+        <section class="populor">
+            <div class="wrapper">
+                <div class="half_bg color_bg" id="theme1">
+                    <div class="heading">
+                        <h3 class="main">Minha informação</h3>
+                    </div>
+                </div>
+                <div>
+                    <p><center>Nome:Jiaxing</center></p>
+                    <p><center>Email:teste@test.com.br</center></p>
+                    <p><center>CPF:1210793479</center></p>
+                    <p><center>Telefone:(21)99999-9999</center></p>
+                    <p><center>Cidade:Niterói</center></p>
+                    <p><center>Estado:RJ</center></p>
+                    <p><center>Banco:Itaú</center></p>
+                    <p><center>Agencia:0001</center></p>
+                </div>
+            </div>
+        </section>
+    </template>
+    
+
+</odoo>
