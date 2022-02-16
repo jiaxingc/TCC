@@ -19,7 +19,9 @@
         'views/register.xml',
         'views/res_partner.xml',
         'views/agendamento_view.xml',
-        'views/tela_servico.xml'
+        'views/tela_servico.xml',
+        'views/fila_padrao.xml',
+        'views/fila_prioridade.xml'
     ],
     'application': True,
     'auto_install': False

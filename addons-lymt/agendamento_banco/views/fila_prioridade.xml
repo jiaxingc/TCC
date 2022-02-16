@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <template id="lym_myportal_fila_prioridade" name="fila_prioridade">
+        <template id="portal_fila_prioridade" name="call_fila_prioridade">
             <t t-call="website.layout">
                 <t t-set="additional_title">Fila Padrão</t>
                 <t t-call="agendamento_banco.fila_prioridade" />

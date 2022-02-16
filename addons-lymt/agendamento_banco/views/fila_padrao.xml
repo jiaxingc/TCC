@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <template id="lym_myportal_fila_padrao" name="fila_padrao">
+        <template id="lym_myportal_fila_padrao" name="call_fila_padrao">
             <t t-call="website.layout">
                 <t t-set="additional_title">Fila Padrão</t>
                 <t t-call="agendamento_banco.fila_padrao" />

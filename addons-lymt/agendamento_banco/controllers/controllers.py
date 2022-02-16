@@ -71,7 +71,7 @@ class MyPortal(http.Controller):
     def _filaprioridade(self, **post):
         if request.session.uid:
             # fila_prioridade = http.request.env['agendamento_banco.filaprioridade'].sudo()
-            return request.render("agendamento_banco.lym_myportal_fila_prioridade")
+            return request.render("agendamento_banco.portal_fila_prioridade")
         else:
             return request.redirect('/web/login')
 
