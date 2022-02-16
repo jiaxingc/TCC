@@ -59,7 +59,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="/minhainformacao">
                                         <span class="ca-icon">
                                             <i class="fa fa-user"></i>
                                         </span>
@@ -93,6 +93,7 @@
             </section>
             <link rel="stylesheet" href="agendamento_banco/static/src/css/myportal.css" />
             <link rel="stylesheet" href="agendamento_banco/static/src/css/style.css" />
+            
         </template>
 
         <template id="my_account_link_override" name="Link to frontend portal Override" inherit_id="portal.user_dropdown">
