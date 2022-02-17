@@ -7,7 +7,6 @@
                 <t t-call="agendamento_banco.myportal_id" />
             </t>
         </template>
-
         <template id="myportal_id" name="Portal do Cliente">
             <section class="myportal">
                 <div class="container">

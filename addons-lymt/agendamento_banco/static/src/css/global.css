@@ -1,0 +1,53 @@
+/* page agendamento_template */
+/* page fila padrao */
+/* page minha informacao */
+.align-center {
+    text-align: center;
+}
+
+.card {
+    background-color: transparent;
+    border: none;
+}
+
+.card-box {
+    width: 100%;
+}
+
+section,
+.container,
+.container-fluid {
+    position: relative;
+    word-wrap: break-word;
+}
+
+.populor {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    /* background-color: #ffffff; */
+    background-image:url(https://static9.depositphotos.com/1611805/1080/i/600/depositphotos_10808579-stock-photo-abstract-painted-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media (min-width: 1500px) {
+    .populor .container {
+        max-width: 1400px;
+    }
+}
+
+.populor .mbr-iconfont {
+    display: block;
+    font-size: 5rem;
+    color: #6592e6;
+    margin-bottom: 2rem;
+}
+
+.populor .card-wrapper {
+    margin-top: 3rem;
+}
+
+.populor .row {
+    justify-content: center;
+}
+

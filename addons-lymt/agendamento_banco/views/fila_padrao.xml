@@ -3,7 +3,7 @@
     <data>
         <template id="lym_myportal_fila_padrao" name="call_fila_padrao">
             <t t-call="website.layout">
-                <t t-set="additional_title">Fila Padrão</t>
+                <t t-set="additional_title" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">Fila Padrão</t>
                 <t t-call="agendamento_banco.fila_padrao" />
             </t>
         </template>
@@ -12,7 +12,7 @@
                 <div class="wrapper">
                     <div class="half_bg color_bg" id="theme1">
                         <div class="heading">
-                            <h3 class="main">Fila Padrão</h3>
+                            <h3 class="main" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">Fila Padrão</h3>
                         </div>
                     </div>
                     <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
@@ -47,6 +47,23 @@
                     </div>
                 </div>
             </section>
-        </template>
+            
+        <link rel="stylesheet" href="agendamento_banco/static/src/css/global.css" />
+        <link rel="stylesheet" href="agendamento_banco/static/src/css/style.css" />
+  
+    </template>
+
+    <template id="my_account_link_override" name="Link to frontend portal Override" inherit_id="portal.user_dropdown">
+        <xpath expr="//a[@href='/my/home']" position="replace">
+            <div class="menu-myportal" />
+        </xpath>
+    </template>
+
+    <template id="assets_frontend" inherit_id="website.assets_frontend" name="Font">
+        <xpath expr="//script[last()]" position="after">
+            <!--<script type="text/javascript" src="/agendamento_banco/static/src/js/agendamento_template.js" />-->
+            <script type="text/javascript" src="/agendamento_banco/static/src/js/website_myportal_form_editor.js" />
+        </xpath>
+    </template>
     </data>
 </odoo>
