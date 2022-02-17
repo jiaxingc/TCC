@@ -14,7 +14,7 @@ _logger = logging.getLogger(__name__)
 class AuthSignupHomeInherit(AuthSignupHome):
     def do_signup(self, qcontext):
         """ Shared helper that creates a res.partner out of a token """
-        values = {key: qcontext.get(key) for key in ('login', 'name', 'cpf_cnpj', 'password', 'phone', 'zip', 'rg', 'street', 'street2', 'city', 'state_id', 'country_id')}
+        values = {key: qcontext.get(key) for key in ('login', 'name', 'cpfCnpj', 'password', 'phone', 'zip', 'rg', 'street', 'street2', 'city', 'state_id', 'country_id')}
         values.update({'zip': qcontext.get('zip', None)})
         if values['zip'] and re.findall(r'^\d{8}$', values['zip']):
             zip = values['zip']
