@@ -15,14 +15,18 @@
                     </div>
                 </div>
                 <div>
-                    <p><center>Nome:Jiaxing</center></p>
-                    <p><center>Email:teste@test.com.br</center></p>
-                    <p><center>CPF:1210793479</center></p>
-                    <p><center>Telefone:(21)99999-9999</center></p>
-                    <p><center>Cidade:Niterói</center></p>
-                    <p><center>Estado:RJ</center></p>
-                    <p><center>Banco:Itaú</center></p>
-                    <p><center>Agencia:0001</center></p>
+                    <p><center>Nome:<t t-esc="cliente.name" /></center></p>
+                    <p><center>Email:<t t-esc="cliente.email" /></center></p>
+                    <p><center>CPF:<t t-esc="cliente.cpfCnpj" /></center></p>
+                    <p><center>Celular:<t t-esc="cliente.phone" /></center></p>
+                    <p><center>CEP:<t t-esc="cliente.zip" /></center></p>
+                    <!-- <p><center>Estado:<t t-esc="cliente.state_id" /></center></p> -->
+                    <p><center>Cidade:<t t-esc="cliente.city" /></center></p>
+                    <p><center>Endereço:<t t-esc="cliente.street" /><t t-esc="cliente.street2" /></center></p>
+                    <!-- <p><center>Banco:<t t-esc="banco.acc_number" /></center></p> -->
+                    <!-- <p><center>numero da conta:<t t-esc="cliente.bank_id" /></center></p> --> -->
+                    <p><center>Indentidade pessoal:<t t-esc="cliente.rg" /></center></p>
+                    <p><center>é VIP:<t t-esc="cliente.vip" /></center></p>
                 </div>
             </div>
         </section>
