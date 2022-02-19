@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template name="inherit_signup" id="inherit_signup" inherit_id="auth_signup.fields">
+        <xpath expr="//div[last()]" position="after">
+            <div class="form-group field-login">
+                <label for="rg">RG</label>
+                <input type="text" name="rg" value="rg" id="rg" class="form-control form-control-sm"/>
+            </div>
+            <div class="form-group field-login">
+                <label for="cpf_cnpj">CPF</label>
+                <input type="text" name="cpf_cnpj" t-att-value="cpf_cnpj" id="cpf_cnpj" class="form-control form-control-sm"/>
+            </div>
+            <div class="form-group field-login">
+                <label for="phone">Telefone</label>
+                <input type="text" name="phone" t-att-value="phone" id="phone" class="form-control form-control-sm"/>
+            </div>
+            <div class="form-group field-login">
+                <label for="zip">CEP</label>
+                <input type="text" name="zip" value="zip" id="zip" class="form-control form-control-sm"/>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

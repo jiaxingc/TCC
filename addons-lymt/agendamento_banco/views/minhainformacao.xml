@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_minhainformacao" name="minha_informacao_pag">
+        <t t-call="website.layout">
+            <t t-set="additional_title">Minha informação</t>
+            <t t-call="agendamento_banco.minhainformacao" />
+        </t>
+    </template>
+    <template id="minhainformacao" name="minha_informacao_lyout">
+        <section class="populor">
+            <div class="wrapper">
+                <div class="half_bg color_bg" id="theme1">
+                    <div class="heading">
+                        <h3 class="main"><center>Minha informação</center></h3>
+                    </div>
+                </div>
+                <div>
+                    <p><center>Nome:<t t-esc="cliente.name" /></center></p>
+                    <p><center>Email:<t t-esc="cliente.email" /></center></p>
+                    <p><center>CPF:<t t-esc="cliente.cpfCnpj" /></center></p>
+                    <p><center>Celular:<t t-esc="cliente.phone" /></center></p>
+                    <p><center>CEP:<t t-esc="cliente.zip" /></center></p>
+                    <!-- <p><center>Estado:<t t-esc="cliente.state_id" /></center></p> -->
+                    <p><center>Cidade:<t t-esc="cliente.city" /></center></p>
+                    <p><center>Endereço:<t t-esc="cliente.street" /><t t-esc="cliente.street2" /></center></p>
+                    <!-- <p><center>Banco:<t t-esc="banco.acc_number" /></center></p> -->
+                    <!-- <p><center>numero da conta:<t t-esc="cliente.bank_id" /></center></p> --> -->
+                    <p><center>Indentidade pessoal:<t t-esc="cliente.rg" /></center></p>
+                    <p><center>é VIP:<t t-esc="cliente.vip" /></center></p>
+                </div>
+            </div>
+        </section>
+
+        <link rel="stylesheet" href="agendamento_banco/static/src/css/global.css" />
+        <link rel="stylesheet" href="agendamento_banco/static/src/css/style.css" />
+
+    </template>
+    
+    
+    <template id="my_account_link_override" name="Link to frontend portal Override" inherit_id="portal.user_dropdown">
+        <xpath expr="//a[@href='/my/home']" position="replace">
+            <div class="menu-myportal" />
+        </xpath>
+    </template>
+
+    <template id="assets_frontend" inherit_id="website.assets_frontend" name="Font">
+        <xpath expr="//script[last()]" position="after">
+            <script type="text/javascript" src="/agendamento_banco/static/src/js/myportal.js" />
+            <script type="text/javascript" src="/agendamento_banco/static/src/js/website_myportal_form_editor.js" />
+        </xpath>
+    </template>
+
+</odoo>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="portal_tela_servico" name="portal_tela_servico">
+            <t t-call="website.layout">
+                <t t-set="additional_title">Tela de Serviço</t>
+                <t t-call="agendamento_banco.tela_servico" />
+            </t>
+        </template>
+
+        <template id="tela_servico" name="tela_servico">
+            <section class="populor">
+                <div class="wrapper">
+                    <div class="half_bg color_bg" id="theme1">
+                        <div class="heading">
+                            <h3 class="main">Fila Vip</h3>
+                        </div>
+                    </div>
+                    <div class="container icon">
+                        <div id="owl-theme2" class=" owl-carousel ">
+                            <div>
+                                <a href="/servico">
+                                    <div class="card ">
+                                        <div class="card-body">
+                                            <div class="body_wrapp">
+                                                <h5 class="card-title">Abrir conta</h5>
+                                                <!-- <p class="card-text">Destinada aos usuários vips
+                                                    do banco. </p> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="body_wrapp">
+                                            <h5 class="card-title">Empréstimos</h5>
+                                            <!-- <p class="card-text">Destinada a pessoas com mais de 65 anos etc...
+                                            </p> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="body_wrapp">
+                                            <h5 class="card-title">Fila Padrão</h5>
+                                            <!-- <p class="card-text">Destina a pessoas com menos de
+                                                70 anos.
+                                        </p> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="body_wrapp">
+                                            <h5 class="card-title">Fila Pessoa Jurídica</h5>
+                                            <!-- <p class="card-text">Destinada para empresas.
+                                        </p> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+    </data>
+</odoo>
