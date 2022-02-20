@@ -5,19 +5,19 @@
         <xpath expr="//div[last()]" position="after">
             <div class="form-group field-login">
                 <label for="rg">RG</label>
-                <input type="text" name="rg" value="rg" id="rg" class="form-control form-control-sm"/>
+                <input type="text" name="rg"  id="rg" class="form-control form-control-sm" required="1"/>
             </div>
             <div class="form-group field-login">
                 <label for="cpf_cnpj">CPF</label>
-                <input type="text" name="cpf_cnpj" t-att-value="cpf_cnpj" id="cpf_cnpj" class="form-control form-control-sm"/>
+                <input type="text" name="cpf_cnpj" t-att-value="cpf_cnpj" id="cpf_cnpj" class="form-control form-control-sm" required="1"/>
             </div>
             <div class="form-group field-login">
                 <label for="phone">Telefone</label>
-                <input type="text" name="phone" t-att-value="phone" id="phone" class="form-control form-control-sm"/>
+                <input type="text" name="phone" t-att-value="phone" id="phone" class="form-control form-control-sm" required="1"/>
             </div>
             <div class="form-group field-login">
                 <label for="zip">CEP</label>
-                <input type="text" name="zip" value="zip" id="zip" class="form-control form-control-sm"/>
+                <input type="text" name="zip"  id="zip" class="form-control form-control-sm" required="1"/>
             </div>
         </xpath>
     </template>
