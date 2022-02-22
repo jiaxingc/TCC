@@ -34,8 +34,14 @@ class MyPortal(http.Controller):
     @http.route(['/forms_agendamento/<string:tipo>'], type='http', auth="public", website=True, sitemap=False)
     def _formsagendamentos(self, tipo, **post):
         if request.session.uid:
+            idUserSession = http.request.env.context.get('uid')
+            minhainformacao = http.request.env['res.users'].sudo().search([('id', '=', idUserSession)])
+            parent_id = minhainformacao.partner_id
+            cliente = http.request.env['res.partner'].sudo().search([('id', '=', parent_id.id)])
+
             tipoFormatted = capwords(tipo.replace("_", "\t"))
             fila = request.env['fila.fila'].sudo().search([('name', '=', tipoFormatted)])
+
             print(f'{fila} !!!!!!!!!')
 
             return request.render("agendamento_banco.lym_myportal_forms_Agendamento")
