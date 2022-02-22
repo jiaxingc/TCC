@@ -13,6 +13,7 @@ class AgendamentoServico(models.Model):
     code = fields.Char('Codigo')
     dataAgendada = fields.Datetime('Data agendada')
     cliente = fields.Many2one('res.partner', 'Cliente')
+    fila = fields.Many2one('fila.fila', 'Fila')
 
     # @api.depends()
     # def _compute_codigo_servico(self):

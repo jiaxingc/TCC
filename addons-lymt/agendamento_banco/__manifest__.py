@@ -22,7 +22,8 @@
         'views/tela_servico.xml',
         'views/fila_padrao.xml',
         'views/fila_prioridade.xml',
-        'views/minhainformacao.xml'
+        'views/minhainformacao.xml',
+        'views/fila_view.xml',
     ],
     'application': True,
     'auto_install': False

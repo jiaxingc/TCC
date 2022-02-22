@@ -5,7 +5,7 @@ import lxml
 import requests
 import werkzeug.urls
 import werkzeug.wrappers
-
+from string import capwords
 from odoo import http
 from odoo.http import request
 from werkzeug.exceptions import NotFound
@@ -23,10 +23,6 @@ _logger = logging.getLogger(__name__)
 
 class MyPortal(http.Controller):
 
-    # def _check_permission(self):
-    #     return http.request.env['agendamento_banco.myportal'].sudo()
-    # .check_permission()
-
     @http.route(['/myportal'], type='http', auth="public", website=True, sitemap=False)
     def _myportal(self, **post):
         if request.session.uid:
@@ -35,19 +31,16 @@ class MyPortal(http.Controller):
         else:
             return request.redirect('/web/login')
 
-    @http.route(['/forms_agendamento'], type='http', auth="public", website=True, sitemap=False)
-    def _formsagendamentos(self, **post):
+    @http.route(['/forms_agendamento/<string:tipo>'], type='http', auth="public", website=True, sitemap=False)
+    def _formsagendamentos(self, tipo, **post):
         if request.session.uid:
-            # forms_agendamento = http.request.env['agendamento_banco.formsagendamento'].sudo()
+            tipoFormatted = capwords(tipo.replace("_", "\t"))
+            fila = request.env['fila.fila'].sudo().search([('name', '=', tipoFormatted)])
+            print(f'{fila} !!!!!!!!!')
+
             return request.render("agendamento_banco.lym_myportal_forms_Agendamento")
         else:
             return request.redirect('/web/login')
-
-
-
-
-
-
 
     @http.route(['/agendamento'], type='http', auth="public", website=True, sitemap=False)
     def _agendamentos(self, **post):

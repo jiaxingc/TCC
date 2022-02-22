@@ -9,6 +9,7 @@
                     <field name="code" />
                     <field name="dataAgendada" />
                     <field name="cliente" />
+                    <field name="fila" />
                 </tree>
             </field>
         </record>
@@ -18,10 +19,17 @@
             <field name="model">agendamento.servico</field>
             <field name="arch" type="xml">
                 <form string="Agendamento">
-                    <p>Code :</p>
-                    <field name="code" />
-                    Data Agendamento :<field name="dataAgendada" />
-                    Cliente :<field name="cliente" />
+                    <group>
+                        <group>
+                            <field name="code" />
+                            <field name="dataAgendada" />
+                        </group>
+                        <group col="2">
+                            <field name="cliente" />
+                            <field name="fila" />
+                        </group>
+                    </group>
+
                 </form>
             </field>
         </record>

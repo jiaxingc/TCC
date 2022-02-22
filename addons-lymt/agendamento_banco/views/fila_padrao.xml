@@ -16,31 +16,31 @@
                         </div>
                     </div>
                     <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
-                        <form method="get" action="/forms_agendamento">
+                        <form method="get" action="/forms_agendamento/fila_padrao">
                             <button name="button" style="width: 102px; height:46px;" type="submit">Abrir conta</button>
                         </form>
                         <br />
 
-                        <form method="get" action="/forms_agendamento">
+                        <form method="get" action="/forms_agendamento/fila_padrao">
                             <button name="button" style="width: 102px; height:46px;">Empréstimo</button>
                         </form>
                         <br />
 
-                        <form method="get" action="/forms_agendamento">
+                        <form method="get" action="/forms_agendamento/fila_padrao">
                         <button name="button" style="width: 102px; height:46px;">Financiamento</button>
                         </form>
                         <br />
-                        <form method="get" action="/forms_agendamento">
+                        <form method="get" action="/forms_agendamento/fila_padrao">
                         <button name="button" style="width: 102px; height:46px;">Solicitar Cartão</button>
                         </form>
                         <br />
 
-                        <form method="get" action="/forms_agendamento">
+                        <form method="get" action="/forms_agendamento/fila_padrao">
                         <button name="button" style="width: 102px; height:46px;">Investimentos</button>
                         </form>
                         <br />
                         
-                        <form method="get" action="/forms_agendamento">
+                        <form method="get" action="/forms_agendamento/fila_padrao">
                         <button name="button" style="width: 102px; height:46px;">Outros</button>
                         </form> 
                         <br />
