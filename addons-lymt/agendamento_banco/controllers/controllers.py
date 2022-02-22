@@ -38,10 +38,16 @@ class MyPortal(http.Controller):
     @http.route(['/forms_agendamento'], type='http', auth="public", website=True, sitemap=False)
     def _formsagendamentos(self, **post):
         if request.session.uid:
-            # forsms_agendamento = http.request.env['agendamento_banco.formsagendamento'].sudo()
+            # forms_agendamento = http.request.env['agendamento_banco.formsagendamento'].sudo()
             return request.render("agendamento_banco.lym_myportal_forms_Agendamento")
         else:
             return request.redirect('/web/login')
+
+
+
+
+
+
 
     @http.route(['/agendamento'], type='http', auth="public", website=True, sitemap=False)
     def _agendamentos(self, **post):

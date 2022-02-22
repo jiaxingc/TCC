@@ -8,7 +8,7 @@
                 <input type="text" name="rg"  id="rg" class="form-control form-control-sm" required="1"/>
             </div>
             <div class="form-group field-login">
-                <label for="cpf_cnpj">CPF</label>
+                <label for="cpf_cnpj">CPF/CNPJ</label>
                 <input type="text" name="cpf_cnpj" t-att-value="cpf_cnpj" id="cpf_cnpj" class="form-control form-control-sm" required="1"/>
             </div>
             <div class="form-group field-login">

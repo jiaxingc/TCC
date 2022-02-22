@@ -17,11 +17,11 @@
                 <div class="info-panel" style="text-align: center;">
                     <p>Nome:<t t-esc="cliente.name" /></p>
                     <p>Email:<t t-esc="cliente.email" /></p>
-                    <p>CPF:<t t-esc="cliente.cpfCnpj" /></p>
+                    <p>CPF:<t t-esc="cliente.cpf_cnpj" /></p>
                     <p>Celular:<t t-esc="cliente.phone" /></p>
                     <p>CEP:<t t-esc="cliente.zip" /></p>
                     <!-- <p>Estado:<t t-esc="cliente.state_id" /></p> -->
-                    <p>Cidade:<t t-esc="cliente.city" />></p>
+                    <p>Cidade:<t t-esc="cliente.city" /></p>
                     <p>Endereço:<t t-esc="cliente.street" /><t t-esc="cliente.street2" /></p>
                     <!-- <p>Banco:<t t-esc="banco.acc_number" /></p> -->
                     <!-- <p>numero da conta:<t t-esc="cliente.bank_id" /></p> -->
