@@ -3,7 +3,7 @@
     <data>
         <template id="portal_fila_prioridade" name="call_fila_prioridade">
             <t t-call="website.layout">
-                <t t-set="additional_title">Fila Padrão</t>
+                <t t-set="additional_title">Fila Prioridade</t>
                 <t t-call="agendamento_banco.fila_prioridade" />
             </t>
         </template>
@@ -16,22 +16,42 @@
                         </div>
                     </div>
                     <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
-                        <button name="button" style="width: 102px; height:46px;">Abrir conta</button>
+
+                        <!-- <form method="get" action="/forms_agendamento/fila_prioridade" >
+                            <button name="button" style="width: 102px; height:46px;" type="submit">Abrir conta</button>
+                        </form>
                         <br />
-                        <button name="button" style="width: 102px; height:46px;">Empréstimo</button> 
+
+                        <form method="get" action="/forms_agendamento/fila_prioridade">
+                            <button name="button" style="width: 102px; height:46px;">Empréstimo</button>
+                        </form>
                         <br />
+
+                        <form method="get" action="/forms_agendamento/fila_prioridade">
                         <button name="button" style="width: 102px; height:46px;">Financiamento</button>
+                        </form>
                         <br />
+                        <form method="get" action="/forms_agendamento/fila_prioridade">
                         <button name="button" style="width: 102px; height:46px;">Solicitar Cartão</button>
+                        </form>
                         <br />
+
+                        <form method="get" action="/forms_agendamento/fila_prioridade">
                         <button name="button" style="width: 102px; height:46px;">Investimentos</button>
+                        </form>
                         <br />
+                        
+                        <form method="get" action="/forms_agendamento/fila_prioridade">
                         <button name="button" style="width: 102px; height:46px;">Outros</button>
-                        <br />
+                        </form> 
+                        <br /> -->
+
+                        <form method="get" action="/forms_agendamento/fila_prioridade">
                         <button name="button" style="width: 102px; height:46px;">Atendimento especial</button>
+                        </form> 
                         <br />
-                        <button name="button" style="width: 102px; height:46px;">Previdência</button>
-                    </div>
+                        <!-- <button name="button" style="width: 102px; height:46px;">Previdência</button> -->
+                    </div> 
                 </div>
             </section>
         </template>

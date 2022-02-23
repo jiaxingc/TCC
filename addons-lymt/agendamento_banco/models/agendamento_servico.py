@@ -17,7 +17,7 @@ class AgendamentoServico(models.Model):
 
     @api.depends('code')
     def _compute_codigo_servico(self):
-        stringFormatted = self.code + '0001'
+        stringFormatted = 'PAO' + '0001'
         self.code = stringFormatted
 
     # @api.model
