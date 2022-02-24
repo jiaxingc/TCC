@@ -24,6 +24,7 @@
         'views/fila_prioridade.xml',
         'views/minhainformacao.xml',
         'views/fila_view.xml',
+        'views/historico.xml'
     ],
     'application': True,
     'auto_install': False

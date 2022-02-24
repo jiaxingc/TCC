@@ -42,7 +42,13 @@ class CustomerPortal(http.Controller):
             return request.redirect('/web/login')
 
 
-
+    @http.route(['/historico'], type='http', auth="public", website=True, sitemap=False)
+    def _historicos(self, **post):
+        if request.session.uid:
+            # agendamento = http.request.env['agendamento_banco.agendamento'].sudo()
+            return request.render("agendamento_banco.portal_historico")
+        else:
+            return request.redirect('/web/login')
 
 
 
