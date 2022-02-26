@@ -12,56 +12,96 @@
             <div id="wrap" class="oe_structure oe_empty">
                 <section class="s_website_form pt16 pb16 o_colored_level" data-vcss="001" data-snippet="s_website_form" data-name="Form" style="">
                     <div class="container">
-
-                        <div class="form-seleciona-fila">
-                            <p>Fila:</p>
-                            <select name="select">
-                                <t t-foreach="filas" t-as="fila">
-                                    <option value="fila-pradao"><t t-esc="fila.name"/></option>
-                                </t>                             
-                             </select>
-                        </div>
-
-
-                        <div class="form-seleciona-servico">
-                            <p>Serviço :</p>
-                            <select name="select">
-                                <option value="abrir_conta">Abrir conta</option>
-                                <option value="emprestimo">Empréstimo</option>
-                                <option value="financiamento">Financiamento</option>
-                                <option value="solicitar_cartao">Solicitar Cartão</option>
-                                <option value="investimentos">Investimentos</option>
-                                <option value="outros">Outros</option>
-                                <option value="atendimento_especial">Atendimento especial</option>
-                                <option value="previdencia">Previdência</option>
-                             </select>
-                        </div>
-                        <div class="form-group field-login">
-                            <label for="data">Data :</label>
-                            <input type="date" name="data"  id="data" class="form-control form-control-sm"  required="1"/>
-                        </div>
-                        <div class="form-group field-login">
-                            <p>Hora :</p>
-                            <select name="select">
-                               <option value="valor1">10:00</option>
-                               <option value="valor2">12:00</option>
-                               <option value="valor3">14:00</option>
-                               <option value="valor3">16:00</option>
-                            </select>
-                            <!-- <label for="hora">Hora :</label>
-                            <input type="time" name="hora" t-att-value="hora" id="hora" class="form-control form-control-sm"  min="09:00" max="18:00" required="1"/> -->
-                            
-                        </div>
-                        <div class="form-group field-login">
-                            <label for="descricao">Descrição :</label>
-                            <input type="text" name="descricao" t-att-value="descricao" id="descricao" class="form-control form-control-sm" required="1"/>
-                        </div>
-                        
-                        <div class="form-button">
-                        <form>
-                            <input type="button" value="submit" onclick="msg()">  </input>
+                        <form action="/website_form/" method="post" enctype="multipart/form-data" class="o_mark_required" data-mark="*" data-success-mode="redirect" data-success-page="/contactus-thank-you" data-model_name="mail.mail">
+                            <div class="s_website_form_rows row s_col_no_bgcolor">
+                                <div class="form-group s_website_form_field col-12    s_website_form_dnone" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px">
+                                            <span class="s_website_form_label_content"></span>
+                                            <span title="Separate email addresses with a comma.">
+                                                <i class="fa fa-info-circle"></i>
+                                            </span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input type="hidden" class="form-control s_website_form_input" name="email_to" value="info@yourcompany.example.com" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group s_website_form_field col-12 s_website_form_custom s_website_form_required  " data-type="many2one" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label " style="width: 200px" for="2myy817s3bg">
+                                            <span class="s_website_form_label_content">Custom Selection</span>
+                                            <span class="s_website_form_mark">         *</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <select class="form-control s_website_form_input" name="Custom Selection" required="1" id="2myy817s3bg" style="">
+                                                <option value="Option 1">Option 1</option>
+                                                <option value="Option 2">Option 2</option>
+                                                <option value="Option 3">Option 3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group s_website_form_field col-12 s_website_form_custom   " data-type="tel" data-name="vv6css80nsh">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label " style="width: 200px" for="vv6css80nsh">
+                                            <span class="s_website_form_label_content">Phone Number</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input type="tel" class="form-control s_website_form_input" name="vv6css80nsh" id="vv6css80nsh" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group s_website_form_field col-12  s_website_form_model_required  " data-type="email" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label " style="width: 200px" for="l5rhhy0vkt">
+                                            <span class="s_website_form_label_content">Your Email</span>
+                                            <span class="s_website_form_mark"> *</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input type="email" class="form-control s_website_form_input" name="email_from" required="true" id="l5rhhy0vkt" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group s_website_form_field col-12 s_website_form_custom   " data-type="char" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label " style="width: 200px" for="b7f4xr0jaa6">
+                                            <span class="s_website_form_label_content">Your Company</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input type="text" class="form-control s_website_form_input" name="Your Company" id="b7f4xr0jaa6" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group s_website_form_field col-12  s_website_form_model_required  " data-type="char" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label " style="width: 200px" for="l3feqmv6g8n">
+                                            <span class="s_website_form_label_content">Subject</span>
+                                            <span class="s_website_form_mark"> *</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input type="text" class="form-control s_website_form_input" name="subject" required="true" id="l3feqmv6g8n" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group s_website_form_field col-12 s_website_form_custom s_website_form_required  " data-type="text" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label " style="width: 200px" for="6czsx2uax3p">
+                                            <span class="s_website_form_label_content">Your Question</span>
+                                            <span class="s_website_form_mark"> *</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <textarea class="form-control s_website_form_input" name="Your Question" required="1" id="6czsx2uax3p" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-12 s_website_form_submit" data-name="Submit Button">
+                                    <div style="width: 200px;" class="s_website_form_label"></div>
+                                    <a href="#" role="button" class="btn btn-primary btn-lg s_website_form_send o_default_snippet_text">Submit</a>
+                                    <span id="s_website_form_result"></span>
+                                </div>
+                            </div>
                         </form>
-                        </div>
                     </div>
                 </section>
             </div>

@@ -20,9 +20,8 @@ class AgendamentoServico(models.Model):
         stringFormatted = fila_code + '0001'
         self.code = stringFormatted
 
-    @api.model
-    def create(self, vals):
-        print('Override bem sucedido.')
-        res = super(AgendamentoServico, self).create(vals)
- 
-        return res
+    # @api.model
+    # def create(self, vals):
+    #     print('Override bem sucedido.')
+    #     res = super(AgendamentoServico, self).create(vals)
+    #     return res
