@@ -18,11 +18,7 @@
                             <select name="select">
                                 <t t-foreach="filas" t-as="fila">
                                     <option value="fila-pradao"><t t-esc="fila.name"/></option>
-                                </t>
-                                <!-- <t t-foreach="filas"  t-as="fila">
-                                    <option value="fila-prioridade"><t t-esc="fila."/></option>
-                                </t> -->
-                               
+                                </t>                             
                              </select>
                         </div>
 

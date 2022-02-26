@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import json
-import lxml
-import requests
 import werkzeug.urls
 import werkzeug.wrappers
 from string import capwords
@@ -26,7 +23,6 @@ class MyPortal(http.Controller):
     @http.route(['/myportal'], type='http', auth="public", website=True, sitemap=False)
     def _myportal(self, **post):
         if request.session.uid:
-            # portal = http.request.env['agendamento_banco.myportal'].sudo()
             return request.render("agendamento_banco.lym_myportal")
         else:
             return request.redirect('/web/login')
@@ -52,7 +48,7 @@ class MyPortal(http.Controller):
     def _formsagendamentos(self, **kw):
         if request.session.uid:
             filas = request.env['fila.fila'].sudo().search([])
-            _logger.info(f'{filas} !!!!!!!!!!!!!!!!!!!! AAAAQQUUIIIIIII')
+            # agendamento = request.env['agendamento.servico'].sudo().create()
             return request.render("agendamento_banco.lym_myportal_forms_Agendamento",{'filas':filas})
         else:
             return request.redirect('/web/login')
@@ -78,21 +74,21 @@ class MyPortal(http.Controller):
         else:
             return request.redirect('/web/login')
 
-    @http.route(['/filapadrao'], type='http', auth="public", website=True, sitemap=False)
-    def _filapadrao(self, **post):
-        if request.session.uid:
-            # fila_padrao = http.request.env['agendamento_banco.filapadrao'].sudo()
-            return request.render("agendamento_banco.lym_myportal_fila_padrao")
-        else:
-            return request.redirect('/web/login')
+    # @http.route(['/filapadrao'], type='http', auth="public", website=True, sitemap=False)
+    # def _filapadrao(self, **post):
+    #     if request.session.uid:
+    #         # fila_padrao = http.request.env['agendamento_banco.filapadrao'].sudo()
+    #         return request.render("agendamento_banco.lym_myportal_fila_padrao")
+    #     else:
+    #         return request.redirect('/web/login')
 
-    @http.route(['/filaprioridade'], type='http', auth="public", website=True, sitemap=False)
-    def _filaprioridade(self, **post):
-        if request.session.uid:
-            # fila_prioridade = http.request.env['agendamento_banco.filaprioridade'].sudo()
-            return request.render("agendamento_banco.portal_fila_prioridade")
-        else:
-            return request.redirect('/web/login')
+    # @http.route(['/filaprioridade'], type='http', auth="public", website=True, sitemap=False)
+    # def _filaprioridade(self, **post):
+    #     if request.session.uid:
+    #         # fila_prioridade = http.request.env['agendamento_banco.filaprioridade'].sudo()
+    #         return request.render("agendamento_banco.portal_fila_prioridade")
+    #     else:
+    #         return request.redirect('/web/login')
 
     @http.route(['/forum/<model("forum.forum"):forum>/new', '/forum/<model("forum.forum"):forum>/<model("forum.post"):post_parent>/reply'],
                 type='http', auth="user", methods=['POST'], website=True)

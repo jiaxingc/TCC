@@ -16,11 +16,13 @@ class AgendamentoServico(models.Model):
     fila = fields.Many2one('fila.fila', 'Fila')
 
     @api.depends('code')
-    def _compute_codigo_servico(self):
-        stringFormatted = 'PAO' + '0001'
+    def _compute_codigo_servico(self, fila_code='PAO'):
+        stringFormatted = fila_code + '0001'
         self.code = stringFormatted
 
-    # @api.model
-    # def create(self, values):
-    #     pass
-    #     return super(__class__, self).create(values)
+    @api.model
+    def create(self, vals):
+        print('Override bem sucedido.')
+        res = super(AgendamentoServico, self).create(vals)
+ 
+        return res
