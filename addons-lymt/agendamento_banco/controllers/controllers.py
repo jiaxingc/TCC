@@ -46,12 +46,19 @@ class MyPortal(http.Controller):
 
     @http.route(['/forms_agendamento'], type='http', auth="public", website=True, sitemap=False)
     def _formsagendamentos(self, **post):
-        cr, uid, context = request.cr, request.uid, request.context
-        print(f"{post.get('vv6css80nsh', 'Nao veio')} !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        uid = request.uid
+        user = request.env['res.users'].sudo().search([('id','=', uid)])
+        vals = {}
+        fila = request.env['fila.fila']
+        filaId = fila.sudo().search([('code','=', post.get('fila_type', None))])
+        vals['fila'] = filaId.id
+        vals['codeFront'] = filaId.code
+        vals['dataAgendada'] = post.get('data_hour', '2022-02-22 12:29:23')
+        vals['cliente'] = user.id
+        # agendamento = request.env['agendamento.servico'].sudo()._register_scheduling(vals)
+        http.request.env['agendamento.servico'].sudo()._register_scheduling(vals)
         if request.session.uid:
-            filas = request.env['fila.fila'].sudo().search([])
-            # agendamento = request.env['agendamento.servico'].sudo().create()
-            return request.render("agendamento_banco.lym_myportal_forms_Agendamento",{'filas':filas})
+            return request.render("agendamento_banco.lym_myportal_forms_Agendamento",{'filas':fila.sudo().search([])})
         else:
             return request.redirect('/web/login')
 

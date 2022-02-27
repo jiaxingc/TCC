@@ -10,18 +10,17 @@ class AgendamentoServico(models.Model):
     _name = "agendamento.servico"
     _description = "servico"
 
-    code = fields.Char('Codigo', compute='_compute_codigo_servico')
+    code = fields.Char('Codigo')
     dataAgendada = fields.Datetime('Data agendada')
     cliente = fields.Many2one('res.partner', 'Cliente')
     fila = fields.Many2one('fila.fila', 'Fila')
 
-    @api.depends('code')
-    def _compute_codigo_servico(self, fila_code='PAO'):
+    def _compute_codigo_servico(fila_code=None, **kw):
         stringFormatted = fila_code + '0001'
-        self.code = stringFormatted
+        return stringFormatted
 
-    # @api.model
-    # def create(self, vals):
-    #     print('Override bem sucedido.')
-    #     res = super(AgendamentoServico, self).create(vals)
-    #     return res
+    def _register_scheduling(self, vals):
+        # vals['code'] = self._compute_codigo_servico(vals['codeFront'])
+        # res = agendamento.create(vals)
+        print(f"{vals} !!!!!!!!!!!!!!!!!!!!!!")
+        # return res
