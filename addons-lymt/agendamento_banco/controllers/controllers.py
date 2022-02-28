@@ -27,36 +27,25 @@ class MyPortal(http.Controller):
         else:
             return request.redirect('/web/login')
 
-    # @http.route(['/forms_agendamento/<string:tipo>'], type='http', auth="public", website=True, sitemap=False)
-    # def _formsagendamentos(self, tipo, **post):
-    #     if request.session.uid:
-    #         idUserSession = http.request.env.context.get('uid')
-    #         minhainformacao = http.request.env['res.users'].sudo().search([('id', '=', idUserSession)])
-    #         parent_id = minhainformacao.partner_id
-    #         cliente = http.request.env['res.partner'].sudo().search([('id', '=', parent_id.id)])
-
-    #         tipoFormatted = capwords(tipo.replace("_", "\t"))
-    #         fila = request.env['fila.fila'].sudo().search([('name', '=', tipoFormatted)])
-
-    #         print(f'{fila} !!!!!!!!!')
-
-    #         return request.render("agendamento_banco.lym_myportal_forms_Agendamento")
-    #     else:
-    #         return request.redirect('/web/login')
-
     @http.route(['/forms_agendamento'], type='http', auth="public", website=True, sitemap=False)
-    def _formsagendamentos(self, **post):
+    def service_agendamento(self, **post):
         uid = request.uid
         user = request.env['res.users'].sudo().search([('id','=', uid)])
         vals = {}
         fila = request.env['fila.fila']
         filaId = fila.sudo().search([('code','=', post.get('fila_type', None))])
         vals['fila'] = filaId.id
-        vals['codeFront'] = filaId.code
-        vals['dataAgendada'] = post.get('data_hour', '2022-02-22 12:29:23')
-        vals['cliente'] = user.id
-        # agendamento = request.env['agendamento.servico'].sudo()._register_scheduling(vals)
-        http.request.env['agendamento.servico'].sudo()._register_scheduling(vals)
+        if vals['fila']:
+            date = post.get('date', None)
+            hour = post.get('hour', None)
+            vals['code'] = filaId.code
+            vals['cliente'] = user.partner_id.id
+            vals['dataAgendada'] = None
+            try:
+                vals['dataAgendada'] = date + " " + hour
+            except:
+                _logger.error('Has None Value')
+            http.request.env['agendamento.servico'].sudo()._register_scheduling(vals)
         if request.session.uid:
             return request.render("agendamento_banco.lym_myportal_forms_Agendamento",{'filas':fila.sudo().search([])})
         else:
@@ -79,22 +68,6 @@ class MyPortal(http.Controller):
             return request.render("agendamento_banco.portal_tela_servico")
         else:
             return request.redirect('/web/login')
-
-    # @http.route(['/filapadrao'], type='http', auth="public", website=True, sitemap=False)
-    # def _filapadrao(self, **post):
-    #     if request.session.uid:
-    #         # fila_padrao = http.request.env['agendamento_banco.filapadrao'].sudo()
-    #         return request.render("agendamento_banco.lym_myportal_fila_padrao")
-    #     else:
-    #         return request.redirect('/web/login')
-
-    # @http.route(['/filaprioridade'], type='http', auth="public", website=True, sitemap=False)
-    # def _filaprioridade(self, **post):
-    #     if request.session.uid:
-    #         # fila_prioridade = http.request.env['agendamento_banco.filaprioridade'].sudo()
-    #         return request.render("agendamento_banco.portal_fila_prioridade")
-    #     else:
-    #         return request.redirect('/web/login')
 
     @http.route(['/forum/<model("forum.forum"):forum>/new', '/forum/<model("forum.forum"):forum>/<model("forum.post"):post_parent>/reply'],
                 type='http', auth="user", methods=['POST'], website=True)

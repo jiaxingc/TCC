@@ -1,38 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-        <template id="lym_myportal_forms_Agendamento" name="forms_Agendamento">
-            <t t-call="website.layout">
-                <t t-set="additional_title">Agendamento</t>
-                <t t-call="agendamento_banco.forms_Agendamento" />
-            </t>
-        </template>
+  <data>
+    <template id="lym_myportal_forms_Agendamento" name="forms_Agendamento">
+      <t t-call="website.layout">
+        <t t-set="additional_title">Agendamento</t>
+        <t t-call="agendamento_banco.forms_Agendamento" />
+      </t>
+    </template>
 
-        <template id="forms_Agendamento" name="forms_Agendamento">
-            <div id="wrap" class="oe_structure oe_empty">
-                <section class="s_website_form pt16 pb16 o_colored_level">
-                    <div class="container">
-                        <form action="/forms_agendamento" data-success-mode="redirect" data-success-page="/contactus-thank-you">
-                            <div class="form-group">
-                                <label for="fila_type" class="sr-only">Filtrar</label>
-                                <select class="form-control" name="fila_type" id="fila_type">
-                                  <option class="option" value="" disabled="disabled" selected="selected">Selecionar Fila</option>
-                                  <t t-foreach="filas" t-as="fila">
-                                    <option class="option" t-att-value="fila.code"><t t-esc="fila.name"/></option>
-                                  </t>
-                                </select>
-                              </div>
-                              <div class="form-group">
-                                <label for="data_hour" class="sr-only">Data e Hora</label>
-                                <input class="fa fa-calendar" type="datetime-local" name="data_hour" id="data_hour"/>
-                              </div>
-                              <div class="form-group">
-                                <input class="btn btn-primary btn-lg" type="submit" name="submit" id="submit"/>
-                              </div>
-                        </form>
-                    </div>
-                </section>
+    <template id="forms_Agendamento" name="forms_Agendamento">
+      <section class="s_website_form" data-vcss="001" data-snippet="s_website_form">
+        <div class="container">
+          <br />
+          <form id="service_agendamento" action="/forms_agendamento" method="post">
+            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+            <div class="form-group">
+              <label for="fila_type" class="sr-only">Filtrar</label>
+              <select class="form-control" name="fila_type" id="fila_type" required="1">
+                <option class="option" value="" disabled="disabled" selected="selected">Selecionar Fila</option>
+                <t t-foreach="filas" t-as="fila">
+                  <option class="option" t-att-value="fila.code">
+                    <t t-esc="fila.name" />
+                  </option>
+                </t>
+              </select>
             </div>
-        </template>
-    </data>
+            <div class="form-group">
+              <label for="date" class="sr-only">Data</label>
+              <input class="fa fa-calendar" type="date" name="date" id="date" required="1" />
+            </div>
+            <div>
+              <label for="hour">Horario:</label>
+              <input type="time" id="hour" name="hour" min="09:00" max="18:00" required="1" />
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary btn-lg" type="submit">Enviar</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </template>
+  </data>
 </odoo>
