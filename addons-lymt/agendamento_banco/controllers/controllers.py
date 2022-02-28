@@ -51,8 +51,6 @@ class MyPortal(http.Controller):
         else:
             return request.redirect('/web/login')
 
-
-
     @http.route(['/agendamento'], type='http', auth="public", website=True, sitemap=False)
     def _agendamentos(self, **post):
         if request.session.uid:

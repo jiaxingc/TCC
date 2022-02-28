@@ -20,8 +20,6 @@
         'views/res_partner.xml',
         'views/agendamento_view.xml',
         'views/tela_servico.xml',
-        'views/fila_padrao.xml',
-        'views/fila_prioridade.xml',
         'views/minhainformacao.xml',
         'views/fila_view.xml',
         'views/historico.xml'
