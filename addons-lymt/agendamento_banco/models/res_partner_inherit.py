@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from email.policy import default
-from odoo import models, fields, api
+from odoo.exceptions import ValidationError
+from odoo import models, fields, api, _
 import requests
 import re
 
@@ -33,41 +33,13 @@ class ResPartnerInherit(models.Model):
                 except:
                     _logger.error("erro ao pesquisar o CEP.")
 
-
-
-# Email deve ser único
-_sql_constraints = [
-        ('email_uniq', 'unique(email)', 'Email deve ser único.')
-    ]
-
-# @api.onchange('email_id')
-# def validate_mail(self):
-#        if self.email_id:
-#         match = re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', self.email_id)
-#         if match == None:
-#             raise ValidationError('não é um ID de e-mail válido')
-
-# @api.multi
-# def _validate_email(self):
-#     for partner in self:
-#         if re.match("^.+\\@(\\[?)[a-zA-Z0-9\\-\\.]+\\.([a-zA-Z]{2,3}|[0-9]{1,3})(\\]?)$", partner.email) == None:
-#             return False
-#         return True
-
-
-
-#CPF/CNPj deve ser unico
-_sql_constraints=[
-        ('cpf_cnpj_uniq','unique(cpf_cnpj)','CPF/CNPJ deve ser único.')
-]
-
-@api.constrains('cpf_cnpj')
-def _check_cpf_cnpj(self):
-	cpf_cnpj=self.search([('cpf_cnpj','=',self.cpf_cnpj)])
-	if len(cpf_cnpj)>1:
-	   ('error,o CPF/CNPJ já existe!')
-
-#ID deve ser unico
-_sql_constraints=[
-        ('rg_uniq','unique(rg)','O numério de indentidade deve ser único.')
-]
+    @api.constrains('cpf_cnpj', 'rg')
+    def _check_unique_fila(self):
+        resPartnersIds = self.search([]) - self
+        valueCpfCnpj = [x.cpf_cnpj for x in resPartnersIds]
+        valueRg = [x.rg for x in resPartnersIds]
+        if self.name and self.cpf_cnpj in valueCpfCnpj:
+            raise ValidationError(_('The combination CPF is already Exist'))
+        elif self.name and self.rg in valueRg:
+            raise ValidationError(_('The combination RG is already Exist'))
+        return True
