@@ -13,30 +13,20 @@
                     <h1>Historico de agendamento </h1>
                 </div>
                 <ul class="SG">
-                    <li class="sgLi">
-                      <div class="box">
-                      <h3>Style disc</h3>
-                      <ul class="df">
-                      <li>Friday</li>
-                      <li>Monday</li>
-                      <li>Saturday</li>
-                      <li>Wednesday</li>
-                      </ul> 
-                      <button class="btn-cancelar" type="submit">Cancelar Agendamento</button>
-                    </div>
-                   </li> 
-                    <li class="sgLi">
-                      <div class="box">
-                      <h3>Style disc</h3>
-                      <ul class="df">
-                      <li>Friday</li>
-                      <li>Monday</li>
-                      <li>Saturday</li>
-                      <li>Wednesday</li>
-                      </ul>
-                      <button class="btn-cancelar" type="submit">Cancelar Agendamento</button>
-                    </div>
-                   </li> 
+                    <t t-foreach="agendamentos" t-as="agendamento">
+                        <li class="sgLi">
+                            <div class="box">
+                            <h3>Style disc</h3>
+                            <ul class="df">
+                            <li><t t-esc="agendamento.code"/></li>
+                            <li><t t-esc="agendamento.cliente.name"/></li>
+                            <!-- <li><t t-esc="agendamento.cliente.cpf_cnpj"/></li> -->
+                            <li><t t-esc="agendamento.dataAgendada"/></li>
+                            </ul> 
+                            <button class="btn-cancelar" type="submit">Cancelar Agendamento</button>
+                          </div>
+                         </li> 
+                    </t>
                 </ul>
                </div>
         

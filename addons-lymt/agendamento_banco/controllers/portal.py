@@ -44,9 +44,11 @@ class CustomerPortal(http.Controller):
 
     @http.route(['/historico'], type='http', auth="public", website=True, sitemap=False)
     def _historicos(self, **post):
+        uid = request.uid
+        user = request.env['res.users'].sudo().search([('id','=', uid)])
         if request.session.uid:
-            # agendamento = http.request.env['agendamento_banco.agendamento'].sudo()
-            return request.render("agendamento_banco.portal_historico")
+            agendamentos = http.request.env['agendamento.servico'].sudo().search([('cliente','=',user.partner_id.id)])
+            return request.render("agendamento_banco.portal_historico", {'agendamentos': agendamentos})
         else:
             return request.redirect('/web/login')
 
