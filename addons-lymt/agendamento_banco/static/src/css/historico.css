@@ -88,3 +88,9 @@ li{
   @media (max-width: 425px){
     .SG .sgLi{width: 100%;}
   }
+
+  .btn-cancelar{
+  background-color:#3AADAA;
+  color:#FFFFFF;
+  border-color:#3AADAA;
+  }
