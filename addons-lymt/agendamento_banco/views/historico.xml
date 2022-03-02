@@ -22,8 +22,10 @@
                             <li><t t-esc="agendamento.cliente.name"/></li>
                             <!-- <li><t t-esc="agendamento.cliente.cpf_cnpj"/></li> -->
                             <li><t t-esc="agendamento.dataAgendada"/></li>
-                            </ul> 
-                            <button class="btn-cancelar" type="submit">Cancelar Agendamento</button>
+                            </ul>
+                            <t t-if="agendamento.state=='agendado'">
+                                <button class="btn-cancelar" type="submit">Cancelar Agendamento</button>
+                            </t>
                           </div>
                          </li> 
                     </t>
