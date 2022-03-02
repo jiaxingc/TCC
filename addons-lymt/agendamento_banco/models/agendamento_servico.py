@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from email.policy import default
 from odoo import models, fields, api
 
 import logging
@@ -18,6 +19,24 @@ class AgendamentoServico(models.Model):
     cliente = fields.Many2one('res.partner', 'Cliente')
     fila = fields.Many2one('fila.fila', 'Fila')
 
+    state=fields.Selection([
+    ('agendado','Agendado'),
+    ('atendido','Atendido'),
+    ('atrasado','Atrasado'),
+    ('cancelado','Cancelado'),
+    ],string='Status',readonly=True,default="agendado")
+
+    def action_agendado(self):
+            self.state="agendado"
+            
+    def action_atendido(self):
+           self.state="atendido"
+
+    def action_atrasado(self):
+            self.state="atrasado"
+
+    def action_cancelado(self):
+            self.state="cancelado"
    
 
     def _register_scheduling(self, vals):
