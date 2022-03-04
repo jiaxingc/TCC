@@ -46,6 +46,8 @@ class CustomerPortal(http.Controller):
     def _historicos(self, **post):
         uid = request.uid
         user = request.env['res.users'].sudo().search([('id','=', uid)])
+        # cancelAgenda = post.get('cancelar', False)
+        # if cancelAgenda:
         if request.session.uid:
             agendamentos = http.request.env['agendamento.servico'].sudo().search([('cliente','=',user.partner_id.id)])
             return request.render("agendamento_banco.portal_historico", {'agendamentos': agendamentos})

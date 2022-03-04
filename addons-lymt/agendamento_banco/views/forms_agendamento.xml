@@ -31,7 +31,7 @@
             </div>
             <div>
               <label for="hour">Horario:</label>
-              <input type="time" id="hour" name="hour" min="09:00" max="18:00" required="1" />
+              <input type="time" id="hour" name="hour" step="1800" min="09:00" max="18:00" required="1" />
             </div>
             <div class="form-group">
               <button class="btn btn-primary btn-lg" type="submit">Enviar</button>

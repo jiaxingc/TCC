@@ -30,22 +30,30 @@ class MyPortal(http.Controller):
     @http.route(['/forms_agendamento'], type='http', auth="public", website=True, sitemap=False)
     def service_agendamento(self, **post):
         uid = request.uid
+        dataHoje = datetime.today()
+        d1 = dataHoje.strftime("%Y-%m-%d 23:59")
+        d2 = dataHoje.strftime("%Y-%m-%d 00:00")
         user = request.env['res.users'].sudo().search([('id','=', uid)])
         vals = {}
         fila = request.env['fila.fila']
         filaId = fila.sudo().search([('code','=', post.get('fila_type', None))])
         vals['fila'] = filaId.id
+        agendamentoCount = http.request.env['agendamento.servico'].search_count([('fila', '=', vals['fila']), ('dataAgendada', '<', d1), ('dataAgendada', '>', d2)])
+        print(f"{agendamentoCount} !!!!!!!!!!!!!!!!!!!!!!!!!!!")
         if vals['fila']:
             date = post.get('date', None)
             hour = post.get('hour', None)
             vals['code'] = filaId.code
             vals['cliente'] = user.partner_id.id
             vals['dataAgendada'] = None
+            vals['count'] = agendamentoCount
             try:
                 vals['dataAgendada'] = date + " " + hour
+                print(f" DAta agendada {vals['dataAgendada']} !!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                http.request.env['agendamento.servico'].sudo()._register_scheduling(vals)
             except:
-                _logger.error('Has None Value')
-            http.request.env['agendamento.servico'].sudo()._register_scheduling(vals)
+                _logger.error('Has None Value In Date')
+            
         if request.session.uid:
             return request.render("agendamento_banco.lym_myportal_forms_Agendamento",{'filas':fila.sudo().search([])})
         else:

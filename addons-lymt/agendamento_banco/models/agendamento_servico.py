@@ -6,8 +6,9 @@ from odoo import models, fields, api
 import logging
 _logger = logging.getLogger(__name__)
 
-def _compute_codigo_servico(fila_code=None):
-    stringFormatted = str(fila_code) + '0001'
+def _compute_codigo_servico(fila_code=None, count=None):
+    strNumber = str(count+1)
+    stringFormatted = str(fila_code) + strNumber.zfill(5)
     return stringFormatted
 
 class AgendamentoServico(models.Model):
@@ -41,7 +42,8 @@ class AgendamentoServico(models.Model):
 
     def _register_scheduling(self, vals):
         try:
-            vals['code'] = _compute_codigo_servico(vals['code'])
+            vals['code'] = _compute_codigo_servico(vals['code'], vals['count'])
+            del vals['count']
             res = super(AgendamentoServico, self).create(vals)
             return res
         except:
