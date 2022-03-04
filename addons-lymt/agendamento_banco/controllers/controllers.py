@@ -38,8 +38,7 @@ class MyPortal(http.Controller):
         fila = request.env['fila.fila']
         filaId = fila.sudo().search([('code','=', post.get('fila_type', None))])
         vals['fila'] = filaId.id
-        agendamentoCount = http.request.env['agendamento.servico'].search_count([('fila', '=', vals['fila']), ('dataAgendada', '<', d1), ('dataAgendada', '>', d2)])
-        print(f"{agendamentoCount} !!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        agendamentoCount = http.request.env['agendamento.servico'].sudo().search_count([('fila', '=', vals['fila']), ('dataAgendada', '<', d1), ('dataAgendada', '>', d2)])
         if vals['fila']:
             date = post.get('date', None)
             hour = post.get('hour', None)
@@ -49,7 +48,6 @@ class MyPortal(http.Controller):
             vals['count'] = agendamentoCount
             try:
                 vals['dataAgendada'] = date + " " + hour
-                print(f" DAta agendada {vals['dataAgendada']} !!!!!!!!!!!!!!!!!!!!!!!!!!!")
                 http.request.env['agendamento.servico'].sudo()._register_scheduling(vals)
             except:
                 _logger.error('Has None Value In Date')
