@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 import werkzeug.urls
 import werkzeug.wrappers
 from string import capwords
@@ -19,7 +18,7 @@ _logger = logging.getLogger(__name__)
 
 
 class MyPortal(http.Controller):
-
+    
     @http.route(['/myportal'], type='http', auth="public", website=True, sitemap=False)
     def _myportal(self, **post):
         if request.session.uid:
