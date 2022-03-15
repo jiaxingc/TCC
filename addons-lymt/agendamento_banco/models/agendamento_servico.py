@@ -6,11 +6,6 @@ from odoo import models, fields, api
 import logging
 _logger = logging.getLogger(__name__)
 
-def _compute_codigo_servico(fila_code=None, count=None):
-    strNumber = str(count+1)
-    stringFormatted = str(fila_code) + strNumber.zfill(5)
-    return stringFormatted
-
 class AgendamentoServico(models.Model):
     _name = "agendamento.servico"
     _description = "servico"
@@ -27,6 +22,11 @@ class AgendamentoServico(models.Model):
     ('cancelado','Cancelado'),
     ],string='Status',readonly=True,default="agendado")
 
+    def _compute_codigo_servico(fila_code=None, count=None):
+        strNumber = str(count+1)
+        stringFormatted = str(fila_code) + strNumber.zfill(5)
+        return stringFormatted
+
     def action_agendado(self):
             self.state="agendado"
             
@@ -42,7 +42,7 @@ class AgendamentoServico(models.Model):
 
     def _register_scheduling(self, vals):
         try:
-            vals['code'] = _compute_codigo_servico(vals['code'], vals['count'])
+            vals['code'] = self._compute_codigo_servico(vals['code'], vals['count'])
             del vals['count']
             res = super(AgendamentoServico, self).create(vals)
             return res

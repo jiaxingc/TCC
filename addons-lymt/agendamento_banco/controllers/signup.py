@@ -27,17 +27,14 @@ class AuthSignupHomeInherit(AuthSignupHome):
             dv = sum(map(lambda x: int(x[1]) * x[0], cnpj_enum)) * 10 % 11
             if cnpj_r[i - 1:i] != str(dv % 10):
                 return False
-
         return True
 
     def validar_cpf(cpf):
         cpf = ''.join(re.findall(r'\d', str(cpf)))
-
         if not cpf or len(cpf) < 11:
             return False
 
         antigo = [int(d) for d in cpf]
-
         # Gera CPF com novos dígitos verificadores e compara com CPF informado
         novo = antigo[:9]
         while len(novo) < 11:
@@ -47,7 +44,6 @@ class AuthSignupHomeInherit(AuthSignupHome):
 
         if novo == antigo:
             return cpf
-
         return False
     
     def do_signup(self, qcontext):
@@ -59,8 +55,16 @@ class AuthSignupHomeInherit(AuthSignupHome):
             print(zip)
             url = f"https://viacep.com.br/ws/{zip}/json/"
             try:
+                if self.validar_cpf(values['cpf_cnpj']):
+                    pass
+                elif self.is_cnpj_valido(values['cpf_cnpj']):
+                    pass
+            except:
+                qcontext['error'] = "CPF ou CNPJ invalido!!!!!"
+                _logger.warning("CPF ou CNPJ invalido!!!!!")
+
+            try:
                 resp = requests.get(url)
-                print(resp)
                 if resp.status_code == 200 and not resp.json().get('erro', False):
                     _json = resp.json()
                     print(_json)
@@ -78,6 +82,7 @@ class AuthSignupHomeInherit(AuthSignupHome):
                     })
             except:
                 _logger.error("erro ao pesquisar o CEP.")
+
         if not values:
             raise UserError(_("The form was not properly filled in."))
         if values.get('password') != qcontext.get('confirm_password'):
