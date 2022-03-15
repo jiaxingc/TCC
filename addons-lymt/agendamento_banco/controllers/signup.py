@@ -60,7 +60,7 @@ class AuthSignupHomeInherit(AuthSignupHome):
                 elif self.is_cnpj_valido(values['cpf_cnpj']):
                     pass
             except:
-                qcontext['error'] = "CPF ou CNPJ invalido!!!!!"
+                qcontext['error'] = _("CPF ou CNPJ invalido!!!!!")
                 _logger.warning("CPF ou CNPJ invalido!!!!!")
 
             try:
