@@ -9,6 +9,7 @@ _logger = logging.getLogger(__name__)
 class AgendamentoServico(models.Model):
     _name = "agendamento.servico"
     _description = "servico"
+    _order="id desc"
 
     code = fields.Char('Codigo')
     dataAgendada = fields.Datetime('Data agendada')

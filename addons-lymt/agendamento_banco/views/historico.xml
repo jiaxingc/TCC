@@ -16,7 +16,7 @@
                     <t t-foreach="agendamentos" t-as="agendamento">
                         <li class="sgLi">
                             <div class="box">
-                            <h3>Style disc</h3>
+                            <h3>Agendamentos</h3>
                             <ul class="df">
                             <li><t t-esc="agendamento.code"/></li>
                             <li><t t-esc="agendamento.cliente.name"/></li>
