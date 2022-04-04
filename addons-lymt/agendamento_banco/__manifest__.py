@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': "TCC",
-    'summary': """LYM Portal""",
+    'summary': """Apresentação de TCC""",
     'description': """sistema bancário""",
     'author': "JiaXing",
     'website': "",

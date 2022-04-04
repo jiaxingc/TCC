@@ -25,20 +25,157 @@
                 </t>
               </select>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="date" class="sr-only">Data</label>
               <input class="fa fa-calendar" type="date" name="date" id="date" required="1" />
             </div>
             <div>
               <label for="hour">Horario:</label>
               <input type="time" id="hour" name="hour" step="1800" min="09:00" max="18:00" required="1" />
+            </div> -->
+
+            <div id="app">
+              <div class="container">
+                <div class="descricao">
+                 Selecionar o dia e o tempo para reservar:
+                </div>
+                <div class="barra">
+                  <ul>
+                    <li>
+                      <p>tempo indisponível</p>
+                      <p class="barra_estado01"></p>
+                    </li>
+                    <li>
+                      <p>tempo selecionando</p>
+                      <p class="barra_estado03"></p>
+                    </li>
+                    <li>
+                      <p>tempo disponível</p>
+                      <p class="barra_estado04"></p>
+                    </li>
+                  </ul>
+                </div>
+                <tr></tr>
+                <table>
+                  <tr>
+                    <th>Data</th>
+                    <th id="segunda" class="data-header"></th>
+
+                    <th id="terca" class="data-header"></th>
+                    <th id="quarta" class="data-header"></th>
+                    <th id="quinta" class="data-header"></th>
+                    <th id="sexta" class="data-header"></th>
+
+                  </tr>
+                  <tr>
+                    <th>Horário</th>
+                    <th>
+                      <button class="button horario" id="seg10">10:00-11:00</button>
+                    </th>
+                    <th>
+                      <button class="button horario" id="ter10">10:00-11:00</button>
+                    </th>
+                    <th>
+                      <button class="button horario" id="qua10">10:00-11:00</button>
+                    </th>
+                    <th>
+                      <button class="button horario" id="qui10">10:00-11:00</button>
+                    </th>
+                    <th>
+                      <button class="button horario" id="sex10">10:00-11:00</button>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th></th>
+                    <th>
+                      <button class="button horario" id="seg11">11:00-12:00</button>
+                    </th>
+                    <th>
+                      <button class="button horario" id="ter11">11:00-12:00</button>
+                    </th>
+                    <th>
+                      <button class="button horario" id="qua11">11:00-12:00</button>
+                    </th>
+                    <th>
+                      <button class="button horario" id="qui11">11:00-12:00</button>
+                    </th>
+                    <th>
+                      <button class="button horario" id="sex11">11:00-12:00</button>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>Tarde</th>
+                    <th>
+                      <button class="button horario" id="seg13">13:00-14:00</button>
+                    </th>
+                    <th>
+                      <button class="button horario" id="ter13">13:00-14:00</button>
+                    </th>
+                    <th>
+                      <button class="button horario" id="qua13">13:00-14:00</button>
+                    </th>
+                    <th>
+                      <button class="button horario" id="qui13">13:00-14:00</button>
+                    </th>
+                    <th>
+                      <button class="button horario" id="sex13">13:00-14:00</button>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th></th>
+                    <th>
+                      <button class="button horario" id="seg14">14:00-15:00</button>
+                    </th>
+                    <th>
+                      <button class="button horario" id="ter14">14:00-15:00</button>
+                    </th>
+                    <th>
+                      <button class="button horario" id="qua14">14:00-15:00</button>
+                    </th>
+                    <th>
+                      <button class="button horario" id="qui14">14:00-15:00</button>
+                    </th>
+                    <th>
+                      <button class="button horario" id="sex14">14:00-15:00</button>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th></th>
+                    <th>
+                      <button class="button horario" id="seg15">15:00-16:00</button>
+                    </th>
+                    <th>
+                      <button class="button horario" id="ter15">15:00-16:00</button>
+                    </th>
+                    <th>
+                      <button class="button horario" id="qua15">15:00-16:00</button>
+                    </th>
+                    <th>
+                      <button class="button horario" id="qui15">15:00-16:00</button>
+                    </th>
+                    <th>
+                      <button class="button horario" id="sex15">15:00-16:00</button>
+                    </th>
+                  </tr>
+                </table>
+              </div>
             </div>
+
             <div class="form-group">
               <button class="btn btn-primary btn-lg" type="submit">Enviar</button>
             </div>
           </form>
         </div>
       </section>
+      <link rel="stylesheet" href="agendamento_banco/static/src/css/agendamento.css" />
     </template>
+
+    <template id="assets_frontend" inherit_id="website.assets_frontend" name="Font">
+      <xpath expr="//script[last()]" position="after">
+          <script type="text/javascript" src="/agendamento_banco/static/src/js/myportal.js" />
+          <script type="text/javascript" src="/agendamento_banco/static/src/js/website_myportal_form_editor.js" />
+      </xpath>
+  </template>
+
   </data>
 </odoo>

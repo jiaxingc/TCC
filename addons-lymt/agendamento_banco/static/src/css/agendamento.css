@@ -1,0 +1,124 @@
+/*table agendamento */
+
+
+h1,
+h2 {
+  font-family: Lato;
+}
+
+#app {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto';
+}
+
+/*cometerio de tabela */
+.descricao,
+th {
+  font-size: 18px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  Text-Align: center;
+}
+/* barra de estado  */
+.barra ul li {
+  list-style: none;
+  display: inline-block;
+  float:right;
+  width: 20%;
+  text-align: center;
+}
+.barra_estado01,
+.barra_estado03,
+.barra_estado04 {
+  width: 70%;
+  height: 6px;
+  margin-left: 15%;
+  margin-top: 2px;
+}
+.barra_estado01 {
+  background-color: gray;
+}
+.barra_estado03 {
+  background-color: #00bfff;
+}
+.barra_estado04 {
+  background-color: #7C7BAD;
+}
+.barra {
+  overflow: hidden;
+  margin:25px 0px;
+}
+
+.data-header {
+  /* display: flex; */
+  /* flex-direction: column;
+  align-items: center; */
+  /* gap: 10px; */
+  border: 2px solid  #7C7BAD;
+  border-radius: 4px;
+}
+
+.data-header:hover {
+  background-color:  #7C7BAD;
+  color: white;
+  cursor: pointer;
+}
+
+.data-dia-semana {
+  font-size: 1.2rem;
+  font-weight: 500;
+  display: block;
+}
+
+.data-dia-mes {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.selecionado {
+  background-color:  #7C7BAD;
+  color: white;
+  cursor: pointer;
+}
+
+/* .data-dia-mes:hover {
+  color: white;
+}
+
+.data-dia-semana:hover {
+  color: white;
+} */
+
+/*table button */
+.button {
+  border: none;
+  color: white;
+  padding: 16px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.horario {
+  background-color: white;
+  color: black;
+  border: 2px solid  #7C7BAD;
+}
+
+.horario:hover {
+  background-color:  #7C7BAD;
+  color: white;
+}
+.button:focus {
+  background-color: #00bfff;
+  border: 2px solid #00bfff;
+}
