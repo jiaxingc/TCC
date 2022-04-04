@@ -13,38 +13,6 @@ from odoo.addons.auth_signup.controllers.main import AuthSignupHome
 _logger = logging.getLogger(__name__)
 
 class AuthSignupHomeInherit(AuthSignupHome):
-    def is_cnpj_valido(cnpj: str) -> bool:
-        LENGTH_CNPJ = 14
-        if len(cnpj) != LENGTH_CNPJ:
-            return False
-
-        if cnpj in (c * LENGTH_CNPJ for c in "1234567890"):
-            return False
-
-        cnpj_r = cnpj[::-1]
-        for i in range(2, 0, -1):
-            cnpj_enum = zip(cycle(range(2, 10)), cnpj_r[i:])
-            dv = sum(map(lambda x: int(x[1]) * x[0], cnpj_enum)) * 10 % 11
-            if cnpj_r[i - 1:i] != str(dv % 10):
-                return False
-        return True
-
-    def validar_cpf(cpf):
-        cpf = ''.join(re.findall(r'\d', str(cpf)))
-        if not cpf or len(cpf) < 11:
-            return False
-
-        antigo = [int(d) for d in cpf]
-        # Gera CPF com novos dígitos verificadores e compara com CPF informado
-        novo = antigo[:9]
-        while len(novo) < 11:
-            resto = sum([v * (len(novo) + 1 - i) for i, v in enumerate(novo)]) % 11
-            digito_verificador = 0 if resto <= 1 else 11 - resto
-            novo.append(digito_verificador)
-
-        if novo == antigo:
-            return cpf
-        return False
     
     def do_signup(self, qcontext):
         """ Shared helper that creates a res.partner out of a token """

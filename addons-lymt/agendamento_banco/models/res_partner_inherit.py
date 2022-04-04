@@ -38,8 +38,8 @@ class ResPartnerInherit(models.Model):
         resPartnersIds = self.search([]) - self
         valueCpfCnpj = [x.cpf_cnpj for x in resPartnersIds]
         valueRg = [x.rg for x in resPartnersIds]
-        if self.name and self.cpf_cnpj in valueCpfCnpj:
-            raise ValidationError(_('The combination CPF is already Exist'))
-        elif self.name and self.rg in valueRg:
+        if self.is_company and self.name and self.cpf_cnpj in valueCpfCnpj:
+            raise ValidationError(_('The combination CPF/CNPJ is already Exist'))
+        elif (self.is_company != True) and (self.name and self.rg in valueRg):
             raise ValidationError(_('The combination RG is already Exist'))
         return True

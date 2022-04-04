@@ -6,8 +6,8 @@
             <field name="inherit_id" ref="base.view_partner_form" />
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='category_id']" position="after">
-                    <field name="cpf_cnpj" placeholder="CPF/CNPJ" label="1" />
-                    <field name="rg" placeholder="RG" label="1" />
+                    <field name="cpf_cnpj" placeholder="CPF/CNPJ" label="1"/>
+                    <field name="rg" placeholder="RG" label="1" attrs="{'invisible': [('is_company', '=', True)]}"/>
                 </xpath>
                 <xpath expr="//div[hasclass('oe_title')]/h1" position="after">
                     <h2>
