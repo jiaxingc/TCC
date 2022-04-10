@@ -7,7 +7,7 @@ h2 {
 }
 
 #app {
-  height: 100vh;
+  height: 55vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,9 +18,9 @@ h2 {
 .descricao,
 th {
   font-size: 18px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  Text-Align: center;
+  /* padding-top: 10px;
+  padding-bottom: 10px; */
+  text-align: center;
 }
 /* barra de estado  */
 .barra ul li {
@@ -49,7 +49,7 @@ th {
 }
 .barra {
   overflow: hidden;
-  margin:25px 0px;
+  margin:17px 35px;
 }
 
 .data-header {
@@ -78,6 +78,16 @@ th {
   font-weight: 500;
 }
 
+/* table  */
+table{
+display: flex;
+justify-content: center;
+/* margin-bottom: 20px; */
+margin:0px 0px 20px 20px;
+}
+th{
+  padding: 5px 20px;
+}
 .selecionado {
   background-color:  #7C7BAD;
   color: white;
@@ -91,34 +101,55 @@ th {
 .data-dia-semana:hover {
   color: white;
 } */
-
+tr {
+    position: relative;
+ 
+}
 /*table button */
-.button {
-  border: none;
-  color: white;
-  padding: 16px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 0.8rem;
-  font-weight: 500;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  border-radius: 4px;
+.tab_hour {
+  list-style-type: none;
+/*   margin: 25px 0 0 0; */
+  padding: 0;
 }
 
-.horario {
-  background-color: white;
-  color: black;
-  border: 2px solid  #7C7BAD;
+.tab_hour li {
+  float: left;
+  margin:0 5px 5px 0;
+  width: 100px;
+  height: 40px;
+  position: relative;
+  
 }
 
-.horario:hover {
-  background-color:  #7C7BAD;
-  color: white;
+.tab_hour label,
+.tab_hour input {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
-.button:focus {
-  background-color: #00bfff;
+
+.tab_hour input[type="radio"] {
+  opacity: 0.01;
+  z-index: 100;
+}
+
+.tab_hour input[type="radio"]:checked+label,
+.Checked+label {
+  background: #00bfff;
   border: 2px solid #00bfff;
+}
+
+.tab_hour label {
+  padding: 3px;
+  border: 2px solid  #7C7BAD;
+  cursor: pointer;
+  z-index: 90;
+  height: 40px;
+}
+
+.tab_hour label:hover {
+  background:  #7C7BAD;
 }

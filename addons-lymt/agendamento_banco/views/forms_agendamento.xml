@@ -35,7 +35,7 @@
             </div> -->
 
             <div id="app">
-              <div class="container">
+              <div class="tab_container">
                 <div class="descricao">
                  Selecionar o dia e o tempo para reservar:
                 </div>
@@ -65,99 +65,153 @@
                     <th id="quarta" class="data-header"></th>
                     <th id="quinta" class="data-header"></th>
                     <th id="sexta" class="data-header"></th>
-
-                  </tr>
-                  <tr>
-                    <th>Horário</th>
-                    <th>
-                      <button class="button horario" id="seg10">10:00-11:00</button>
-                    </th>
-                    <th>
-                      <button class="button horario" id="ter10">10:00-11:00</button>
-                    </th>
-                    <th>
-                      <button class="button horario" id="qua10">10:00-11:00</button>
-                    </th>
-                    <th>
-                      <button class="button horario" id="qui10">10:00-11:00</button>
-                    </th>
-                    <th>
-                      <button class="button horario" id="sex10">10:00-11:00</button>
-                    </th>
-                  </tr>
-                  <tr>
-                    <th></th>
-                    <th>
-                      <button class="button horario" id="seg11">11:00-12:00</button>
-                    </th>
-                    <th>
-                      <button class="button horario" id="ter11">11:00-12:00</button>
-                    </th>
-                    <th>
-                      <button class="button horario" id="qua11">11:00-12:00</button>
-                    </th>
-                    <th>
-                      <button class="button horario" id="qui11">11:00-12:00</button>
-                    </th>
-                    <th>
-                      <button class="button horario" id="sex11">11:00-12:00</button>
-                    </th>
-                  </tr>
-                  <tr>
-                    <th>Tarde</th>
-                    <th>
-                      <button class="button horario" id="seg13">13:00-14:00</button>
-                    </th>
-                    <th>
-                      <button class="button horario" id="ter13">13:00-14:00</button>
-                    </th>
-                    <th>
-                      <button class="button horario" id="qua13">13:00-14:00</button>
-                    </th>
-                    <th>
-                      <button class="button horario" id="qui13">13:00-14:00</button>
-                    </th>
-                    <th>
-                      <button class="button horario" id="sex13">13:00-14:00</button>
-                    </th>
-                  </tr>
-                  <tr>
-                    <th></th>
-                    <th>
-                      <button class="button horario" id="seg14">14:00-15:00</button>
-                    </th>
-                    <th>
-                      <button class="button horario" id="ter14">14:00-15:00</button>
-                    </th>
-                    <th>
-                      <button class="button horario" id="qua14">14:00-15:00</button>
-                    </th>
-                    <th>
-                      <button class="button horario" id="qui14">14:00-15:00</button>
-                    </th>
-                    <th>
-                      <button class="button horario" id="sex14">14:00-15:00</button>
-                    </th>
-                  </tr>
-                  <tr>
-                    <th></th>
-                    <th>
-                      <button class="button horario" id="seg15">15:00-16:00</button>
-                    </th>
-                    <th>
-                      <button class="button horario" id="ter15">15:00-16:00</button>
-                    </th>
-                    <th>
-                      <button class="button horario" id="qua15">15:00-16:00</button>
-                    </th>
-                    <th>
-                      <button class="button horario" id="qui15">15:00-16:00</button>
-                    </th>
-                    <th>
-                      <button class="button horario" id="sex15">15:00-16:00</button>
-                    </th>
                   </tr>
                 </table>
+              
+                <ul class="tab_hour">
+                  <li>Horário</li>
+                  <li>
+                    <input class="input horario" type="radio" id="seg10" name="hour" />
+                    <label for="seg10">10:00-11:00</label>
+                  </li>
+                  <li>
+                    <input class="input horario" type="radio" id="ter10" name="hour" />
+                    <label for="ter10">10:00-11:00</label>
+                  </li>
+                  <li>
+                    <input class="input horario" type="radio" id="qua10" name="hour" />
+                    <label for="qua10">10:00-11:00</label>
+                  </li>
+                  <li>
+                    <input class="input horario" type="radio" id="qui10" name="hour" />
+                    <label for="qui10">10:00-11:00</label>
+                  </li>
+                  <li>
+                    <input class="input horario" type="radio" id="sex10" name="hour" />
+                      <label for="sex10">10:00-11:00</label>
+                  </li>
+                </ul>
+            
+
+                 <ul class="tab_hour">
+                  <li></li>
+                  <li>
+                    <input class="input horario" type="radio" id="seg11" name="hour" />
+                    <label for="seg11">11:00-12:00</label>
+                  </li>
+
+                  <li>
+                    <input class="input horario" type="radio" id="ter11" name="hour" />
+                    <label for="ter11">11:00-12:00</label>
+                  </li>
+
+                  <li>
+                    <input class="input horario" type="radio" id="qua11" name="hour" />
+                    <label for="qua11">11:00-12:00</label>
+                  </li>
+
+                  <li>
+                    <input class="input horario" type="radio" id="qui11" name="hour" />
+                    <label for="qui11">11:00-12:00</label>
+                  </li>
+
+                  <li>
+                    <input class="input horario" type="radio" id="sex11" name="hour" />
+                    <label for="sex11">11:00-12:00</label>
+                  </li>
+                 </ul>
+
+                  
+                 <ul class="tab_hour">
+                  <li>Tarde</li>
+
+                  <li>
+                    <input class="input horario" type="radio" id="seg13" name="hour" />
+                    <label for="seg13">13:00-14:00</label>
+                  </li>
+
+                  <li>
+                    <input class="input horario" type="radio" id="ter13" name="hour" />
+                    <label for="ter13">13:00-14:00</label>
+                  </li>
+
+                  <li>
+                    <input class="input horario" type="radio" id="qua13" name="hour" />
+                    <label for="qua13">13:00-14:00</label>
+                  </li>
+
+                  <li>
+                    <input class="input horario" type="radio" id="qui13" name="hour" />
+                    <label for="qui13">13:00-14:00</label>
+                  </li>
+
+                  <li>
+                    <input class="input horario" type="radio" id="sex13" name="hour" />
+                    <label for="sex13">13:00-14:00</label>
+                  </li>
+                </ul> 
+                  
+                <ul class="tab_hour">
+                  <li></li>
+
+                  <li>
+                    <input class="input horario" type="radio" id="seg14" name="hour" />
+                    <label for="seg14">14:00-15:00</label>
+                  </li>
+
+                  <li>
+                    <input class="input horario" type="radio" id="ter14" name="hour" />
+                    <label for="ter14">14:00-15:00</label>
+                  </li>
+
+                  <li>
+                    <input class="input horario" type="radio" id="qua14" name="hour" />
+                    <label for="qua14">14:00-15:00</label>
+                  </li>
+
+                  <li>
+                    <input class="input horario" type="radio" id="qui14" name="hour" />
+                    <label for="qui14">14:00-15:00</label>
+                  </li>
+
+                  <li>
+                    <input class="input horario" type="radio" id="sex14" name="hour" />
+                    <label for="sex14">14:00-15:00</label>
+                  </li>
+
+                </ul> 
+
+                
+                <ul class="tab_hour">
+                  <li></li>
+
+                  <li>
+                    <input class="input horario" type="radio" id="seg15" name="hour" />
+                    <label for="seg15">15:00-16:00</label>
+                  </li>
+
+                  <li>
+                    <input class="input horario" type="radio" id="ter15" name="hour" />
+                    <label for="ter15">15:00-16:00</label>
+                  </li>
+
+                  <li>
+                    <input class="input horario" type="radio" id="qua15" name="hour" />
+                    <label for="qua15">15:00-16:00</label>
+                  </li>
+
+                  <li>
+                    <input class="input horario" type="radio" id="qui15" name="hour" />
+                    <label for="qui15">15:00-16:00</label>
+                  </li>
+
+                  <li>
+                    <input class="input horario" type="radio" id="sex15" name="hour" />
+                    <label for="sex15">15:00-16:00</label>
+                  </li>
+
+                </ul> 
+
               </div>
             </div>
 
@@ -172,10 +226,10 @@
 
     <template id="assets_frontend" inherit_id="website.assets_frontend" name="Font">
       <xpath expr="//script[last()]" position="after">
-          <script type="text/javascript" src="/agendamento_banco/static/src/js/myportal.js" />
-          <script type="text/javascript" src="/agendamento_banco/static/src/js/website_myportal_form_editor.js" />
+        <script type="text/javascript" src="/agendamento_banco/static/src/js/myportal.js" />
+        <script type="text/javascript" src="/agendamento_banco/static/src/js/website_myportal_form_editor.js" />
       </xpath>
-  </template>
+    </template>
 
   </data>
 </odoo>
