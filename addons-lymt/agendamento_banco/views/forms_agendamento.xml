@@ -68,7 +68,7 @@
                   </tr>
                 </table>
               
-                <ul class="tab_hour">
+                <ul id="primeiro-horario" class="tab_hour">
                   <li>Horário</li>
                   <li>
                     <input class="input horario" type="radio" id="seg10" name="hour" />
@@ -91,9 +91,8 @@
                       <label for="sex10">10:00-11:00</label>
                   </li>
                 </ul>
-            
 
-                 <ul class="tab_hour">
+                <ul id="segundo-horario" class="tab_hour">
                   <li></li>
                   <li>
                     <input class="input horario" type="radio" id="seg11" name="hour" />
@@ -121,8 +120,7 @@
                   </li>
                  </ul>
 
-                  
-                 <ul class="tab_hour">
+                <ul id="terceiro-horario" class="tab_hour">
                   <li>Tarde</li>
 
                   <li>
@@ -151,7 +149,7 @@
                   </li>
                 </ul> 
                   
-                <ul class="tab_hour">
+                <ul id="quarto-horario" class="tab_hour">
                   <li></li>
 
                   <li>
@@ -181,8 +179,7 @@
 
                 </ul> 
 
-                
-                <ul class="tab_hour">
+                <ul id="quinto-horario" class="tab_hour">
                   <li></li>
 
                   <li>
