@@ -385,9 +385,17 @@ function retornaDiaDaSemana(dia) {
   
   
   
-  
-  
-  
+  // botão enviar 
+ 
+  function btn_send() {
+    let text = "\n enviada com sucesso! \n";
+    if (confirm(text) == true) {
+      text = "Enviada!";
+    }
+     else {
+      text = "canceled!";
+    }
+  }
   
   
   
