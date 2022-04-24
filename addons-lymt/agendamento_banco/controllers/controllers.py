@@ -26,30 +26,34 @@ class MyPortal(http.Controller):
         else:
             return request.redirect('/web/login')
 
-    @http.route(['/forms_agendamento'], type='http', auth="public", website=True, sitemap=False)
+    # @http.route('/request', type='json', auth='user', methods=['POST'], website=True, csrf=False)
+    # def submit(self, **kw):
+    #     cr, context, pool, uid = request.cr, request.context, request.registry, request.uid
+    #     #Fetch input json data sent from js
+    #     input_data = kw.get('input_data')
+    #     # Your code is here
+    #     print(input_data)
+    #     return {
+
+    #            'output_data' : input_data
+    #    }
+
+    @http.route(['/forms_agendamento'], type='http', auth='user', website=True, csrf=False)
     def service_agendamento(self, **post):
         uid = request.uid
-        dataHoje = datetime.today()
-        d1 = dataHoje.strftime("%Y-%m-%d 23:59")
-        d2 = dataHoje.strftime("%Y-%m-%d 00:00")
         user = request.env['res.users'].sudo().search([('id','=', uid)])
         vals = {}
         fila = request.env['fila.fila']
         filaId = fila.sudo().search([('code','=', post.get('fila_type', None))])
         vals['fila'] = filaId.id
-        agendamentoCount = http.request.env['agendamento.servico'].sudo().search_count([('fila', '=', vals['fila']), ('dataAgendada', '<', d1), ('dataAgendada', '>', d2)])
         if vals['fila']:
             date = post.get('date', None)
             hour = post.get('hour', None)
             vals['code'] = filaId.code
             vals['cliente'] = user.partner_id.id
-            vals['dataAgendada'] = None
-            vals['count'] = agendamentoCount
-            try:
-                vals['dataAgendada'] = date + " " + hour
-                http.request.env['agendamento.servico'].sudo()._register_scheduling(vals)
-            except:
-                _logger.error('Has None Value In Date')
+            vals['dataAgendada'] = date
+            vals['hora'] = hour.replace(':','.')
+            http.request.env['agendamento.servico'].sudo().create(vals)
             
         if request.session.uid:
             return request.render("agendamento_banco.lym_myportal_forms_Agendamento",{'filas':fila.sudo().search([])})

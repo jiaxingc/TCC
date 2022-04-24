@@ -33,13 +33,7 @@ class ResPartnerInherit(models.Model):
                 except:
                     _logger.error("erro ao pesquisar o CEP.")
 
-    @api.constrains('cpf_cnpj', 'rg')
-    def _check_unique_fila(self):
-        resPartnersIds = self.search([]) - self
-        valueCpfCnpj = [x.cpf_cnpj for x in resPartnersIds]
-        valueRg = [x.rg for x in resPartnersIds]
-        if self.is_company and self.name and self.cpf_cnpj in valueCpfCnpj:
-            raise ValidationError(_('The combination CPF/CNPJ is already Exist'))
-        elif (self.is_company != True) and (self.name and self.rg in valueRg):
-            raise ValidationError(_('The combination RG is already Exist'))
-        return True
+    _sql_constraints = [
+        ('check_property_tag_name', 'UNIQUE(cpf_cnpj)', 'The CPF or CNPJ is already in use.'),
+        ('check_property_tag_name', 'UNIQUE(rg)', 'The RG is already in use.')
+    ]

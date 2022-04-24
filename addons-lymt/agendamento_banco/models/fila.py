@@ -14,10 +14,6 @@ class FilaFila(models.Model):
     name = fields.Char('Nome')
     agendamento = fields.One2many('agendamento.servico', 'fila', string='Registro Agendamentos')
 
-    @api.constrains('code')
-    def _check_unique_fila(self):
-        fila_ids = self.search([]) - self
-        value = [x.code.lower() for x in fila_ids]
-        if self.name and self.code.lower() in value:
-            raise ValidationError(_('The combination is already Exist'))
-        return True
+    _sql_constraints = [
+        ('check_conde', 'UNIQUE(code)', 'The code name is already in use.')
+    ]

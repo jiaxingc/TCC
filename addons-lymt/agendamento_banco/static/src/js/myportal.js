@@ -62,9 +62,11 @@
 // Import stylesheets
 // import './style.css';
 
-function retornaDiaDaSemana(dia) {
+odoo.define('agendamento_banco.forms_agendamento', function (require) {
+  'use strict';
+  function retornaDiaDaSemana(dia) {
     var diaSemana = '';
-  
+
     switch (dia) {
       case 0:
         diaSemana = 'domingo';
@@ -90,13 +92,13 @@ function retornaDiaDaSemana(dia) {
       default:
         console.log('final de semana');
     }
-  
+
     return diaSemana;
   }
-  
+
   function retornaMes(mes) {
     var mesReferente = '';
-  
+
     switch (mes) {
       case 0:
         mesReferente = 'janeiro';
@@ -137,57 +139,57 @@ function retornaDiaDaSemana(dia) {
       default:
         console.log('nao achou o mes');
     }
-  
+
     return mesReferente;
   }
 
-  function pushDateIntoHtmlNodes(day,mesHtmlNode) {
+  function pushDateIntoHtmlNodes(day, mesHtmlNode) {
     let dateObject = new Date();
-     diasDeSemanaElementNodes.forEach(
+    diasDeSemanaElementNodes.forEach(
       (element) => {
         let diaDaSemana = retornaDiaDaSemana(dateObject.getDay() + day);
         let dia = dateObject.getDate() + day;
         element.innerHTML = `
-          <span class="data-dia-semana">${diaDaSemana}</span>
-          <span class="data-dia-mes">${dia} ${mesHtmlNode}</span>
-          `;
-    
+        <span class="data-dia-semana">${diaDaSemana}</span>
+        <span class="data-dia-mes">${dia} ${mesHtmlNode}</span>
+        `;
+
         day++;
-    });
+      });
   }
-  
+
   var diasDeSemanaElementNodes = [];
-  
+
   function criaListaDeDiaDeSemana() {
     let date = new Date();
 
-    let diaSemana =  date.getDay()
-    let mes =  date.getMonth()
-  
+    let diaSemana = date.getDay()
+    let mes = date.getMonth()
+
 
     switch (diaSemana) {
       case 0:
         pushDateIntoHtmlNodes(1, retornaMes(mes))
         break;
       case 1:
-        pushDateIntoHtmlNodes(1,retornaMes(mes))
+        pushDateIntoHtmlNodes(1, retornaMes(mes))
         break;
       case 2:
-        pushDateIntoHtmlNodes(-1,retornaMes(mes))
+        pushDateIntoHtmlNodes(-1, retornaMes(mes))
         break;
       case 3:
-        pushDateIntoHtmlNodes(-2,retornaMes(mes))
+        pushDateIntoHtmlNodes(-2, retornaMes(mes))
         break;
       case 4:
-        pushDateIntoHtmlNodes(-3,retornaMes(mes))
+        pushDateIntoHtmlNodes(-3, retornaMes(mes))
         break;
       case 5:
-        pushDateIntoHtmlNodes(-4,retornaMes(mes))
+        pushDateIntoHtmlNodes(-4, retornaMes(mes))
         break;
       case 6:
-        pushDateIntoHtmlNodes(-5,retornaMes(mes))
+        pushDateIntoHtmlNodes(-5, retornaMes(mes))
         break;
-    
+
       default:
         break;
     }
@@ -195,10 +197,10 @@ function retornaDiaDaSemana(dia) {
 
   function tratarClickEmSegunda() {
     console.log('click em segunda');
-  
+
     //verificar se o elemento ja possui a classe
     let isSelected = elSegunda.classList.contains('selecionado');
-  
+
     if (isSelected) {
       // caso ele ja tenha remove a classe
       elSegunda.classList.remove('selecionado');
@@ -211,132 +213,132 @@ function retornaDiaDaSemana(dia) {
       diaDoMesSelecionado = diaEMes[0];
       mesSelecionado = diaEMes[1];
 
-      console.log("diaDaSemana:",diaDaSemanaSelecionado)
-      console.log("diaDoMes:",diaDoMesSelecionado)
-      console.log("mes:",mesSelecionado)
+      console.log("diaDaSemana:", diaDaSemanaSelecionado)
+      console.log("diaDoMes:", diaDoMesSelecionado)
+      console.log("mes:", mesSelecionado)
     }
   }
-  
+
   function tratarClickEmTerca() {
     console.log('click em terca');
 
-     //verificar se o elemento ja possui a classe
-     let isSelected = elTerca.classList.contains('selecionado');
-  
-     if (isSelected) {
-       // caso ele ja tenha remove a classe
-       elTerca.classList.remove('selecionado');
-     } else {
-       //caso ele nao tenha adiciona classe quando clicado no elemento
-       elTerca.classList.add('selecionado');
-       let meusElementosFilhos = elTerca.getElementsByTagName('span');
-       diaDaSemanaSelecionado = meusElementosFilhos[0].innerText;
-       let diaEMes = meusElementosFilhos[1].innerText.split(' ')
-       diaDoMesSelecionado = diaEMes[0];
-       mesSelecionado = diaEMes[1];
+    //verificar se o elemento ja possui a classe
+    let isSelected = elTerca.classList.contains('selecionado');
 
-       console.log("diaDaSemana:",diaDaSemanaSelecionado)
-       console.log("diaDoMes:",diaDoMesSelecionado)
-       console.log("mes:",mesSelecionado)
-     }
+    if (isSelected) {
+      // caso ele ja tenha remove a classe
+      elTerca.classList.remove('selecionado');
+    } else {
+      //caso ele nao tenha adiciona classe quando clicado no elemento
+      elTerca.classList.add('selecionado');
+      let meusElementosFilhos = elTerca.getElementsByTagName('span');
+      diaDaSemanaSelecionado = meusElementosFilhos[0].innerText;
+      let diaEMes = meusElementosFilhos[1].innerText.split(' ')
+      diaDoMesSelecionado = diaEMes[0];
+      mesSelecionado = diaEMes[1];
+
+      console.log("diaDaSemana:", diaDaSemanaSelecionado)
+      console.log("diaDoMes:", diaDoMesSelecionado)
+      console.log("mes:", mesSelecionado)
+    }
   }
-  
+
   function tratarClickEmQuarta() {
     console.log('click em quarta');
 
-     //verificar se o elemento ja possui a classe
-     let isSelected = elQuarta.classList.contains('selecionado');
-  
-     if (isSelected) {
-       // caso ele ja tenha remove a classe
-       elQuarta.classList.remove('selecionado');
-     } else {
-       //caso ele nao tenha adiciona classe quando clicado no elemento
-       elQuarta.classList.add('selecionado');
-       let meusElementosFilhos = elQuarta.getElementsByTagName('span');
-       diaDaSemanaSelecionado = meusElementosFilhos[0].innerText;
-       let diaEMes = meusElementosFilhos[1].innerText.split(' ')
-       diaDoMesSelecionado = diaEMes[0];
-       mesSelecionado = diaEMes[1];
+    //verificar se o elemento ja possui a classe
+    let isSelected = elQuarta.classList.contains('selecionado');
 
-       console.log("diaDaSemana:",diaDaSemanaSelecionado)
-       console.log("diaDoMes:",diaDoMesSelecionado)
-       console.log("mes:",mesSelecionado)
-     }
+    if (isSelected) {
+      // caso ele ja tenha remove a classe
+      elQuarta.classList.remove('selecionado');
+    } else {
+      //caso ele nao tenha adiciona classe quando clicado no elemento
+      elQuarta.classList.add('selecionado');
+      let meusElementosFilhos = elQuarta.getElementsByTagName('span');
+      diaDaSemanaSelecionado = meusElementosFilhos[0].innerText;
+      let diaEMes = meusElementosFilhos[1].innerText.split(' ')
+      diaDoMesSelecionado = diaEMes[0];
+      mesSelecionado = diaEMes[1];
+
+      console.log("diaDaSemana:", diaDaSemanaSelecionado)
+      console.log("diaDoMes:", diaDoMesSelecionado)
+      console.log("mes:", mesSelecionado)
+    }
   }
-  
+
   function tratarClickEmQuinta() {
     console.log('click em quinta');
 
-     //verificar se o elemento ja possui a classe
-     let isSelected = elQuinta.classList.contains('selecionado');
-  
-     if (isSelected) {
-       // caso ele ja tenha remove a classe
-       elQuinta.classList.remove('selecionado');
-     } else {
-       //caso ele nao tenha adiciona classe quando clicado no elemento
-       elQuinta.classList.add('selecionado');
-       let meusElementosFilhos = elQuinta.getElementsByTagName('span');
-       diaDaSemanaSelecionado = meusElementosFilhos[0].innerText;
-       let diaEMes = meusElementosFilhos[1].innerText.split(' ')
-       diaDoMesSelecionado = diaEMes[0];
-       mesSelecionado = diaEMes[1];
+    //verificar se o elemento ja possui a classe
+    let isSelected = elQuinta.classList.contains('selecionado');
 
-       console.log("diaDaSemana:",diaDaSemanaSelecionado)
-       console.log("diaDoMes:",diaDoMesSelecionado)
-       console.log("mes:",mesSelecionado)
-     }
+    if (isSelected) {
+      // caso ele ja tenha remove a classe
+      elQuinta.classList.remove('selecionado');
+    } else {
+      //caso ele nao tenha adiciona classe quando clicado no elemento
+      elQuinta.classList.add('selecionado');
+      let meusElementosFilhos = elQuinta.getElementsByTagName('span');
+      diaDaSemanaSelecionado = meusElementosFilhos[0].innerText;
+      let diaEMes = meusElementosFilhos[1].innerText.split(' ')
+      diaDoMesSelecionado = diaEMes[0];
+      mesSelecionado = diaEMes[1];
+
+      console.log("diaDaSemana:", diaDaSemanaSelecionado)
+      console.log("diaDoMes:", diaDoMesSelecionado)
+      console.log("mes:", mesSelecionado)
+    }
   }
-  
+
   function tratarClickEmSexta() {
     console.log('click em sexta');
 
-     //verificar se o elemento ja possui a classe
-     let isSelected = elSexta.classList.contains('selecionado');
-  
-     if (isSelected) {
-       // caso ele ja tenha remove a classe
-       elSexta.classList.remove('selecionado');
-     } else {
-       //caso ele nao tenha adiciona classe quando clicado no elemento
-       elSexta.classList.add('selecionado');
-       let meusElementosFilhos = elSexta.getElementsByTagName('span');
-       diaDaSemanaSelecionado = meusElementosFilhos[0].innerText;
-       let diaEMes = meusElementosFilhos[1].innerText.split(' ')
-       diaDoMesSelecionado = diaEMes[0];
-       mesSelecionado = diaEMes[1];
+    //verificar se o elemento ja possui a classe
+    let isSelected = elSexta.classList.contains('selecionado');
 
-       console.log("diaDaSemana:",diaDaSemanaSelecionado)
-       console.log("diaDoMes:",diaDoMesSelecionado)
-       console.log("mes:",mesSelecionado)
-     }
+    if (isSelected) {
+      // caso ele ja tenha remove a classe
+      elSexta.classList.remove('selecionado');
+    } else {
+      //caso ele nao tenha adiciona classe quando clicado no elemento
+      elSexta.classList.add('selecionado');
+      let meusElementosFilhos = elSexta.getElementsByTagName('span');
+      diaDaSemanaSelecionado = meusElementosFilhos[0].innerText;
+      let diaEMes = meusElementosFilhos[1].innerText.split(' ')
+      diaDoMesSelecionado = diaEMes[0];
+      mesSelecionado = diaEMes[1];
+
+      console.log("diaDaSemana:", diaDaSemanaSelecionado)
+      console.log("diaDoMes:", diaDoMesSelecionado)
+      console.log("mes:", mesSelecionado)
+    }
   }
 
   function tratarClickEmPrimeiroHorario() {
     let meusElementosFilhos = elPrimeiroHorario.getElementsByTagName('label');
     horarioSelecionado = meusElementosFilhos[0].innerText
-    console.log("selecionei horario:",horarioSelecionado)
+    console.log("selecionei horario:", horarioSelecionado)
   }
   function tratarClickEmSegundoHorario() {
     let meusElementosFilhos = elSegundoHorario.getElementsByTagName('label');
     horarioSelecionado = meusElementosFilhos[0].innerText
-    console.log("selecionei horario:",horarioSelecionado)
+    console.log("selecionei horario:", horarioSelecionado)
   }
   function tratarClickEmTerceiroHorario() {
     let meusElementosFilhos = elTerceiroHorario.getElementsByTagName('label');
     horarioSelecionado = meusElementosFilhos[0].innerText
-    console.log("selecionei horario:",horarioSelecionado)
+    console.log("selecionei horario:", horarioSelecionado)
   }
   function tratarClickEmQuartoHorario() {
     let meusElementosFilhos = elQuartoHorario.getElementsByTagName('label');
     horarioSelecionado = meusElementosFilhos[0].innerText
-    console.log("selecionei horario:",horarioSelecionado)
+    console.log("selecionei horario:", horarioSelecionado)
   }
   function tratarClickEmQuintoHorario() {
     let meusElementosFilhos = elQuintoHorario.getElementsByTagName('label');
     horarioSelecionado = meusElementosFilhos[0].innerText
-    console.log("selecionei horario:",horarioSelecionado)
+    console.log("selecionei horario:", horarioSelecionado)
   }
 
   //variaveis selecionadas 
@@ -344,58 +346,62 @@ function retornaDiaDaSemana(dia) {
   var diaDoMesSelecionado;
   var mesSelecionado;
   var horarioSelecionado;
-  
+
   //cria os eventos para escutar o click no container do html
   const elSegunda = document.getElementById('segunda');
   elSegunda.addEventListener('click', tratarClickEmSegunda);
   diasDeSemanaElementNodes.push(elSegunda);
-  
+
   const elTerca = document.getElementById('terca');
   elTerca.addEventListener('click', tratarClickEmTerca);
   diasDeSemanaElementNodes.push(elTerca);
-  
+
   const elQuarta = document.getElementById('quarta');
   elQuarta.addEventListener('click', tratarClickEmQuarta);
   diasDeSemanaElementNodes.push(elQuarta);
-  
+
   const elQuinta = document.getElementById('quinta');
   elQuinta.addEventListener('click', tratarClickEmQuinta);
   diasDeSemanaElementNodes.push(elQuinta);
-  
+
   const elSexta = document.getElementById('sexta');
   elSexta.addEventListener('click', tratarClickEmSexta);
   diasDeSemanaElementNodes.push(elSexta);
-  
+
   const elPrimeiroHorario = document.getElementById('primeiro-horario');
   elPrimeiroHorario.addEventListener('click', tratarClickEmPrimeiroHorario);
-  
+
   const elSegundoHorario = document.getElementById('segundo-horario');
   elSegundoHorario.addEventListener('click', tratarClickEmSegundoHorario);
-  
+
   const elTerceiroHorario = document.getElementById('terceiro-horario');
   elTerceiroHorario.addEventListener('click', tratarClickEmTerceiroHorario);
-  
+
   const elQuartoHorario = document.getElementById('quarto-horario');
   elQuartoHorario.addEventListener('click', tratarClickEmQuartoHorario);
-  
+
   const elQuintoHorario = document.getElementById('quinto-horario');
   elQuintoHorario.addEventListener('click', tratarClickEmQuintoHorario);
-  
+
   criaListaDeDiaDeSemana();
-  
-  
-  
+
   // botão enviar 
- 
+
+  const submit_button = document.getElementById('enviar');
+
   function btn_send() {
-    let text = "\n enviada com sucesso! \n";
-    if (confirm(text) == true) {
-      text = "Enviada!";
-    }
-     else {
-      text = "canceled!";
-    }
+    console.log(mesSelecionado)
+    return mesSelecionado
   }
-  
-  
-  
+
+  submit_button.addEventListener('click', btn_send);
+  var ajax = require('web.ajax');
+  ajax.jsonRpc("/url", 'call', {
+    'input_data': $('#input').val(),
+  })
+  //   .then(function (data) {
+    
+  //   var output_data = data['output_data']
+  //   $("#output").html(output_data);
+  // });
+})
