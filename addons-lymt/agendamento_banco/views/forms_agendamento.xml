@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <template id="lym_myportal_forms_Agendamento" name="forms_Agendamento">
+      <t t-call="website.layout">
+        <t t-set="additional_title">Agendamento</t>
+        <t t-call="agendamento_banco.forms_Agendamento" />
+      </t>
+    </template>
+
+    <template id="forms_Agendamento" name="forms_Agendamento">
+      <t t-set="text" t-value="0"/>
+      <section class="s_website_form" data-vcss="001" data-snippet="s_website_form">
+        <div class="container">
+          <br />
+          <form id="service_agendamento" data-success_page="/thanks" action="/forms_agendamento" method="post">
+            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+            <div class="form-group">
+              <label for="fila_type" class="sr-only">Filtrar</label>
+              <select class="form-control" name="fila_type" id="fila_type" required="1">
+                <option class="option" value="" disabled="disabled" selected="selected">Selecionar Fila</option>
+                <t t-foreach="filas" t-as="fila">
+                  <option class="option" t-att-value="fila.code">
+                    <t t-esc="fila.name" />
+                  </option>
+                </t>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="date" class="sr-only">Data</label>
+              <input class="fa fa-calendar" type="date" name="date" id="date" required="1" />
+            </div>
+            <div class="form-group">
+              <label for="hour">Horario:</label>
+               <select class="form-control" name="hour" id="hour" required="1">
+                <option class="option" value="" disabled="disabled" selected="selected">Selecionar horário</option>
+                <t t-foreach="range(8,19)" t-as="i">
+                  <option class="option" t-att-value="str(i)+':00'">
+                    <t t-set="text" t-value="str(i)+':00'"/>
+                    <t t-esc="text" />
+                  </option>
+                  <option class="option" t-att-value="str(i)+':30'">
+                     <t t-set="text" t-value="str(i)+':30'"/>
+                    <t t-esc="text" />
+                  </option>
+                </t>
+              </select>
+              <!-- <input type="time" id="hour" name="hour" step="1800" min="09:00" max="18:00" required="1" /> -->
+            </div>
+
+            <!-- <div id="app">
+              <div class="tab_container">
+                <div class="descricao">
+                 Selecionar o dia e o tempo para reservar:
+                </div>
+                <div class="barra">
+                  <ul>
+                    <li>
+                      <p>tempo indisponível</p>
+                      <p class="barra_estado01"></p>
+                    </li>
+                    <li>
+                      <p>tempo selecionando</p>
+                      <p class="barra_estado03"></p>
+                    </li>
+                    <li>
+                      <p>tempo disponível</p>
+                      <p class="barra_estado04"></p>
+                    </li>
+                  </ul>
+                </div>
+                <tr></tr>
+                <table>
+                  <tr>
+                    <th>Data</th>
+                    <th id="segunda" class="data-header"></th>
+                    <th id="terca" class="data-header"></th>
+                    <th id="quarta" class="data-header"></th>
+                    <th id="quinta" class="data-header"></th>
+                    <th id="sexta" class="data-header"></th>
+                  </tr>
+                </table>
+                <ul id="primeiro-horario" class="tab_hour">
+                  <li>Horário</li>
+                  <li>
+                    <input class="input horario" type="radio" id="seg10" name="hour1"  value="10" />
+                    <label for="seg10">10:00-11:00</label>
+                  </li>
+                  <li>
+                    <input class="input horario" type="radio" id="ter10" name="hour" />
+                    <label for="ter10">10:00-11:00</label>
+                  </li>
+                  <li>
+                    <input class="input horario" type="radio" id="qua10" name="hour" />
+                    <label for="qua10">10:00-11:00</label>
+                  </li>
+                  <li>
+                    <input class="input horario" type="radio" id="qui10" name="hour" />
+                    <label for="qui10">10:00-11:00</label>
+                  </li>
+                  <li>
+                    <input class="input horario" type="radio" id="sex10" name="hour" />
+                    <label for="sex10">10:00-11:00</label>
+                  </li>
+                </ul>
+                <ul id="segundo-horario" class="tab_hour">
+                  <li></li>
+                  <li>
+                    <input class="input horario" type="radio" id="seg11" name="hour2"  value="11" />
+                    <label for="seg11">11:00-12:00</label>
+                  </li>
+                  <li>
+                    <input class="input horario" type="radio" id="ter11" name="hour" />
+                    <label for="ter11">11:00-12:00</label>
+                  </li>
+                  <li>
+                    <input class="input horario" type="radio" id="qua11" name="hour" />
+                    <label for="qua11">11:00-12:00</label>
+                  </li>
+                  <li>
+                    <input class="input horario" type="radio" id="qui11" name="hour" />
+                    <label for="qui11">11:00-12:00</label>
+                  </li>
+                  <li>
+                    <input class="input horario" type="radio" id="sex11" name="hour" />
+                    <label for="sex11">11:00-12:00</label>
+                  </li>
+                </ul>
+                <ul id="terceiro-horario" class="tab_hour">
+                  <li>Tarde</li>
+                  <li>
+                    <input class="input horario" type="radio" id="seg13" name="hour" />
+                    <label for="seg13">13:00-14:00</label>
+                  </li>
+                  <li>
+                    <input class="input horario" type="radio" id="ter13" name="hour" />
+                    <label for="ter13">13:00-14:00</label>
+                  </li>
+                  <li>
+                    <input class="input horario" type="radio" id="qua13" name="hour" />
+                    <label for="qua13">13:00-14:00</label>
+                  </li>
+                  <li>
+                    <input class="input horario" type="radio" id="qui13" name="hour" />
+                    <label for="qui13">13:00-14:00</label>
+                  </li>
+                  <li>
+                    <input class="input horario" type="radio" id="sex13" name="hour" />
+                    <label for="sex13">13:00-14:00</label>
+                  </li>
+                </ul>
+                <ul id="quarto-horario" class="tab_hour">
+                  <li></li>
+                  <li>
+                    <input class="input horario" type="radio" id="seg14" name="hour" />
+                    <label for="seg14">14:00-15:00</label>
+                  </li>
+                  <li>
+                    <input class="input horario" type="radio" id="ter14" name="hour" />
+                    <label for="ter14">14:00-15:00</label>
+                  </li>
+                  <li>
+                    <input class="input horario" type="radio" id="qua14" name="hour" />
+                    <label for="qua14">14:00-15:00</label>
+                  </li>
+                  <li>
+                    <input class="input horario" type="radio" id="qui14" name="hour" />
+                    <label for="qui14">14:00-15:00</label>
+                  </li>
+                  <li>
+                    <input class="input horario" type="radio" id="sex14" name="hour" />
+                    <label for="sex14">14:00-15:00</label>
+                  </li>
+                </ul>
+                <ul id="quinto-horario" class="tab_hour">
+                  <li></li>
+                  <li>
+                    <input class="input horario" type="radio" id="seg15" name="hour" />
+                    <label for="seg15">15:00-16:00</label>
+                  </li>
+                  <li>
+                    <input class="input horario" type="radio" id="ter15" name="hour" />
+                    <label for="ter15">15:00-16:00</label>
+                  </li>
+                  <li>
+                    <input class="input horario" type="radio" id="qua15" name="hour" />
+                    <label for="qua15">15:00-16:00</label>
+                  </li>
+                  <li>
+                    <input class="input horario" type="radio" id="qui15" name="hour" />
+                    <label for="qui15">15:00-16:00</label>
+                  </li>
+                  <li>
+                    <input class="input horario" type="radio" id="sex15" name="hour" />
+                    <label for="sex15">15:00-16:00</label>
+                  </li>
+                </ul>
+              </div>
+            </div> -->
+
+            <div class="form-group">
+              <button class="btn btn-primary btn-lg" type="submit" value="enviar" id="enviar">Enviar</button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <!-- <link rel="stylesheet" href="agendamento_banco/static/src/css/agendamento.css" /> -->
+    </template>
+
+    <template id="assets_frontend" inherit_id="website.assets_frontend" name="Font">
+      <xpath expr="//script[last()]" position="after">
+        <script type="text/javascript" src="/agendamento_banco/static/src/js/myportal.js" />
+        <script type="text/javascript" src="/agendamento_banco/static/src/js/website_myportal_form_editor.js" />
+      </xpath>
+    </template>
+
+  </data>
+</odoo>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="portal_tela_agendamento" name="tela_agendamento_call">
+            <t t-call="website.layout">
+                <t t-set="additional_title">Fila de Agendamento</t>
+                <t t-call="agendamento_banco.tela_Agendamento" />
+            </t>
+        </template>
+        <template id="tela_Agendamento" name="tela_Agendamento">
+            <section class="populor">
+                <div class="wrapper">
+                    <div class="half_bg color_bg" id="theme1">
+                        <div class="heading">
+                            <h3 class="main"  style="display: flex; align-items: center; justify-content: center; flex-direction: column;">Fila de Agendamento</h3>
+                        </div>
+                    </div>
+                    <div class="container icon">
+                        <div id="owl-theme2" class=" owl-carousel ">
+                            <a href="/servico">
+                                <div class="card ">
+                                    <div class="card-body">
+                                        <div class="body_wrapp">
+                                            <h5 class="card-title">Fila VIP</h5>
+                                            <p class="card-text">Destinada aos usuários vips
+                                                    do banco. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="/filaprioridade">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="body_wrapp">
+                                            <h5 class="card-title">Fila Prioridade</h5>
+                                            <p class="card-text">Destinada a pessoas com mais de 65 anos etc...
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="/filapadrao">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="body_wrapp">
+                                            <h5 class="card-title">Fila Padrão</h5>
+                                            <p class="card-text">Destina a pessoas com menos de
+                                                70 anos.
+                                        </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="body_wrapp">
+                                            <h5 class="card-title">Fila Pessoa Jurídica</h5>
+                                            <p class="card-text">Destinada para empresas.
+                                        </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <link rel="stylesheet" href="agendamento_banco/static/src/css/global.css" />
+            <link rel="stylesheet" href="agendamento_banco/static/src/css/style.css" />
+            
+        </template>
+
+        <template id="my_account_link_override" name="Link to frontend portal Override" inherit_id="portal.user_dropdown">
+            <xpath expr="//a[@href='/my/home']" position="replace">
+                <div class="menu-myportal" />
+            </xpath>
+        </template>
+
+        <template id="assets_frontend" inherit_id="website.assets_frontend" name="Font">
+            <xpath expr="//script[last()]" position="after">
+                <!--<script type="text/javascript" src="/agendamento_banco/static/src/js/agendamento_template.js" />-->
+                <script type="text/javascript" src="/agendamento_banco/static/src/js/website_myportal_form_editor.js" />
+            </xpath>
+        </template>
+    </data>
+</odoo>
