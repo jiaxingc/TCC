@@ -8,7 +8,7 @@
                 <tree string="Agendamento">
                     <field name="code" />
                     <field name="dataAgendada" />
-                    <field name="hora" widget="float_time"/>
+                    <field name="hora" />
                     <field name="cliente" />
                     <field name="fila" />
                     <field name="state" />
@@ -33,7 +33,7 @@
                             <group>
                                 <field name="code" />
                                 <field name="dataAgendada" />
-                                <field name="hora" widget="float_time"/>
+                                <field name="hora"/>
                             </group>
                             <group col="2">
                                 <field name="cliente" />

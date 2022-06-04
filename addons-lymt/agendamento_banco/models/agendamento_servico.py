@@ -18,7 +18,7 @@ class AgendamentoServico(models.Model):
     dataAgendada = fields.Date('Data agendada')
     cliente = fields.Many2one('res.partner', 'Cliente')
     fila = fields.Many2one('fila.fila', 'Fila')
-    hora = fields.Float(string='Hora')
+    hora = fields.Char(string='Hora')
 
     state=fields.Selection([
     ('agendado','Agendado'),
@@ -51,8 +51,11 @@ class AgendamentoServico(models.Model):
    
     @api.model
     def create(self, vals):
-        vals['hora'] = float(vals['hora'])
+        # _logger.info(f"Type: {type(vals['hora'])} !!!!!!!!!!!!!!!!!!!")
+        # vals['hora'] = float(vals['hora'])
+        # _logger.info(f"Float: {vals['hora']} !!!!!!!!!!!!!!!!!!!")
         codeFormated = self._compute_codigo_servico(vals['fila'], vals['code'], vals['dataAgendada'])
         vals['code'] = codeFormated
         res = super().create(vals)
+        _logger.info(f"{vals} !!!!!!!!!!!!!!!!!!!")
         return res

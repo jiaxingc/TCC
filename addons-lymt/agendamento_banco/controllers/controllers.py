@@ -43,7 +43,6 @@ class MyPortal(http.Controller):
         uid = request.uid
         user = request.env['res.users'].sudo().search([('id','=', uid)])
         agendamentoAtivo = request.env['agendamento.servico'].sudo().search([('state','!=','cancelado'), ('state','!=','cancelado')])
-        _logger.info(f"{agendamentoAtivo} !!!!!!!!!!!!!")
         vals = {}
         fila = request.env['fila.fila']
         filaId = fila.sudo().search([('code','=', post.get('fila_type', None))])
@@ -53,11 +52,11 @@ class MyPortal(http.Controller):
         else:
             if vals['fila']:
                 date = post.get('date', None)
-                hour = post.get('hour', None)
+                # hour = post.get('hour', None)
                 vals['code'] = filaId.code
                 vals['cliente'] = user.partner_id.id
                 vals['dataAgendada'] = date
-                vals['hora'] = hour.replace(':','.')
+                vals['hora'] = post.get('hour', None)
                 http.request.env['agendamento.servico'].sudo().create(vals)
                 
         if request.session.uid:
