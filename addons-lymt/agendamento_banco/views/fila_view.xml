@@ -5,7 +5,7 @@
             <field name="name">fila.tree</field>
             <field name="model">fila.fila</field>
             <field name="arch" type="xml">
-                <tree string="Fila">
+                <tree string="Fila" editable="bottom">
                     <field name="code" />
                     <field name="name" />
                 </tree>

@@ -5,7 +5,7 @@
             <field name="name">agendamento.tree</field>
             <field name="model">agendamento.servico</field>
             <field name="arch" type="xml">
-                <tree string="Agendamento">
+                <tree string="Agendamento" decoration-muted="state=='cancelado'">
                     <field name="code" />
                     <field name="dataAgendada" />
                     <field name="hora" />
