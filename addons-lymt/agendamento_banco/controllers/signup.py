@@ -3,6 +3,7 @@ import requests
 import re
 import logging
 import werkzeug
+from itertools import cycle
 from odoo import http, _
 from odoo.addons.auth_signup.models.res_users import SignupError
 from odoo.exceptions import UserError
@@ -12,17 +13,26 @@ from odoo.addons.auth_signup.controllers.main import AuthSignupHome
 _logger = logging.getLogger(__name__)
 
 class AuthSignupHomeInherit(AuthSignupHome):
+    
     def do_signup(self, qcontext):
         """ Shared helper that creates a res.partner out of a token """
-        values = {key: qcontext.get(key) for key in ('login', 'name', 'cpfCnpj', 'password', 'phone', 'zip', 'rg', 'street', 'street2', 'city', 'state_id', 'country_id')}
+        values = {key: qcontext.get(key) for key in ('login', 'name', 'cpf_cnpj', 'password', 'phone', 'zip', 'rg', 'street', 'street2', 'city', 'state_id', 'country_id')}
         values.update({'zip': qcontext.get('zip', None)})
         if values['zip'] and re.findall(r'^\d{8}$', values['zip']):
             zip = values['zip']
             print(zip)
             url = f"https://viacep.com.br/ws/{zip}/json/"
             try:
+                if self.validar_cpf(values['cpf_cnpj']):
+                    pass
+                elif self.is_cnpj_valido(values['cpf_cnpj']):
+                    pass
+            except:
+                qcontext['error'] = _("CPF ou CNPJ invalido!!!!!")
+                _logger.warning("CPF ou CNPJ invalido!!!!!")
+
+            try:
                 resp = requests.get(url)
-                print(resp)
                 if resp.status_code == 200 and not resp.json().get('erro', False):
                     _json = resp.json()
                     print(_json)
@@ -40,6 +50,7 @@ class AuthSignupHomeInherit(AuthSignupHome):
                     })
             except:
                 _logger.error("erro ao pesquisar o CEP.")
+
         if not values:
             raise UserError(_("The form was not properly filled in."))
         if values.get('password') != qcontext.get('confirm_password'):
@@ -61,7 +72,6 @@ class AuthSignupHomeInherit(AuthSignupHome):
                 # Send an account creation confirmation email
                 if qcontext.get('token'):
                     User = request.env['res.users']
-                    print(f'User: {User}')
                     user_sudo = User.sudo().search(
                         User._get_login_domain(qcontext.get('login')), order=User._get_login_order(), limit=1
                     )

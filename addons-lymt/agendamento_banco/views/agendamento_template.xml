@@ -7,7 +7,7 @@
                 <t t-call="agendamento_banco.tela_Agendamento" />
             </t>
         </template>
-               <template id="tela_Agendamento" name="tela_Agendamento">
+        <template id="tela_Agendamento" name="tela_Agendamento">
             <section class="populor">
                 <div class="wrapper">
                     <div class="half_bg color_bg" id="theme1">

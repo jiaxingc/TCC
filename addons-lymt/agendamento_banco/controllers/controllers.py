@@ -1,11 +1,7 @@
 # -*- coding: utf-8 -*-
-
-import json
-import lxml
-import requests
 import werkzeug.urls
 import werkzeug.wrappers
-
+from string import capwords
 from odoo import http
 from odoo.http import request
 from werkzeug.exceptions import NotFound
@@ -22,24 +18,52 @@ _logger = logging.getLogger(__name__)
 
 
 class MyPortal(http.Controller):
-
-    # def _check_permission(self):
-    #     return http.request.env['agendamento_banco.myportal'].sudo()
-    # .check_permission()
-
+    
     @http.route(['/myportal'], type='http', auth="public", website=True, sitemap=False)
     def _myportal(self, **post):
         if request.session.uid:
-            # portal = http.request.env['agendamento_banco.myportal'].sudo()
             return request.render("agendamento_banco.lym_myportal")
         else:
             return request.redirect('/web/login')
 
-    @http.route(['/forms_agendamento'], type='http', auth="public", website=True, sitemap=False)
-    def _formsagendamentos(self, **post):
+    # @http.route('/request', type='json', auth='user', methods=['POST'], website=True, csrf=False)
+    # def submit(self, **kw):
+    #     cr, context, pool, uid = request.cr, request.context, request.registry, request.uid
+    #     #Fetch input json data sent from js
+    #     input_data = kw.get('input_data')
+    #     # Your code is here
+    #     print(input_data)
+    #     return {
+
+    #            'output_data' : input_data
+    #    }
+
+    @http.route(['/forms_agendamento'], type='http', auth='user', website=True, csrf=False)
+    def service_agendamento(self, **post):
+        uid = request.uid
+        user = request.env['res.users'].sudo().search([('id','=', uid)])
+        agendamentoAtivo = request.env['agendamento.servico'].sudo().search([('state','!=','cancelado'), ('state','!=','cancelado')])
+        vals = {}
+        fila = request.env['fila.fila']
+        filaId = fila.sudo().search([('code','=', post.get('fila_type', None))])
+        vals['fila'] = filaId.id
+        if agendamentoAtivo:
+            raise ValidationError("Já há um agendamento ativo!")
+        else:
+            if vals['fila']:
+                date = post.get('date', None)
+                # hour = post.get('hour', None)
+                vals['code'] = filaId.code
+                vals['cliente'] = user.partner_id.id
+                vals['dataAgendada'] = date
+                vals['hora'] = post.get('hour', None)
+                http.request.env['agendamento.servico'].sudo().create(vals)
+                
         if request.session.uid:
-            # forsms_agendamento = http.request.env['agendamento_banco.formsagendamento'].sudo()
-            return request.render("agendamento_banco.lym_myportal_forms_Agendamento")
+            return request.render("agendamento_banco.lym_myportal_forms_Agendamento",{
+                'filas':fila.sudo().search([]),
+                'filas_hora': fila.sudo().search([]),
+            })
         else:
             return request.redirect('/web/login')
 
@@ -56,22 +80,6 @@ class MyPortal(http.Controller):
         if request.session.uid:
             # servico = http.request.env['agendamento_banco.servico'].sudo()
             return request.render("agendamento_banco.portal_tela_servico")
-        else:
-            return request.redirect('/web/login')
-
-    @http.route(['/filapadrao'], type='http', auth="public", website=True, sitemap=False)
-    def _filapadrao(self, **post):
-        if request.session.uid:
-            # fila_padrao = http.request.env['agendamento_banco.filapadrao'].sudo()
-            return request.render("agendamento_banco.lym_myportal_fila_padrao")
-        else:
-            return request.redirect('/web/login')
-
-    @http.route(['/filaprioridade'], type='http', auth="public", website=True, sitemap=False)
-    def _filaprioridade(self, **post):
-        if request.session.uid:
-            # fila_prioridade = http.request.env['agendamento_banco.filaprioridade'].sudo()
-            return request.render("agendamento_banco.portal_fila_prioridade")
         else:
             return request.redirect('/web/login')
 
@@ -115,3 +123,10 @@ class MyPortal(http.Controller):
                                                          })
 
         return werkzeug.utils.redirect("/forum/%s/%s" % (slug(forum), post_parent and slug(post_parent) or new_question.id))
+
+    @http.route(['/cancelar'], type='http', auth="public", website=True, sitemap=False)
+    def _cancelar(self, **post):
+        agendamento = request.env['agendamento.servico']
+        agendamentoId = agendamento.sudo().search([('id','=', post.get('agendamento', None))])
+        http.request.env['agendamento.servico'].sudo().action_cancelar(agendamentoId.id)
+        return request.redirect("/historico")

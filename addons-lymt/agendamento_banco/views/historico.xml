@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_historico" name="historico_pag">
+        <t t-call="website.layout">
+            <t t-set="additional_title">Histório de agendamento</t>
+            <t t-call="agendamento_banco.historico" />
+        </t>
+    </template>
+    <template id="historico" name="historico_lyout">
+        <section class="populor">
+            <div class="wrapper">
+                <div class="X">
+                    <h1>Historico de agendamento </h1>
+                </div>
+                <ul class="SG">
+                    <t t-foreach="agendamentos" t-as="agendamento">
+                        <li class="sgLi">
+                            <div class="box">
+                            <h3>Agendamentos</h3>
+                            <ul class="df">
+                            <li><t t-esc="agendamento.code"/></li>
+                            <li><t t-esc="agendamento.cliente.name"/></li>
+                            <!-- <li><t t-esc="agendamento.cliente.cpf_cnpj"/></li> -->
+                            <li><t t-esc="agendamento.dataAgendada"/></li>
+                            </ul>
+                            <t t-if="agendamento.state!='cancelado'">
+                                <form id="service_agendamento" action="/cancelar" method="post">
+                                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                                    <button class="btn-cancelar" name="agendamento" t-att-value="agendamento.id" type="submit">Cancelar Agendamento</button>
+                                </form>
+                            </t>
+                            <t t-else="">
+                                Agendamento Cancelado
+                            </t>
+                          </div>
+                         </li> 
+                    </t>
+                </ul>
+               </div>
+        
+            <link rel="stylesheet" href="/agendamento_banco/static/src/css/historico.css" />
+            <link rel="stylesheet" href="/agendamento_banco/static/src/css/layout.css" />
+        </section>
+    </template>
+
+    <template id="my_account_link_override" name="Link to frontend portal Override" inherit_id="portal.user_dropdown">
+        <xpath expr="//a[@href='/my/home']" position="replace">
+            <div class="menu-myportal" />
+        </xpath>
+    </template>
+
+    <template id="assets_frontend" inherit_id="website.assets_frontend" name="Font">
+        <xpath expr="//script[last()]" position="after">
+            <script type="text/javascript" src="/agendamento_banco/static/src/js/myportal.js" />
+            <script type="text/javascript" src="/agendamento_banco/static/src/js/website_myportal_form_editor.js" />
+        </xpath>
+    </template>
+                
+</odoo>

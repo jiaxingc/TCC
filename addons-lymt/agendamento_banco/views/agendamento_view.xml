@@ -5,10 +5,13 @@
             <field name="name">agendamento.tree</field>
             <field name="model">agendamento.servico</field>
             <field name="arch" type="xml">
-                <tree string="Agendamento">
+                <tree string="Agendamento" decoration-muted="state=='cancelado'">
                     <field name="code" />
                     <field name="dataAgendada" />
+                    <field name="hora" />
                     <field name="cliente" />
+                    <field name="fila" />
+                    <field name="state" />
                 </tree>
             </field>
         </record>
@@ -18,10 +21,26 @@
             <field name="model">agendamento.servico</field>
             <field name="arch" type="xml">
                 <form string="Agendamento">
-                    <p>Code :</p>
-                    <field name="code" />
-                    Data Agendamento :<field name="dataAgendada" />
-                    Cliente :<field name="cliente" />
+                    <header>
+                        <button id="action_agendado" name="action_agendado"  type="object" string="Em Atendimento" class="oe_highlight" />
+                        <button id="action_atendido" name="action_atendido" type="object" string="Fechar Atendimento" class="oe_highlight" />
+                        <button id="action_atrasado" name="action_atrasado" type="object" string="Cliente Atrasado" class="oe_highlight" />
+                        <button id="action_cancelado" name="action_cancelado" type="object" string="Agendamento Cancelado" class="oe_highlight" />  
+                        <!-- <field name="state" widget="statusbar" options="{'clickable':'1'}" statusbar_visible="agendado,atendido,atrasado,cancelado"/> -->
+                        <field name="state" widget="statusbar"  statusbar_visible="agendado,atendido,atrasado,cancelado"/>
+                    </header>
+                        <group>
+                            <group>
+                                <field name="code" />
+                                <field name="dataAgendada" />
+                                <field name="hora"/>
+                            </group>
+                            <group col="2">
+                                <field name="cliente" />
+                                <field name="fila" />
+                            </group>
+                        </group>
+    
                 </form>
             </field>
         </record>

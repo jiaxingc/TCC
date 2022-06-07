@@ -4597,12 +4597,13 @@ a.tags, .tags a {
 	-o-transition: all 200ms linear;
 	-ms-transition: all 200ms linear;
 	transition: all 200ms linear;
+
 }
 
 .ca-sub {
 	text-align: center;
-	font-size: 14px;
-	color: #666;
+	font-size: 18px;
+	color: #2D266F;
 	line-height: 40px;
 	opacity: 0.8;
 	-webkit-transition: all 200ms linear;
@@ -4626,6 +4627,7 @@ a.tags, .tags a {
 	-webkit-animation: moveFromLeftRotate 300ms ease;
 	-moz-animation: moveFromLeftRotate 300ms ease;
 	-ms-animation: moveFromLeftRotate 300ms ease;
+	background-color:#3AADAA;
 }
 
 .ca-menu li:hover .ca-sub {

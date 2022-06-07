@@ -11,7 +11,7 @@ _logger = logging.getLogger(__name__)
 class ResPartnerInherit(models.Model):
     _inherit = 'res.partner'
 
-    cpfCnpj = fields.Char('CPF/CNPJ')
+    cpf_cnpj = fields.Char('CPF/CNPJ')
     rg = fields.Char('RG')
     vip = fields.Boolean('Vip', default=False)
     registroServicos = fields.One2many('agendamento.servico', 'cliente', string='Registro Serviços')

@@ -36,6 +36,18 @@ section,
     }
 }
 
+.populor .wrapper .info-panel {
+    background-color: azure;
+    color: black;
+    font-weight:900;
+    font-family:Arial,Helvetica,sans-serif;
+    width: 450px;
+    margin: 50px auto;
+    border: 1px solid rgb(0, 140, 255);
+    text-align: center; /*设置文本水平居中*/
+    padding: 50px 20px;
+}
+
 .populor .mbr-iconfont {
     display: block;
     font-size: 5rem;
@@ -50,4 +62,3 @@ section,
 .populor .row {
     justify-content: center;
 }
-

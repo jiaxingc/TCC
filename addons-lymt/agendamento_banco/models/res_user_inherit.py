@@ -22,15 +22,6 @@ class ResUsersInherit(models.Model):
 
     @api.model
     def signup(self, values, token=None):
-        """ signup a user, to either:
-            - create a new user (no token), or
-            - create a user for a partner (with token, but no user for partner), or
-            - change the password of a user (with token, and existing user).
-            :param values: a dictionary with field values that are written on user
-            :param token: signup token (optional)
-            :return: (dbname, login, password) for the signed up user
-        """
-        print(f'Valores classe: {values}')
         if token:
             # signup with a token: find the corresponding partner id
             partner = self.env['res.partner']._signup_retrieve_partner(token, check_validity=True, raise_exception=True)

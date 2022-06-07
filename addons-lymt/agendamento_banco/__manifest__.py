@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': "TCC",
-    'summary': """LYM Portal""",
+    'summary': """Apresentação de TCC""",
     'description': """sistema bancário""",
     'author': "JiaXing",
     'website': "",
@@ -20,9 +20,9 @@
         'views/res_partner.xml',
         'views/agendamento_view.xml',
         'views/tela_servico.xml',
-        'views/fila_padrao.xml',
-        'views/fila_prioridade.xml',
-        'views/minhainformacao.xml'
+        'views/minhainformacao.xml',
+        'views/fila_view.xml',
+        'views/historico.xml'
     ],
     'application': True,
     'auto_install': False
