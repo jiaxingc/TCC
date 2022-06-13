@@ -31,6 +31,7 @@
               <label for="date" class="sr-only">Data</label>
               <input class="fa fa-calendar" type="date" name="date" id="date" required="1" />
             </div>
+            <!-- hora -->
             <div class="form-group">
               <label for="hour">Horario:</label>
                <select class="form-control" name="hour" id="hour" required="1">

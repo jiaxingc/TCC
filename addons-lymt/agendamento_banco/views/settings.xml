@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">Settings Agendamento</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="10" />
+            <field name="inherit_id" ref="base.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="Agendamento" string="Agendamento" data-key="agendamento_banco">
+                        <h2>Agendamento Configuração</h2>
+                        <div class="row mt16 o_settings_container">
+                            <div class="o_setting_left_pane">
+                                <label for="hora_inicio" string="Hora Inicio"/>
+                                <field name="hora_inicio" />
+                                <label for="hora_fim" string="Hora Fim"/>
+                                <field name="hora_fim" />
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="action_setting_agendamento" model="ir.actions.act_window">
+            <field name="name">Settings</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_id" ref="res_config_settings_view_form" />
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module': 'agendamento_banco'}</field>
+        </record>
+
+        <menuitem id="action_setting_agendamento" name="Configurções" action="action_setting_agendamento" parent="action_menu_agendamento" sequence="4" />
+    </data>
+</odoo>
