@@ -44,6 +44,9 @@ class MyPortal(http.Controller):
         user = request.env['res.users'].sudo().search([('id','=', uid)])
         agendamentoAtivo = request.env['agendamento.servico'].sudo().search([('state','!=','cancelado'), ('state','!=','cancelado')])
         vals = {}
+        config = request.env['res.config.settings']
+        config_hour = config.sudo().search([])[-1]
+
         fila = request.env['fila.fila']
         filaId = fila.sudo().search([('code','=', post.get('fila_type', None))])
         vals['fila'] = filaId.id
@@ -62,7 +65,8 @@ class MyPortal(http.Controller):
         if request.session.uid:
             return request.render("agendamento_banco.lym_myportal_forms_Agendamento",{
                 'filas':fila.sudo().search([]),
-                'filas_hora': fila.sudo().search([]),
+                'hora_inicio': config_hour.hora_inicio,
+                'hora_fim': config_hour.hora_fim,
             })
         else:
             return request.redirect('/web/login')
