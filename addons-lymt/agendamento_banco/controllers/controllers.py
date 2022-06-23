@@ -44,8 +44,31 @@ class MyPortal(http.Controller):
         user = request.env['res.users'].sudo().search([('id','=', uid)])
         agendamentoAtivo = request.env['agendamento.servico'].sudo().search([('state','!=','cancelado'), ('state','!=','cancelado')])
         vals = {}
-        config = request.env['res.config.settings']
-        config_hour = config.sudo().search([])[-1]
+        configObj = request.env['res.config.settings']
+        try:
+            configObj = configObj.search([])[-1]
+            _logger.warning(f"!!! {configObj} type: {type(configObj)}")
+        except:
+            _logger.warning(f"!!! erro")
+        config_last_record = configObj
+        days = []
+
+        if config_last_record.sunday:
+            days.append(config_last_record._fields['sunday'].string)
+        if config_last_record.monday:
+            days.append(config_last_record._fields['monday'].string)
+        if config_last_record.tuesday:
+            days.append(config_last_record._fields['tuesday'].string)
+        if config_last_record.wednesday:
+            days.append(config_last_record._fields['wednesday'].string)
+        if config_last_record.thursday:
+            days.append(config_last_record._fields['thursday'].string)
+        if config_last_record.friday:
+            days.append(config_last_record._fields['friday'].string)
+        if config_last_record.saturday:
+            days.append(config_last_record._fields['saturday'].string)
+
+        _logger.info(f"### {days} !!!")
 
         fila = request.env['fila.fila']
         filaId = fila.sudo().search([('code','=', post.get('fila_type', None))])
@@ -54,20 +77,23 @@ class MyPortal(http.Controller):
             raise ValidationError("Já há um agendamento ativo!")
         else:
             if vals['fila']:
-                date = post.get('date', None)
+                dia= post.get('dia', None)
                 # hour = post.get('hour', None)
                 vals['code'] = filaId.code
                 vals['cliente'] = user.partner_id.id
-                vals['dataAgendada'] = date
+                vals['dia_agendado'] = dia
                 vals['hora'] = post.get('hour', None)
                 http.request.env['agendamento.servico'].sudo().create(vals)
+
+        res = {
+                'filas':fila.sudo().search([]),
+                'hora_inicio': config_last_record.hora_inicio,
+                'hora_fim': config_last_record.hora_fim,
+                'days': days,
+            }
                 
         if request.session.uid:
-            return request.render("agendamento_banco.lym_myportal_forms_Agendamento",{
-                'filas':fila.sudo().search([]),
-                'hora_inicio': config_hour.hora_inicio,
-                'hora_fim': config_hour.hora_fim,
-            })
+            return request.render("agendamento_banco.lym_myportal_forms_Agendamento", res)
         else:
             return request.redirect('/web/login')
 

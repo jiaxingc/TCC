@@ -17,7 +17,7 @@
           <form id="service_agendamento" data-success_page="/thanks" action="/forms_agendamento" method="post">
             <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
             <div class="form-group">
-              <label for="fila_type" class="sr-only">Filtrar</label>
+              <label for="fila_type" class="sr-only">Selecionar Fila</label>
               <select class="form-control" name="fila_type" id="fila_type" required="1">
                 <option class="option" value="" disabled="disabled" selected="selected">Selecionar Fila</option>
                 <t t-foreach="filas" t-as="fila">
@@ -29,8 +29,15 @@
             </div>
 
             <div class="form-group">
-              <label for="date" class="sr-only">Data</label>
-              <input class="fa fa-calendar" type="date" name="date" id="date" required="1" />
+              <label for="dia" class="sr-only">Selecionar dia:</label>
+              <select class="form-control" name="dia" id="dia" required="1">
+                <option class="option" value="" disabled="disabled" selected="selected">Selecionar Dia</option>
+                <t t-foreach="days" t-as="dia">
+                  <option class="option" t-att-value="dia">
+                    <t t-esc="dia" />
+                  </option>
+                </t>
+              </select>
             </div>
             <!-- hora -->
             <div class="form-group">

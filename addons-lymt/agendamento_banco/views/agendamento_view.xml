@@ -7,7 +7,7 @@
             <field name="arch" type="xml">
                 <tree string="Agendamento" decoration-muted="state=='cancelado'">
                     <field name="code" />
-                    <field name="dataAgendada" />
+                    <field name="dia_agendado" />
                     <field name="hora" />
                     <field name="cliente" />
                     <field name="fila" />
@@ -32,7 +32,7 @@
                         <group>
                             <group>
                                 <field name="code" />
-                                <field name="dataAgendada" />
+                                <field name="dia_agendado" />
                                 <field name="hora"/>
                             </group>
                             <group col="2">

@@ -12,10 +12,19 @@
                         <h2>Agendamento Configuração</h2>
                         <div class="row mt16 o_settings_container">
                             <div class="o_setting_left_pane">
-                                <label for="hora_inicio" string="Hora Inicio"/>
+                                <group>
                                 <field name="hora_inicio" />
-                                <label for="hora_fim" string="Hora Fim"/>
                                 <field name="hora_fim" />
+                                </group>
+                                <group string="Dias de funcionamento">
+                                    <field name="sunday" />
+                                    <field name="monday" />
+                                    <field name="tuesday" />
+                                    <field name="wednesday" />
+                                    <field name="thursday" />
+                                    <field name="friday" />
+                                    <field name="saturday" />
+                                </group>
                             </div>
                         </div>
                     </div>

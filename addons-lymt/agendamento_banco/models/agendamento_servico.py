@@ -15,7 +15,7 @@ class AgendamentoServico(models.Model):
     _order="id asc"
 
     code = fields.Char('Codigo')
-    dataAgendada = fields.Date('Data agendada')
+    dia_agendado = fields.Char('Dia agendado')
     cliente = fields.Many2one('res.partner', 'Cliente')
     fila = fields.Many2one('fila.fila', 'Fila')
     hora = fields.Char(string='Hora')
@@ -27,8 +27,8 @@ class AgendamentoServico(models.Model):
     ('cancelado','Cancelado'),
     ],string='Status',readonly=True,default="agendado")
 
-    def _compute_codigo_servico(self, fila=None, fila_code=None, date=None):
-        count = self.env['agendamento.servico'].search_count([('fila', '=', fila),('dataAgendada','=',date)])
+    def _compute_codigo_servico(self, fila=None, fila_code=None, dia=None):
+        count = self.env['agendamento.servico'].search_count([('fila', '=', fila),('dia_agendado','=',dia)])
         strNumber = str(count+1)
         stringFormatted = str(fila_code) + strNumber.zfill(5)
         return stringFormatted
@@ -51,10 +51,8 @@ class AgendamentoServico(models.Model):
    
     @api.model
     def create(self, vals):
-        # _logger.info(f"Type: {type(vals['hora'])} !!!!!!!!!!!!!!!!!!!")
-        # vals['hora'] = float(vals['hora'])
-        # _logger.info(f"Float: {vals['hora']} !!!!!!!!!!!!!!!!!!!")
-        codeFormated = self._compute_codigo_servico(vals['fila'], vals['code'], vals['dataAgendada'])
+        _logger.info(f"Float: {vals['dia_agendado']} !!!!!!!!!!!!!!!!!!!")
+        codeFormated = self._compute_codigo_servico(vals['fila'], vals['code'], vals['dia_agendado'])
         vals['code'] = codeFormated
         res = super().create(vals)
         _logger.info(f"{vals} !!!!!!!!!!!!!!!!!!!")
