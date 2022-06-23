@@ -21,7 +21,7 @@
                             <li><t t-esc="agendamento.code"/></li>
                             <li><t t-esc="agendamento.cliente.name"/></li>
                             <!-- <li><t t-esc="agendamento.cliente.cpf_cnpj"/></li> -->
-                            <li><t t-esc="agendamento.dataAgendada"/></li>
+                            <li><t t-esc="agendamento.dia_agendado"/></li>
                             </ul>
                             <t t-if="agendamento.state!='cancelado'">
                                 <form id="service_agendamento" action="/cancelar" method="post">

@@ -34,7 +34,7 @@ odoo.define('agendamento_banco.myportal', function(require) {
                                         ]
                                     ],
                                     fields: [
-                                        'dataAgendada',
+                                        'dia_agendado',
                                         'hora'
                                     ],
                                     limit: 1

@@ -22,7 +22,8 @@
         'views/tela_servico.xml',
         'views/minhainformacao.xml',
         'views/fila_view.xml',
-        'views/historico.xml'
+        'views/historico.xml',
+        'views/settings.xml'
     ],
     'application': True,
     'auto_install': False
