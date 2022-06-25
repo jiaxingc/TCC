@@ -42,9 +42,9 @@ class MyPortal(http.Controller):
     def service_agendamento(self, **post):
         uid = request.uid
         user = request.env['res.users'].sudo().search([('id','=', uid)])
-        agendamentoAtivo = request.env['agendamento.servico'].sudo().search([('state','!=','cancelado'), ('state','!=','cancelado')])
+        agendamentoAtivo = request.env['agendamento.servico'].sudo().search([('cliente', '=', uid), ('state','!=','cancelado'), ('state','!=','cancelado')])
         vals = {}
-        configObj = request.env['res.config.settings']
+        configObj = request.env['res.config.settings'].sudo()
         try:
             configObj = configObj.search([])[-1]
             _logger.warning(f"!!! {configObj} type: {type(configObj)}")
@@ -160,3 +160,7 @@ class MyPortal(http.Controller):
         agendamentoId = agendamento.sudo().search([('id','=', post.get('agendamento', None))])
         http.request.env['agendamento.servico'].sudo().action_cancelar(agendamentoId.id)
         return request.redirect("/historico")
+
+    @http.route(['/form/success'], type='http', auth="public", website=True, csrf=True)
+    def success_page(self, **post):
+        return http.request.render('form.success', post)
