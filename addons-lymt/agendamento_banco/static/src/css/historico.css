@@ -13,7 +13,7 @@ body{
   }
 h1,h2,h3{
     text-align: center;
-    font-family: 'Baloo Tamma', cursive;
+   
   }
 li{
     color: #2c3e50;
@@ -21,7 +21,7 @@ li{
     line-height: 30px;
     text-align: justify;
     letter-spacing: 1px;
-    font-family: 'Raleway', serif;
+    
   }
   /*SG = style grid*/
 .SG{
@@ -79,7 +79,7 @@ li{
   .s19 li:before{
     content: '\f0a9';
     margin-right: 15px;
-    font-family: FontAwesome;
+   
   }
   
   /* responsive grid*/

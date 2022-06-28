@@ -32,6 +32,35 @@ class MyPortal(http.Controller):
         user = request.env['res.users'].sudo().search([('id','=', uid)])
         agendamentoAtivo = request.env['agendamento.servico'].sudo().search([('cliente', '=', uid), ('state','!=','cancelado'), ('state','!=','cancelado')])
         vals = {}
+<<<<<<< HEAD
+=======
+        configObj = request.env['res.config.settings'].sudo()
+        try:
+            configObj = configObj.search([])[-1]
+            _logger.warning(f"!!! {configObj} type: {type(configObj)}")
+        except:
+            _logger.warning(f"!!! erro")
+        config_last_record = configObj
+        days = []
+
+        if config_last_record.sunday:
+            days.append(config_last_record._fields['sunday'].string)
+        if config_last_record.monday:
+            days.append(config_last_record._fields['monday'].string)
+        if config_last_record.tuesday:
+            days.append(config_last_record._fields['tuesday'].string)
+        if config_last_record.wednesday:
+            days.append(config_last_record._fields['wednesday'].string)
+        if config_last_record.thursday:
+            days.append(config_last_record._fields['thursday'].string)
+        if config_last_record.friday:
+            days.append(config_last_record._fields['friday'].string)
+        if config_last_record.saturday:
+            days.append(config_last_record._fields['saturday'].string)
+
+        _logger.info(f"### {days} !!!")
+
+>>>>>>> ceb6693ff9200e08cad2e25b4df95960847e9038
         fila = request.env['fila.fila']
         filaId = fila.sudo().search([('code','=', post.get('fila_type', None))])
         vals['fila'] = filaId.id
@@ -163,3 +192,7 @@ class MyPortal(http.Controller):
         agendamentoId = agendamento.sudo().search([('id','=', post.get('agendamento', None))])
         http.request.env['agendamento.servico'].sudo().action_cancelar(agendamentoId.id)
         return request.redirect("/historico")
+
+    @http.route(['/form/success'], type='http', auth="public", website=True, csrf=True)
+    def success_page(self, **post):
+        return http.request.render('form.success', post)
