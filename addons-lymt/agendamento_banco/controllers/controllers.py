@@ -5,7 +5,7 @@ from string import capwords
 from odoo import http
 from odoo.http import request
 from werkzeug.exceptions import NotFound
-from odoo.exceptions import ValidationError
+from odoo.exceptions import ValidationError, UserError
 from datetime import datetime
 from odoo import http, tools, _
 from odoo.addons.http_routing.models.ir_http import slug
@@ -26,76 +26,79 @@ class MyPortal(http.Controller):
         else:
             return request.redirect('/web/login')
 
-    # @http.route('/request', type='json', auth='user', methods=['POST'], website=True, csrf=False)
-    # def submit(self, **kw):
-    #     cr, context, pool, uid = request.cr, request.context, request.registry, request.uid
-    #     #Fetch input json data sent from js
-    #     input_data = kw.get('input_data')
-    #     # Your code is here
-    #     print(input_data)
-    #     return {
-
-    #            'output_data' : input_data
-    #    }
-
-    @http.route(['/forms_agendamento'], type='http', auth='user', website=True, csrf=False)
-    def service_agendamento(self, **post):
+    @http.route(['/agendamento_ok'], type='http', auth="public", website=True, sitemap=False)
+    def agendamento_ok(self, **post):
         uid = request.uid
         user = request.env['res.users'].sudo().search([('id','=', uid)])
-        agendamentoAtivo = request.env['agendamento.servico'].sudo().search([('state','!=','cancelado'), ('state','!=','cancelado')])
+        agendamentoAtivo = request.env['agendamento.servico'].sudo().search([('cliente', '=', uid), ('state','!=','cancelado'), ('state','!=','cancelado')])
         vals = {}
-        configObj = request.env['res.config.settings']
-        try:
-            configObj = configObj.search([])[-1]
-            _logger.warning(f"!!! {configObj} type: {type(configObj)}")
-        except:
-            _logger.warning(f"!!! erro")
-        config_last_record = configObj
-        days = []
-
-        if config_last_record.sunday:
-            days.append(config_last_record._fields['sunday'].string)
-        if config_last_record.monday:
-            days.append(config_last_record._fields['monday'].string)
-        if config_last_record.tuesday:
-            days.append(config_last_record._fields['tuesday'].string)
-        if config_last_record.wednesday:
-            days.append(config_last_record._fields['wednesday'].string)
-        if config_last_record.thursday:
-            days.append(config_last_record._fields['thursday'].string)
-        if config_last_record.friday:
-            days.append(config_last_record._fields['friday'].string)
-        if config_last_record.saturday:
-            days.append(config_last_record._fields['saturday'].string)
-
-        _logger.info(f"### {days} !!!")
-
         fila = request.env['fila.fila']
         filaId = fila.sudo().search([('code','=', post.get('fila_type', None))])
         vals['fila'] = filaId.id
+
         if agendamentoAtivo:
-            raise ValidationError("Já há um agendamento ativo!")
+            raise UserError("Já há um agendamento ativo!")
         else:
             if vals['fila']:
                 dia= post.get('dia', None)
-                # hour = post.get('hour', None)
                 vals['code'] = filaId.code
                 vals['cliente'] = user.partner_id.id
                 vals['dia_agendado'] = dia
                 vals['hora'] = post.get('hour', None)
                 http.request.env['agendamento.servico'].sudo().create(vals)
 
-        res = {
-                'filas':fila.sudo().search([]),
-                'hora_inicio': config_last_record.hora_inicio,
-                'hora_fim': config_last_record.hora_fim,
-                'days': days,
-            }
-                
         if request.session.uid:
-            return request.render("agendamento_banco.lym_myportal_forms_Agendamento", res)
+            return request.render("website_form.contactus_thanks")
         else:
             return request.redirect('/web/login')
+
+    @http.route(['/forms_agendamento'], type='http', auth='user', website=True, csrf=False)
+    def service_agendamento(self, **post):
+
+        uid = request.uid
+        user = request.env['res.users'].sudo().search([('id','=', uid)])
+        agendamentoAtivo = request.env['agendamento.servico'].sudo()
+        agendamentoAtivoId = agendamentoAtivo.search([('cliente', '=', user.partner_id.id), ('state','!=','cancelado')])
+
+        if agendamentoAtivoId:
+            raise ValidationError("Já há um agendamento ativo!")
+        else:
+            configObj = request.env['res.config.settings'].sudo()
+            try:
+                configObj = configObj.search([])[-1]
+            except:
+                _logger.warning(f"!!! erro")
+            config_last_record = configObj
+            days = []
+
+            if config_last_record.sunday:
+                days.append(config_last_record._fields['sunday'].string)
+            if config_last_record.monday:
+                days.append(config_last_record._fields['monday'].string)
+            if config_last_record.tuesday:
+                days.append(config_last_record._fields['tuesday'].string)
+            if config_last_record.wednesday:
+                days.append(config_last_record._fields['wednesday'].string)
+            if config_last_record.thursday:
+                days.append(config_last_record._fields['thursday'].string)
+            if config_last_record.friday:
+                days.append(config_last_record._fields['friday'].string)
+            if config_last_record.saturday:
+                days.append(config_last_record._fields['saturday'].string)
+
+            fila = request.env['fila.fila']
+
+            res = {
+                    'filas':fila.sudo().search([]),
+                    'hora_inicio': config_last_record.hora_inicio,
+                    'hora_fim': config_last_record.hora_fim,
+                    'days': days,
+                }
+                    
+            if request.session.uid:
+                return request.render("agendamento_banco.lym_myportal_forms_Agendamento", res)
+            else:
+                return request.redirect('/web/login')
 
     @http.route(['/agendamento'], type='http', auth="public", website=True, sitemap=False)
     def _agendamentos(self, **post):
