@@ -17,7 +17,7 @@
           <form id="service_agendamento" action="/agendamento_ok" method="post">
             <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
             <div class="form-group">
-              <label for="fila_type" >Fila:</label>
+              <label for="fila_type" class="sr-only">Selecionar Fila</label>
               <select class="form-control" name="fila_type" id="fila_type" required="1">
                 <option class="option" value="" disabled="disabled" selected="selected">Selecionar Fila</option>
                 <t t-foreach="filas" t-as="fila">
@@ -29,8 +29,7 @@
             </div>
 
             <div class="form-group">
-              <label for="dia" >O dia da semana: <br></br>
-                * OBS: Para realizar o agendamento de próximo semana somente  em segunda feira</label>
+              <label for="dia" class="sr-only">Selecionar dia:</label>
               <select class="form-control" name="dia" id="dia" required="1">
                 <option class="option" value="" disabled="disabled" selected="selected">Selecionar Dia</option>
                 <t t-foreach="days" t-as="dia">
@@ -42,7 +41,7 @@
             </div>
             <!-- hora -->
             <div class="form-group">
-              <label for="hour">Horário:</label>
+              <label for="hour">Horario:</label>
                <select class="form-control" name="hour" id="hour" required="1">
                 <option class="option" value="" disabled="disabled" selected="selected">Selecionar horário</option>
                 <t t-foreach="range(hora_inicio,hora_encerramento)" t-as="i">
